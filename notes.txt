@@ -154,6 +154,11 @@ Historia wypadków w KGHM
 ** GLON-GLOP - Górniczy Lokacyjny Osobisty Nadajnik i Górniczy Lokacyjny Odbiornik Pomiarowy
 ** cel: w razie ataku nuklearnego można było odszukać wejścia do schronów, przy których miałby być zlokalizowane nadajniki
 
+Existing solutions:
+* GLON (miners helmets, low frequency analog transmitter)
+* Generally are not popular - miners do not want to be tracked
+* There are solutions to track people underground
+
 GLON - ogólnie:
 * pomiar natężenia pola magnetycznego od nadajników
 * ocena odległości na podstawie częstotliwości pracy i budowy nadajnika
@@ -186,9 +191,26 @@ Task 4.3 - Personnel tracking (Pr. Velenje, MT)
 We defined concept for personal tracking together with our project partner Minetronics. We use their TracServer application for tracking all WLAN devices used in our coal mine (PDAs, pagers and WLAN mobile phones). For visualization of tracked devices at mine 3D map we use ViewCenter application. For the future we have planned to install WLAN tags in miner’s lamps and to transporting cars to enable tracking of all people and logistic in our coal mine. To implement this goal we have to extend wireless network infrastructure and coverage to the greater part of the mine. Knowledge and experience from this project task will be significant to achieve this goal.
 
 
-
 References:
 [Fund for Coal and Steel] Research Fund for Coal and Steel Demonstration of process optimization for increasing the efficiency and safety by integrating leading edge electronic information and communication technologies (ICT) in coal mines (OPTI-MINE)
 [Apps for indor navi] http://www.pcadvisor.co.uk/feature/software/best-apps-for-navigating-inside-buildings-3573460/
 [GLON scientific article] http://yadda.icm.edu.pl/baztech/element/bwmeta1.element.baztech-article-BAR0-0022-0034
 [GLON popular article] http://nettg.pl/news/117310/idac-za-sygnalem-z-gorniczej-lampy
+[comparation of beacon] http://www.aislelabs.com/reports/beacon-guide/
+[Wireless in mines] https://www.slideshare.net/relianceabhisek/wireless-communication-in-underground-mines
+[Wireless in mines - book] https://link.springer.com/book/10.1007/978-0-387-98165-9#authorsandaffiliationsbook
+[challanges for tech. underground] http://www.miningmagazine.com/insight/reports/the-teachers-helping-miners-boost-their-grades/
+[communication in mining] ambriefonline.com/communication-systems-mining/
+[safety related patents]
+http://www.google.com.af/patents/CN103321640A?cl=en
+http://www.google.com.af/patents/CN101832152A?cl=en
+https://www.google.com/patents/CA2765791A1?cl=en&hl=pl
+
+
+Thesis rules and related
+[Example presentation] https://prezi.com/oaqhftucm1oq/prezentacja-magisterska/
+[Example thesis with tex] https://github.com/FilipMalczak/Masters-thesis/blob/master/FM_mgr.pdf
+[Procedure (with dates)] http://wiz.pwr.edu.pl/studenci/dyplomanci/procedura-dyplomowania-i-i-ii-stopien-ksztalcenia-15-tygodni
+[Thesis related info] http://wiz.pwr.edu.pl/studenci/dyplomanci/tematy-prac-dyplomowych
+[Instructions for thesis I] http://wiz.pwr.edu.pl/fcp/aGBUKOQtTKlQhbx08SlkTVwVQX2o8DAoHNiwFE1wZDyEPG1gnBVcoFW8SBDRKTxMKRy0SODwBBAEIMQheCFVAORFCHzY/41/public/main/dyplomowanie/tematy_prac/zalecenia_praca_magisterska.docx
+[Instructions for thesis II] http://wiz.pwr.edu.pl/fcp/aGBUKOQtTKlQhbx08SlkTVwVQX2o8DAoHNiwFE1wZDyEPG1gnBVcoFW8SBDRKTxMKRy0SODwBBAEIMQheCFVAORFCHzY/41/public/main/dyplomowanie/_praca_dypl_zalecenia_edytorskie.pdf
