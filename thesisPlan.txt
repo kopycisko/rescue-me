@@ -1,0 +1,90 @@
+Pytania
+1. Czy mozna odnosić się w pracy do kosztów związanych z wyborem danego rozwiązania? Mam na myśli zastosowanie: takie rozwiązanie jest drogie [odniesienie do tabeli porównawczej albo zestawienia], ale zaletą jest ... .
+
+1. Elementy pracy
+
+DEDLINE 04.2018
+1.1 Streszczenie
+Mamy ściśle określone środowisko - podziemny korytarz. Korytarz jest odizolowany od fal radiowych. Jako osoba pracująca w korytarzu chcemy nasze określić aktualne położenie, mając do dyspozycji urządzenie mobilne klasy Smartphone. W korytarzu mamy możliwość zainstalowania specjalnej sieci radiowej umożliwiającej przybliżone określenie aktualnej pozycji. Należy sprawdzić dokładność określania położenia wyłącznie przy użyciu infrastruktury sieciowej (algorytm podstawowy) oraz należy zbadać możliwości poprawienia dokładności określania położenia przy użyciu sensorów wbudowanych w urządzenie mobilne.
+
+DEDLINE 04.2018
+1.2 Cel i zakres pracy
+
+DEDLINE 04.2018
+1.3 Wprowadzenie/Wstęp
+wprowadzenie w tematykę pracy („zagajenie”).
+
+1.3.1 Cechy instalacji podziemnej.
+Opis dostępności do komunikacji bezprzewodowej, opis warunków, opis możliwych użytkowników systemu.
+
+1.3.2 Wykorzystanie urządzeń mobilnych w instalacjach podziemnych
+Czy urządzenie mobilne może być wykorzystywane w instalacji podziemnej. W czym stosowanie urządzenia mobilnego pod ziemią różni się od zastosowań na powierzchni.
+
+1.3.3 Możliwe przypadki użycia systemu.
+
+DEDLINE 04.2018
+1.4. Rozdział „teoretyczny”
+dotyczy zagadnienia, opisuje aktualny stan wiedzy.
+
+DELINE 3.11.2017
+1.4.1 Fizyka związana z propagacją fal radiowych w tunelu. Odbicia fal, tłumienie, zidentyfikowane problemy w komunikacji bezprzewodowej w instalacji podziemnej.
+
+DEDLINE 10.11.2017
+1.4.2 Przegląd literatury. Zestawienie znanych systemów lokalizacji w instalacjach podziemnych. Wyszczególnienie cech rozwiązań; zalet oraz wad wynikających z ich budowy, możliwości zastosowania. Opis cech charakterystycznych poszczególnych rozwiązań. Odniesienie do parametrów fizycznych, którymi charakteryzują się dane rozwiązania.
+
+DEDLINE 15.12.2017
+1.4.3 Sensory zintegrowane z urządzeniem mobilnym, które mogą wspomagać określenie położenia. Przegląd literatury w tej dziedzinie.
+* identyfikacja cech urządzenia mobilnego wspomagająca określenie położenia urządzenia
+
+DEDLINE 02.2018
+1.5. Model określania położenia przy użyciu systemu lokalizacji i urządzenia mobilnego
+
+1.5.1 Opis wymagań stawianych rozwiązaniu
+Wprowadzenie i zdefiniowanie kryteriów będąych podstawą do porównania metod określania położenia (istniejących lub teoretycznych)
+
+1.5.2 Porównanie dostępnych rozwiązań w kontekście wymagań
+* Analiza zalet i wad rozwiązania
+* dokładność wynikająca z samego wybranego systemu lokalizacji,
+
+1.5.3 Wybór rozwiązania w zakresie systemu lokalizacji
+Motywacja, opis koncepcji prototypowego systemu (opis interakcji systemu z urządzniem — klientem)
+
+DEDLINE 17.11.2017
+1.5.4 Model systemu lokalizacji
+* określenie parametrów fizycznych systemu (wizualizacja, moc sygnału, odległość źródła sygnału od urządzenia mobilnego, odległość pomiędzy kolejnymi źródłami sygnału)
+* opis budowy
+
+DEDLINE 03.2018
+1.6. Algorytm wyznaczający położenie urządzenia na bazie wybranej metody lokalizacji i odczytów sensorów urządzenia mobilnego
+
+1.6.1 Opis wymagań stawianych rozwiązaniu -
+
+DEDLINE 30.11.2017
+1.6.2 Implementacja prostego algorytmu wyznaczania pozycji przy użyciu wybranego systemu
+
+DEDLINE 22.12.2017
+1.6.3 Opis możliwości i ograniczeń wynikających z użycia urządzenia mobilnego w kontekście wyboru metody lokalizacji
+* które z cech urządzenia mobilnego mogą zostać wykorzystane w danym systemie do poprawy dokładności.
+
+DEDLINE 12.01.2018
+1.6.4 Implementacja algorytmu w wersji poszerzonej o odczyty z sensorów
+
+DEDLINE 8.12.2017 - 1 test systemu - sprawdzenie, czy działa system wraz z 1. implementacją. Testy w kilku konfiguracjach, mające na celu wyeliminowanie czynniki, które nie wpływają na jakość sygnału/dokładność określania położenia.
+
+DEDLINE 30.01.2018 - 2 test systemu — sprawdzenie 2. implementacji łączącej w sobie odczyty z sensorów
+
+DEDLINE 03.2018
+1.7 Testy algorytmów wyznaczania pozycji
+
+1.7.1 Wprowadzenie założeń do testów
+konieczność zweryfikowania systemu względem stawianych mu wymagań.
+
+1.7.2 Metodologia wykonywania doświadczeń.
+Opis środowiska testowego, użytego sprzętu, zdjęcie
+
+1.7.3 Wyniki doświadczeń z systemem lokalizacji wraz z ich analizą
+
+1.7.4 Podsumowanie testów
+
+DEDLINE 04.2018
+1.8 Wnioski/Podsumowanie.

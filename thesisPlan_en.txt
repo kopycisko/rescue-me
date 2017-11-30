@@ -1,0 +1,153 @@
+Elements of Thesis
+
+DEDLINE 04.2018
+1. Abstract
+
+(for now short and informal)
+There is strictly defined environment - underground corridor. The corridor is free from external radio waves. As a person working in the corridor I want to determine my current position with a mobile device (Smartphone).
+
+* There is need to find and install navigation system that will allow to determine current position of mobile device in the corridor.
+* There is need to verify location accuracy of basic algorithm that use the navigation system infrastructure only and explore the possibilities to improve location accuracy using sensors built into the mobile device.
+
+
+
+DEDLINE 04.2018
+2. Goals and thesis scope
+
+
+
+DEDLINE 04.2018
+3. Introduction
+
+3.1 Underground installation characteristics
+Description of:
+* Construction (very briefly):
+** how can look like: from complicated (room and phillar) to simple (tunneling)
+** distances
+* Conditions in therms of light and air.
+* What wireless communication methods are available?
+
+Answer questions:
+* if we need the navigation in whole installation? if yes, why?
+* if we need the navigation only in some places inside installation? if yes, why?
+* what factors may require from navigation system its extensive lifetime?
+
+
+3.2 Usage of mobile devices in underground installations
+* Define 'mobile device'
+
+Answer questions:
+* If mobile device (smartphone class) can be used in undergorund installations?
+* How usage of mobile device in underground installations may differ from usage in normal conditions (outside underground installation)?
+
+
+3.3 Navigation system use-cases
+* Introduce 2-3 ideas with visualizations
+
+
+
+DEDLINE 04.2018
+4. Hardware and enviornmental constraints
+State of the art in underground navigation solutions. Theretical topic.
+
+DELINE 3.11.2017
+4.1 Phisics related to waves propagation in underground corridor
+* Waves difraction, <tłumienie>
+* What are known issues related to wireless communication in underground installations
+
+
+DEDLINE 10.11.2017
+4.2 Uderground navigation - literature preview
+* List of known localization system in underground installations
+* Characteristics of known localization systems
+** Their concept Advantages and disadvantages
+** How can be used
+** How they perform the communication (physic/hardware aspect)
+
+
+DEDLINE 17.11.2017
+4.3 Mobile device sensorics - literature preview
+* Why mobile device is good for localization purposes? What are the factors?
+* What sensorics are present in mobile device.
+* Which of them will be useful to increase positioning accuracy
+
+
+DEDLINE 15.12.2017
+4.4 Abilities and limitations of mobile device in context of available localization methods
+* What means of communication (ex. wireless) can be used in context of localization system
+* Battery limitations
+* Sensitivity of receivers
+
+
+DEDLINE 02.2018
+5. Position finding basing on lozalization system and mobile device model
+
+5.1 Solution requirements
+* Define criteria that will be used to compare position finding solutions (existing or conceptual)
+* example: accuracy, durability, cost, maintability
+
+
+5.2 Known solutions analysis (against defined criteria)
+* Advantages and disadvantages of solutions
+* How the solutions fulfil given criteria (ex. how accurate given solution can be)
+
+
+5.3 Localization system choise (system based on beacons)
+* Motivation
+* Prototype system description
+* Mobile device - system interaction description
+
+
+
+DEDLINE 03.2018
+6. Mobile device position finding algorithm
+* Algorithm that will make use of chosen localization system and mobile device internal sensors.
+
+6.1 Position finding requirements
+
+
+DEDLINE 30.11.2017
+6.2 Simple position finding algorithm implementation
+* Simple algorithm will use localization system only (no internal sensors)
+
+
+6.3 Extended position finding algorithm implementation
+* Algorithm will use localization system and internal sensors
+
+
+DEDLINE 03.2018
+7. Localization system tests
+
+7.1 Tests criteria and assumptions
+* Define factors that are important to state if solution is good or not
+* Will allow to check if system fulfills requirements
+
+
+7.2 Tests metodology
+* Testing environment descipription
+* Equimpent used during tests
+* Pictures
+
+
+DEDLINE 8.12.2017
+7.3 Tests of system and basic algorithm
+* Check if system works with basic algorithm
+* Tests in few configurations
+* State if some factors have impact on signal quality
+* State if some factors have impact on position finding
+
+
+DEDLINE 30.01.2018
+7.4 Tests of extended algorithm
+* Capture data that will be base for comparison between simple and extended position finding algorithm accuracy
+
+
+7.5 Experiments results
+* Resluts with analysis
+
+
+7.6 Tests summary
+
+
+DEDLINE 04.2018
+8. Conclusions
