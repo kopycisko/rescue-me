@@ -1,25 +1,25 @@
 \documentclass[../main.tex]{subfiles}
 
 \begin{document}
-\chapter*{Wprowadzenie}
-Ewolucja to proces zachodzący w naturze odpowiedzialny za dopasowywanie się osobników danego gatunku do środowiska w jakim żyją.
-Podstawą tego procesu jest zasada przetrwania lepiej przystosowanych osobników oraz zjawiska dziedziczenia i mutacji.
+\chapter*{Introduction}
+Evolution is a process in nature that is responsible for the adaptation of individuals of a given species to the environment in which they live.
+The basis of this process is the survival principle of better adapted individuals and the phenomenon of inheritance and mutation.
 
-Algorytmy ewolucyjne to rodzina heurystyk naśladujących proces ewolucji w celu optymalizacji \cite{davis1991handbook}.
-Pojedynczy element przestrzeni rozwiązań jest w nich nazywany osobnikiem.
-Osobniki możemy między sobą porównywać pod względem wartości optymalizowanej funkcji dla nich, a relacja mniejszości (dla problemów minimalizacji) lub większości (dla problemów maksymalizacji) reprezentuje relację bycia lepiej przystosowanym do środowiska.
-Ponadto, na osobnikach określone są operatory mutacji i krzyżowania, które mają na celu symulację odpowiednich zjawisk występujących w przyrodzie.
-Heurystyka polega na wielokrotnym przetworzeniu populacji (czyli zbioru osobników) poprzez zastosowanie każdego z operatorów z pewnym prawdopodobieństwem.
-W każdym kroku (nazywanym w tym przypadku pokoleniem) do dotychczasowej populacji dołączane są wyniki działania tych operatorów, a następnie wybierana jest nowa populacja, używana w kolejnym kroku algorytmu ewolucyjnego.
-Aby odwzorować zasadę przetrwania najlepiej dopasowanych osobników, do kolejnej populacji wybierane są z wyższym prawdopodobieństwem osobniki lepiej przystosowane.
+Evolutionary algorithms are a family of heuristics that mimic the process of evolution to optimize \cite{davis1991handbook}.
+A single element of the solution space is called an individual in them.
+Individuals can compare themselves in terms of the value of the optimized function for them, and the relation of minority (for minimization problems) or majority (for maximization problems) represents the relation of being better adapted to the environment.
+In addition, mutants and crosses are defined on the individuals to simulate the natural phenomena.
+Heuristics consists of multiple processing of the population (ie, collection of individuals) by using each operator with a certain probability.
+In each step (referred to in this case as a generation), the results of these operators are included in the current population, and then a new population is selected, used in the next step of the evolutionary algorithm.
+To reproduce the principle of survival of the best fit individuals, the next population is chosen with a higher probability of the individuals being better adapted.
 
-W naturze rozmnażanie się osobników wielu gatunków jest ściśle związane ze zjawiskiem podziału gatunku na płcie.
-W dostępnej literaturze dotyczącej tematu algorytmów ewolucyjnych rzadko można znaleźć prace, w których uwzględnia się ten aspekt procesu ewolucji.
-Powodem tego jest raczej chęć uproszczenia działania samej heurystyki niż lepsza jakość wyników uzyskiwanych z pominięciem tego aspektu (\cite{GGA, SexualGA}).
+In nature, multiplication of many species is closely related to the phenomenon of species division on the sex.
+In the available literature on the subject of evolutionary algorithms, it is rare to find works that take into account this aspect of the evolutionary process.
+The reason for this is rather the desire to simplify the operation of the heuristics itself, rather than the better quality of the results obtained without taking this aspect (\cite{GGA, SexualGA}).
 
-Celem niniejszej pracy jest opracowanie algorytmu ewolucyjnego uwzględniającego płeć osobników i zbadanie jego skuteczności na wybranych problemach, oraz porównanie go z klasycznym algorytmem ewolucyjnym i wybranymi rozwiązaniami znanymi z literatury.
+The purpose of this paper is to develop an evolutionary algorithm that takes into account the sex of individuals and to examine its effectiveness on selected problems and to compare it with the classical evolutionary algorithm and the selected solutions known from the literature.
 
-Ponadto autor opracował opis formalny algorytmu ewolucyjnego uwzględniającego płeć.
-Na jego podstawie powstała biblioteka programistyczna, wykorzystana w celu porównania jakości optymalizacji wybranych metaheurystyk.
+In addition, the author has developed a formal description of the evolutionary algorithm that takes into account gender.
+Based on this, a programming library was created, used to compare the quality of optimization of selected metaheuristics.
 
 \end{document}

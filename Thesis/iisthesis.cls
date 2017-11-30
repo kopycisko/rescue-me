@@ -2,10 +2,10 @@
 % *
 % * iisthesis.cls - PWr/IZ/IIS thesis LaTeX template
 % * Copyright (C) 2006  Michal Stanek
-% * 
-% * The template was adapted to be compliance with the newest editorial 
-% * requirements introduced on the IIS/PWr department in the May 2006. 
-% * 
+% *
+% * The template was adapted to be compliance with the newest editorial
+% * requirements introduced on the IIS/PWr department in the May 2006.
+% *
 % * modified skz_thesis.sty created by Michal Stochmialek
 % * modified from University of Tulsa MS Thesis class
 % * modified from the University of Washington thesis class
@@ -25,7 +25,7 @@
 % *
 % * You should have received a copy of the GNU Lesser General Public
 % * License along with this library; if not, write to the Free Software
-% * Foundation, Inc., 59 Temple Place, Suite 330, Boston, 
+% * Foundation, Inc., 59 Temple Place, Suite 330, Boston,
 % * MA  02111-1307  USA
 % *----------------------------------------------------------------------
 % *
@@ -33,7 +33,7 @@
 \ProvidesClass{iisthesis}[2006/05/21]
 \NeedsTeXFormat{LaTeX2e}
 
- 
+
 %
 % ----  Thesis is a modified 12-pt mwbk style  ----------------------------
 %
@@ -85,19 +85,19 @@
   \DeclareGraphicsExtensions{.eps,.ps, .png}
 \fi
 
-%\linespread{1.5} 
+%\linespread{1.5}
 
 % Rysunek 1: => Rys. 1.
 \addto\captionspolish{
-   \def\figurename{Rys.}%
-   \def\algorithmname{Algorytm}%
-   \def\tablename{\textbf{Tabela}}%
+   \def\figurename{Pic.}%
+   \def\algorithmname{Algorithm}%
+   \def\tablename{\textbf{Table}}%
 }
 \def\captionlabel#1{\textbf{#1.} }
 \renewcommand \thefigure {\thechapter.\@arabic\c@figure}
 
 %
-% Bardziej wyraziste wypunktowania 
+% Bardziej wyraziste wypunktowania
 %
 %\renewcommand{\labelitemi}{$\bullet$}
 %\renewcommand{\labelitemii}{$\circ$}
@@ -118,7 +118,7 @@
 %\setlength\headheight{14.5pt}
 %   \fancyhf{}
 %   \renewcommand\headrulewidth{0.4pt}
-%	
+%
 %	 %\renewcommand\footrulewidth{0.2pt}
 %   \if@twoside
 %   	\fancyhead[LO]{\emph{\nouppercase{\leftmark}}}
@@ -136,31 +136,31 @@
 		      \hb@xt@\textwidth{%
 		        %\reset@font{\heading@font\rightmark}\hfil\thepage\strut}
 		        \reset@font{\heading@font{\leftmark}}\hfil\strut\footnotesize\thepage}
-		      \vskip1pt\hrule height 0.4pt \vskip-2.4pt}}%      
+		      \vskip1pt\hrule height 0.4pt \vskip-2.4pt}}%
 		  \let\@oddfoot\@empty
-		  
+
 		  \def\@evenhead{\vtop{%
 		      \hb@xt@\textwidth{%
 		        %\reset@font\strut\thepage\hfil\heading@font\leftmark}%
 		        \reset@font{\footnotesize\strut\thepage\hfil\heading@font\@title}}
 		        \vskip2pt\hrule \vskip-2.4pt}}%
-		  \let\@evenfoot\@empty		
+		  \let\@evenfoot\@empty
 		}
    \else
    \renewcommand\hf@headings{%
    		\def\@oddhead{\vtop{%
 		      \hb@xt@\textwidth{%
    			\reset@font{\heading@font\rightmark}\hfil\thepage}%
-   			\vskip1pt\hrule height 0.4pt \vskip-2.4pt}}%   
+   			\vskip1pt\hrule height 0.4pt \vskip-2.4pt}}%
 		  \def\@evenhead{\reset@font\thepage\hfil\heading@font\leftmark}%
-		  
+
 		  \let\@oddfoot\@empty
 		  \let\@evenfoot\@empty
 %		  \def\@oddfoot{\vtop{%
 %		      \hb@xt@\textwidth{%
 % 							\hfil}
-%   			\vskip10pt\hrule height 0.4pt \vskip10.4pt}}%   
-%		  
+%   			\vskip10pt\hrule height 0.4pt \vskip10.4pt}}%
+%
 %		  \def\@evenfoot{\hrule}
 		  }
    \fi
@@ -170,7 +170,7 @@
 \setlength\headheight{14.5pt}
    \fancyhf{}
    \renewcommand\headrulewidth{0.4pt}
-	
+
 	 %\renewcommand\footrulewidth{0.2pt}
    \if@twoside
    	\fancyhead[LO]{\emph{\nouppercase{\leftmark}}}
@@ -204,7 +204,7 @@
 \def\abstractEN#1{\gdef\@abstractEN{#1}}
 
 \def\slowaKluczowe#1{\gdef\@slowaKluczowe{#1}}
-\def\instituteLogo#1{\gdef\@instituteLogo{#1}}  
+\def\instituteLogo#1{\gdef\@instituteLogo{#1}}
 
 \instituteLogo{pwrlogo}
 
@@ -213,7 +213,7 @@
    \thispagestyle{empty}
 
    \noindent
-   %\includegraphics[width=\textwidth]{\@instituteLogo} 
+   %\includegraphics[width=\textwidth]{\@instituteLogo}
 \begin{flushleft}
 \includegraphics[width=9.32cm]{\@instituteLogo}
 \begin{tabular*}{\textwidth}{>{\columncolor[gray]{.8}}p{0.57cm}>{\columncolor[gray]{.8}}p{0.57cm}|p{13.5cm}}
@@ -252,16 +252,16 @@
 		& & \textit{\small \hspace{1cm} b) kategorii BE 50 (po 50 latach podlegające ekspertyzie)} \\
 		& & \textit{\small *niepotrzebne skreślić} \\
 	& & \rule{0pt}{0.7cm} \\
-	&\multicolumn{1}{>{\columncolor[gray]{0.0}}p{0.57cm}|}{} & \multicolumn{1}{c}{\rule{0pt}{0.7cm} \large{Wrocław \@date}} 
-		
+	&\multicolumn{1}{>{\columncolor[gray]{0.0}}p{0.57cm}|}{} & \multicolumn{1}{c}{\rule{0pt}{0.7cm} \large{Wrocław \@date}}
+
 \end{tabular*}
 \end{flushleft}
 
-% \begin{center}   
+% \begin{center}
 %			 \vspace{3cm} {\sf\large Praca Magisterska} \\
 %      \vspace{.5cm} {\sf\Huge \@title}  \\
 %      \vspace{1cm} {\sf\Large \@author} \\
-%      \vspace{6cm} 
+%      \vspace{6cm}
 %      \begin{tabular}{@{}l@{}}
 %          \large {\bf Promotor:} \@advisor \\\\
 %          \large {\bf Ocena:}
@@ -272,32 +272,33 @@
 
 %\if@twoside
 %   \clearpage
-%	 
-%	 
-%	 \pagestyle{plain}   
+%
+%
+%	 \pagestyle{plain}
 %   ~ \vspace{-3cm} \\
 %   ~ \vspace{\textheight} \\
 %   {\begin{center}\small Niniejszy dokument zosta\l\ z\l o\.zony w systemie \LaTeX.\end{center}}
 %\else
-%	 \pagestyle{plain}   
+%	 \pagestyle{plain}
 %\fi
 
-   
-   
-   \selectlanguage{polish}
+
+
+   \selectlanguage{english}
    \tableofcontents
-   
-  
+
+
    \clearpage
 	 \pagestyle{plain}
    \begin{center}
    \begin{tabular}{@{}l@{}c@{}}
       \begin{minipage}{\textwidth}
+         \selectlanguage{polish}
          \begin{abstract}
             \noindent
             \@abstractPL
          \end{abstract}
-      
+
          \vspace{1.5cm}
 
          \selectlanguage{english}
@@ -305,13 +306,13 @@
             \noindent
             \@abstractEN
          \end{abstract}
-         \selectlanguage{polish}
+         \selectlanguage{english}
       \end{minipage}
    &
       \begin{tabular}{@{}l@{}}\rule{0pt}{0.9\textheight}\end{tabular}
    \end{tabular}
-   \end{center}   
-   
+   \end{center}
+
    \if@twoside
    	\cleardoublepage
    \else
@@ -368,7 +369,7 @@
            {\Large\@chapapp\space}{\Huge}}
         {3\baselineskip}
 
- 
+
 % linki (backref = lista odwolan, bookmarksopen = rozwiniete bookmarki)
 \ifpdf
   \if@color
@@ -390,7 +391,7 @@
   \protect\footnotesize\upshape%
   \setlength{\@tempdima}{\columnwidth}\addtolength{\@tempdima}{-\fnBreite}%
   \makebox[\fnBreite][r]{\@thefnmark.\phantom{i}}%
-  \parbox[t]{\@tempdima}{\everypar{\hspace*{1em}}\hspace*{-1em}\upshape#1}}  
+  \parbox[t]{\@tempdima}{\everypar{\hspace*{1em}}\hspace*{-1em}\upshape#1}}
 
 
 \let\oldthebibliography=\thebibliography
@@ -399,7 +400,7 @@
   \begin{oldthebibliography}{#1}%
     \setlength{\parskip}{0ex}%
     \setlength{\itemsep}{.5\baselineskip}}% space between entries
-{\end{oldthebibliography}} 
+{\end{oldthebibliography}}
 
 \SetSectionFormatting[runin]{paragraph}
         {5pt plus 2pt minus 2pt}
@@ -413,9 +414,9 @@
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%
-\theoremstyle{break} 
+\theoremstyle{break}
 {
-  \theorembodyfont{\upshape} 
+  \theorembodyfont{\upshape}
 	\theoremheaderfont{\normalsize\bfseries}
 	\newtheorem{definition}{Definicja}[chapter]
 }
