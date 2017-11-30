@@ -1,0 +1,238 @@
+% compile with XeLaTeX
+% !TeX spellcheck = pl_PL
+% !TeX encoding = UTF-8
+% Review iteration: look for todo, "ilość", "przy pomocy"
+\documentclass[twoside]{iisthesis}
+% ---
+\usepackage[MeX]{polski}
+%\usepackage[utf8]{inputenc}
+\usepackage{graphicx}
+
+\usepackage{fontspec}
+\usepackage[table,xcdraw]{xcolor}
+
+% % Dodane przeze mnie d
+% \usepackage{fancyvrb} % dla srodowiska Verbatim
+% \usepackage{color}
+% \usepackage{lscape}
+
+% %pakiety do grafiki
+% \usepackage{pstricks}
+% \usepackage{pst-tree}
+
+% % definicje kolorow
+% \definecolor{ciemnoSzary}{rgb}{0.15,0.15,0.15}
+% \definecolor{szary}{rgb}{0.5,0.5,0.5}
+% \definecolor{jasnoSzary}{rgb}{0.2,0.2,0.2}
+% \definecolor{stal}{rgb}{0.75, 0.75, 0.75}
+
+% % Konfiguracja verbatima
+% \fvset{
+% 	frame=single,
+% 	numbers=left,
+% 	fontsize=\footnotesize,
+% 	numbersep=12pt,
+% %	framerule=.5mm,
+% 	rulecolor=\color{ciemnoSzary},
+% %	fillcolor=\color{jasnoSzary},
+% 	framesep=4pt,
+% 	stepnumber=1,
+% 	numberblanklines=false,
+% 	tabsize=2,
+% %	formatcom=\color{szary}
+% }
+
+% % % % % % % % % % % % % % % %
+% MY CONTENT
+% % % % % % % % % % % % % % % %
+
+\usepackage{tabularx}
+\usepackage{tabulary}
+\usepackage{placeins}
+\usepackage{algpseudocode}
+\usepackage[chapter]{algorithm}
+\usepackage{mathtools}
+\usepackage{float}
+\usepackage{tocloft}
+%\usepackage{tocbibind}
+\usepackage{amsfonts}
+\usepackage{nicefrac}
+
+\usepackage[labelsep=period]{caption}
+
+\usepackage{tikz}
+\let\clipbox\relax
+
+\usetikzlibrary{shapes.geometric}
+\usetikzlibrary{shapes.arrows}
+\usetikzlibrary{shapes.misc}
+\usetikzlibrary{shapes.symbols}
+
+\usetikzlibrary{positioning, calc, matrix}
+
+
+\usetikzlibrary{arrows}
+\usetikzlibrary{decorations.pathreplacing}
+
+\usepackage{wasysym}
+\usepackage{multirow}
+\usepackage{hhline}
+\usepackage{longtable}
+\usepackage{morefloats}
+\usepackage{tablefootnote}
+\usepackage{tabu}
+\usepackage{gnuplot-lua-tikz}
+
+\usepackage{array}
+
+\usepackage{adjustbox}
+
+\algnewcommand\Var{\State\textbf{var\ }}
+\algnewcommand\To{\textbf{ to }}
+
+\algnewcommand{\Description}[2]{%
+	\Statex \textbf{#1:}
+	\Statex \hspace*{\algorithmicindent}\parbox[t]{.8\linewidth}{\raggedright #2}
+}
+\algdef{SE}[OPERATOR]{Operator}{EndOperator}%
+[2]{\textbf{operator}\ \textproc{#1}\ifthenelse{\equal{#2}{}}{}{(#2)}}%
+{\algorithmicend\ \textbf{operator}}
+
+\algnewcommand{\Input}[1]{\Description{Wejście}{#1}}
+\algnewcommand{\Output}[1]{\Description{Wyjście}{#1}}
+\algnewcommand{\Params}[1]{\Description{Parametry}{#1}}
+\algnewcommand{\Context}[1]{\Description{Dostępne zmienne}{#1}}
+
+\algnewcommand{\Start}{\setcounter{ALG@line}{-1}}
+
+\newcommand{\algrule}[1][.2pt]{\par\vskip.5\baselineskip\hrule height #1\par\vskip.5\baselineskip}
+
+
+%\algnewcommand{\MyComment}[1]{\Comment{\parbox[t]{.5\linewidth}{#1}}}
+%\algnewcommand{\MyComment}[1]{\Comment{\begin{flushright}#1\end{flushright}}}
+%\algnewcommand{\MyComment}[1]{\Comment{\begin{flushright}\parbox[t]{\linewidth}{#1}\end{flushright}}}
+%\algnewcommand{\MyComment}[1]{\begin{flushright}$\rhd$\quad #1\end{flushright}}
+%\algnewcommand{\MyComment}[1]{\parbox[t]{\linewidth}{\begin{flushright}$\rhd$\quad #1\end{flushright}}}
+
+\newcommand{\defacto}{\emph{de facto }}
+\newcommand{\ergo}{\emph{ergo }}
+\newcommand{\Defacto}{\emph{De facto }}
+\newcommand{\Ergo}{\emph{Ergo }}
+
+\newcommand{\todo}{\colorbox{red}}
+\newcommand{\fixme}{\colorbox{blue}}
+
+\newfloat{signature}{h}{sig}
+\floatname{signature}{Definicja}
+
+\floatstyle{plaintop}
+\newfloat{config}{h}{lot}
+\floatname{config}{\textbf{Tabela}}
+
+\floatname{algorithm}{Algorytm}
+
+
+\newcommand{\numberSet}[1]{\mathbb{#1}}
+\newcommand{\important}[1]{\mathcal{#1}}
+\newcommand{\R}{\mathbf{R}}
+\newcommand{\minorityEvalRel}{{\R}_{\prec}}
+\newcommand{\minoritySpecimenRel}{{\R}_{\lhd}}
+\newcommand{\param}[1]{\mathtt{#1}}
+\newcommand{\variable}[1]{\mathsf{#1}}
+\newcommand{\opName}[1]{\textproc{#1}}
+%\newcommand{\variable}[1]{\textbf{#1}}
+%\newcommand{\inputVar}[1]{\variable{#1_{I}}}
+%\newcommand{\outputVar}[1]{\variable{#1_{O}}}
+\newcommand{\inputVar}[1]{\variable{\overline{#1}}}
+\newcommand{\outputVar}[1]{\variable{\underline{#1}}}
+
+\newcommand{\withSize}[2]{{#1}^{ \{ #2 \}}}
+\newcommand{\range}[2]{\langle#1, #2\rangle}
+
+%\newcommand{\circled}[1]{\textcircled{\small{#1}}}
+%\newcommand{\circled}[1]{\tikz \node[anchor=south west, draw,circle, inner sep=0pt, minimum size=7mm, pos=0.5]{#1};}
+\newcommand{\circled}[1]{ \textcircled{\scriptsize{#1}} }
+
+\newcommand{\img}[1]{\centering \includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{pictures/#1}}
+
+\newcommand{\inlineScale}{0.5}
+\newcommand{\inlineHeight}{40pt}
+
+\newcommand{\inlineImg}[1]{\centering \raisebox{-\height}{\includegraphics[trim=0 70 0 0, clip,height=\inlineHeight,scale=\inlineScale,keepaspectratio]{pictures/#1}}}
+
+\newcommand{\customImg}[1]{\centering \includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{#1}}
+
+\newcommand{\graph}[1]{\centering \input{graphs/#1}}
+
+%\newcommand{\vectorGraphics}[1]{\input{vector/#1}}
+
+\newcommand{\insertData}[1]{\input{exp_csv/tex/#1.tex}}
+
+\newcolumntype{s}{>{\hsize=.5\hsize}c}
+
+%\newcommand{\largeVMiddle}[2][|]{ \multicolumn{1}{#1m#1}{ \Large #2 \par } }
+
+%uncomment for double spacing
+%\usepackage{setspace}
+%\doublespacing
+
+\DeclareMathOperator*{\argmin}{arg\,min}
+
+\usepackage{subfiles}
+
+%\usepackage{atbegshi}% http://ctan.org/pkg/atbegshi
+%\AtBeginDocument{\AtBeginShipoutNext{\AtBeginShipoutDiscard}}
+
+\begin{document}
+
+\title{Algorytmy ewolucyjne z uwzględnieniem płci w rozwiązywaniu wybranych problemów}
+\author{Filip Malczak}
+\major{Inteligentne Systemy Informatyczne}
+\advisor{\begin{tabular}{c}
+		dr hab. inż. \\
+		Urszula Markowska-Kaczmar
+	\end{tabular}}
+\instituteLogo{logos/pwr}
+\slowaKluczowe{algorytmy ewolucyjne\\płeć\\operator selekcji}
+\date{\number\the\year}
+
+% Wstawienie abstractu pracy
+	%\input {abstract}
+
+\abstractSH{
+W pracy przedstawiono nową metaheurystykę ewolucyjną DSEA, uwzględniającą aspekt płci.
+Praca zawiera opis badań, których celem było porównanie skuteczności DSEA z rozwiązaniami znanymi z literatury.
+}
+
+\abstractPL{
+	Tematem pracy jest zastosowanie algorytmów ewolucyjnych z uwzględnieniem płci do rozwiązania wybranych problemów optymalizacji.
+	Zaproponowano metaheurystykę DSEA, korzystającą z dwóch operatorów selekcji.
+	Jeden z nich ma za zadanie uwzględnienie płci osobnika w procesie krzyżowania.
+	Drugi działa podobnie jak operator selekcji w klasycznym algorytmie ewolucyjnym.
+	Proponowana metoda została porównana pod względem skuteczności z klasycznym algorytmem ewolucyjnym oraz wybranymi podejściami znanymi z literatury.
+	W trakcie badań rozwiązywano problemy komiwojażera oraz binarny problem plecakowy.
+	Wykorzystano publicznie dostępne zbiory danych o znanych optimach globalnych.
+}
+\abstractEN{
+	This thesis focuses on evolutionary algorithms with regard to gender and their application in solving chosen optimization problems.
+	DSEA metaheuristic using two selection operators is proposed.
+	One of those operators introduces specimen's gender into the crossover process.
+	The other one works similiarly to the selection operator in classical evolutionary algorithms.
+	The proposed method's effectiveness is compared with classical evolutionary algorithm and selected existing methods.
+	During experimentations travelling salesman problem and binary knapsack problem are solved.
+	Publically available data sets with known global optima are used.
+}
+
+\maketitle
+\textpages
+
+\subfile{chapters/chapter1.tex}
+
+\clearpage
+\pagestyle{plain}
+
+\bibliographystyle{iisthesis}
+\bibliography{bibliografia}
+
+\end{document}
+

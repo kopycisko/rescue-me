@@ -1,0 +1,25 @@
+\documentclass[../main.tex]{subfiles}
+
+\begin{document}
+\chapter*{Wprowadzenie}
+Ewolucja to proces zachodzący w naturze odpowiedzialny za dopasowywanie się osobników danego gatunku do środowiska w jakim żyją.
+Podstawą tego procesu jest zasada przetrwania lepiej przystosowanych osobników oraz zjawiska dziedziczenia i mutacji.
+
+Algorytmy ewolucyjne to rodzina heurystyk naśladujących proces ewolucji w celu optymalizacji \cite{davis1991handbook}.
+Pojedynczy element przestrzeni rozwiązań jest w nich nazywany osobnikiem.
+Osobniki możemy między sobą porównywać pod względem wartości optymalizowanej funkcji dla nich, a relacja mniejszości (dla problemów minimalizacji) lub większości (dla problemów maksymalizacji) reprezentuje relację bycia lepiej przystosowanym do środowiska.
+Ponadto, na osobnikach określone są operatory mutacji i krzyżowania, które mają na celu symulację odpowiednich zjawisk występujących w przyrodzie.
+Heurystyka polega na wielokrotnym przetworzeniu populacji (czyli zbioru osobników) poprzez zastosowanie każdego z operatorów z pewnym prawdopodobieństwem.
+W każdym kroku (nazywanym w tym przypadku pokoleniem) do dotychczasowej populacji dołączane są wyniki działania tych operatorów, a następnie wybierana jest nowa populacja, używana w kolejnym kroku algorytmu ewolucyjnego.
+Aby odwzorować zasadę przetrwania najlepiej dopasowanych osobników, do kolejnej populacji wybierane są z wyższym prawdopodobieństwem osobniki lepiej przystosowane.
+
+W naturze rozmnażanie się osobników wielu gatunków jest ściśle związane ze zjawiskiem podziału gatunku na płcie.
+W dostępnej literaturze dotyczącej tematu algorytmów ewolucyjnych rzadko można znaleźć prace, w których uwzględnia się ten aspekt procesu ewolucji.
+Powodem tego jest raczej chęć uproszczenia działania samej heurystyki niż lepsza jakość wyników uzyskiwanych z pominięciem tego aspektu (\cite{GGA, SexualGA}).
+
+Celem niniejszej pracy jest opracowanie algorytmu ewolucyjnego uwzględniającego płeć osobników i zbadanie jego skuteczności na wybranych problemach, oraz porównanie go z klasycznym algorytmem ewolucyjnym i wybranymi rozwiązaniami znanymi z literatury.
+
+Ponadto autor opracował opis formalny algorytmu ewolucyjnego uwzględniającego płeć.
+Na jego podstawie powstała biblioteka programistyczna, wykorzystana w celu porównania jakości optymalizacji wybranych metaheurystyk.
+
+\end{document}
