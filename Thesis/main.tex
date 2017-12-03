@@ -205,28 +205,22 @@ Praca zawiera opis badań, których celem było porównanie skuteczności DSEA z
 }
 
 \abstractPL{
-	Tematem pracy jest zastosowanie algorytmów ewolucyjnych z uwzględnieniem płci do rozwiązania wybranych problemów optymalizacji.
-	Zaproponowano metaheurystykę DSEA, korzystającą z dwóch operatorów selekcji.
-	Jeden z nich ma za zadanie uwzględnienie płci osobnika w procesie krzyżowania.
-	Drugi działa podobnie jak operator selekcji w klasycznym algorytmie ewolucyjnym.
-	Proponowana metoda została porównana pod względem skuteczności z klasycznym algorytmem ewolucyjnym oraz wybranymi podejściami znanymi z literatury.
-	W trakcie badań rozwiązywano problemy komiwojażera oraz binarny problem plecakowy.
-	Wykorzystano publicznie dostępne zbiory danych o znanych optimach globalnych.
+	Mamy ściśle określone środowisko - podziemny korytarz. Korytarz jest odizolowany od fal radiowych. Jako osoba pracująca w korytarzu chcemy nasze określić aktualne położenie, mając do dyspozycji urządzenie mobilne klasy Smartphone. W korytarzu mamy możliwość zainstalowania specjalnej sieci radiowej umożliwiającej przybliżone określenie aktualnej pozycji. Należy sprawdzić dokładność określania położenia wyłącznie przy użyciu infrastruktury sieciowej (algorytm podstawowy) oraz należy zbadać możliwości poprawienia dokładności określania położenia przy użyciu sensorów wbudowanych w urządzenie mobilne.
 }
 \abstractEN{
-	This thesis focuses on evolutionary algorithms with regard to gender and their application in solving chosen optimization problems.
-	DSEA metaheuristic using two selection operators is proposed.
-	One of those operators introduces specimen's gender into the crossover process.
-	The other one works similiarly to the selection operator in classical evolutionary algorithms.
-	The proposed method's effectiveness is compared with classical evolutionary algorithm and selected existing methods.
-	During experimentations travelling salesman problem and binary knapsack problem are solved.
-	Publically available data sets with known global optima are used.
+	There is strictly defined environment - underground corridor. The corridor is free from external radio waves. As a person working in the corridor I want to determine my current position with a mobile device (Smartphone).
+	* There is need to find and install navigation system that will allow to determine current position of mobile device in the corridor.
+	* There is need to verify location accuracy of basic algorithm that use the navigation system infrastructure only and explore the possibilities to improve location accuracy using sensors built into the mobile device.
 }
 
 \maketitle
 \textpages
 
-\subfile{chapters/chapter1.tex}
+\subfile{chapters/ch2-intro.tex}
+\subfile{chapters/ch4-constraints.tex}
+\subfile{chapters/ch5-position.tex}
+\subfile{chapters/ch8-conclusions.tex}
+
 
 \clearpage
 \pagestyle{plain}
