@@ -2,9 +2,22 @@
 
 \begin{document}
 \chapter{Position finding basing on lozalization system and mobile device model}
+* What features should have the model in order to be used for navigation?
 
 \section{Solution requirements}
-* Define criteria that will be used to compare position finding solutions (existing or conceptual)
+Requirements as
+* The position of the mobile device will be determined by the environment model
+
+Define criteria that will be used to compare position finding solutions (existing or conceptual)
+* How to save a corridor model in computer memory
+* wireless communication
+* resistance to power outages and communications
+* Do I need the ability to change configuration of reference points (configuration of devices that perform role of reference points)?
+* What parameters can be read from the reference points (range, distance,?)
+* How long should the network work properly?
+* How to detect irregularities in reference points?
+* How to fix problems in reference points?
+* What problems may occur with points of reference?
 * example: accuracy, durability, cost, maintability
 
 
@@ -12,10 +25,21 @@
 * Advantages and disadvantages of solutions
 * How the solutions fulfil given criteria (ex. how accurate given solution can be)
 
+Possible subsections that will discuss in detail given technologies.
+* example: communication technology:
+** Bluetooth - the availability, supported by modern mobile technology,
+** ZigBee,
+** ... others
+
+
 \section{Localization system choise (system based on beacons)}
 * Motivation
 * Prototype system description
 * Mobile device - system interaction description
+** Method of detecting reference points description
+** What are the possibilities to improve positioning on your mobile device?
+** How could the process of installing a localisation system in a mine look like?
+** How the parameters of the environment (corridor height, corridor width, type of rock, type of corridor corridors, presence of other networks operating on similar frequencies (WiFi, GSM (harmonic frequencies)), others) affect reference point signal quality.
 
 
 
@@ -25,6 +49,13 @@
 
 \section{Position finding requirements} % (fold)
 \label{sec:position_finding_requirements}
+
+* Should repeat and answer requirements stated for localization system.
+* example:
+** Reading signal and its parameters from reference points;
+** Identification of reference points
+** Current location presentation on the environment model
+
 
 % section position_finding_requirements (end)
 
@@ -56,7 +87,10 @@
 \label{sec:tests_metodology}
 
 * Testing environment descipription
-* Equimpent used during tests
+* Equimpent used during tests. Example:
+** using a representative wifi router, 801.11g techonology, simple circular antenna (eg Minetronics MMG) - for charts.
+** using a representative beacon
+** dBm signal strength depending on the distance and polarity of the mobile device from the signal source
 * Pictures
 
 % section tests_metodology (end)
