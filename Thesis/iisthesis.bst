@@ -2,9 +2,11 @@
 % *
 % * iisthesis.cls - PWr/IZ/IIS thesis LaTeX template
 % * Copyright (C) 2006  Michal Stanek
-% * 
-% * The template was adapted to be compliance with the newest editorial 
-% * requirements introduced on the IIS/PWr department in the May 2006. 
+% * Modified by Rafal Sztandera, 2018
+% *
+% * The template was adapted to be compliance with the newest editorial
+% * requirements introduced on the IIS/PWr department in the May 2006.
+% * Added some major changes in requirements in January 2018; English.
 % ---------------------------------------------------------------
 %
 % modified from ieee 2002/04/16 by Glenn Paulley (paulley@acm.org)
@@ -25,7 +27,7 @@
 % *
 % * You should have received a copy of the GNU Lesser General Public
 % * License along with this library; if not, write to the Free Software
-% * Foundation, Inc., 59 Temple Place, Suite 330, Boston, 
+% * Foundation, Inc., 59 Temple Place, Suite 330, Boston,
 % * MA  02111-1307  USA
 % *----------------------------------------------------------------------
 % *
@@ -222,7 +224,7 @@ FUNCTION {format.names}
   { " et~al." * }
   { ", " * t * } % bylo " and "
        if$
-       
+
      }
    if$
  }
@@ -440,8 +442,8 @@ FUNCTION {format.in.ed.booktitle}
 { booktitle empty$
     { "" }
     { editor empty$
- { "W: " booktitle emphasize * }
- { "W: " format.editors * ", " * booktitle emphasize * }
+ { "In: " booktitle emphasize * }
+ { "In: " format.editors * ", " * booktitle emphasize * }
       if$
     }
   if$
@@ -598,8 +600,8 @@ FUNCTION {book}
       new.block
       format.number.series output
       new.sentence
-      publisher "publisher" output.check
       address output
+      publisher "publisher" output.check
     }
     { new.block
       format.book.crossref output.nonnull
@@ -646,8 +648,8 @@ FUNCTION {inbook}
       new.block
       format.number.series output
       new.sentence
-      publisher "publisher" output.check
       address output
+      publisher "publisher" output.check
     }
     { format.chapter.pages "chapter and pages" output.check
       new.block
@@ -673,8 +675,8 @@ FUNCTION {incollection}
       format.number.series output
       format.chapter.pages output
       new.sentence
-      publisher "publisher" output.check
       address output
+      publisher "publisher" output.check
       format.edition output
       format.date "year" output.check
     }
