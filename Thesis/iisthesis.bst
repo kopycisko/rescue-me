@@ -259,7 +259,7 @@ FUNCTION {format.editors}
 FUNCTION {format.title}
 { title empty$
     { "" }
-    { title "t" change.case$ }
+    { title emphasize "t" change.case$ }
   if$
 }
 
@@ -442,7 +442,7 @@ FUNCTION {format.in.ed.booktitle}
 { booktitle empty$
     { "" }
     { editor empty$
- { "In: " booktitle emphasize * }
+ { "In: " booktitle * }
  { "In: " format.editors * ", " * booktitle emphasize * }
       if$
     }
@@ -569,7 +569,7 @@ FUNCTION {article}
   format.title "title" output.check
   new.block
   crossref missing$
-    { journal emphasize "journal" output.check
+    { journal "journal" output.check
       format.vol.num.pages output
       format.date "year" output.check
     }

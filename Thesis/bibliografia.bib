@@ -9,19 +9,44 @@
 #	rok wydania,
 #	numer zeszytu (w przypadku czasopisma),
 #	ewentualnie numery stron
+#4 Available tags:
+#   address
+#   author
+#   booktitle
+#   chapter
+#   edition
+#   editor
+#   howpublished
+#   institution
+#   journal
+#   key
+#   month
+#   note
+#   number
+#   organization
+#   pages
+#   publisher
+#   school
+#   series
+#   title
+#   type
+#   volume
+#   year
 
-@INPROCEEDINGS{GGA,
+
+
+
+# Old - left for reference
+@conference{GGA,
 	author={Rejeb, J. and AbuElhaij, M.},
 	booktitle={Circuits and Systems, 2000. Proceedings of the 43rd IEEE Midwest Symposium on},
 	title={{N}ew gender genetic algorithm for solving graph partitioning problems},
 	year={2000},
 	month={},
 	volume={1},
-	pages={444-446 vol.1},
-	keywords={genetic algorithms;graph theory;chromosome;convergence;crossover;fitness value;gender genetic algorithm;gender selection;genetic algorithm;graph partitioning;mating;Biological cells;Circuits and systems;Genetic algorithms;Genetic mutations;Partitioning algorithms;Processor scheduling;Robustness;Routing;Testing;Very large scale integration},
-	doi={10.1109/MWSCAS.2000.951679},}
+	pages={444-446 vol.1},}
 
-@inproceedings{SexualGA,
+@conference{SexualGA,
 	Address = {Institute for Formal Models and Verification, Johannes Kepler University},
 	Author = {Wagner, S. and Affenzeller, M.},
 	Booktitle = {WMSCI 2005 - The 9th World Multi-Conference on Systemics, Cybernetics and Informatics, Proceedings},
@@ -42,7 +67,7 @@
 	address={New York}
 }
 
-@inproceedings{gen_prog,
+@conference{gen_prog,
 	title={A representation for the adaptive generation of simple sequential programs},
 	author={Cramer, Nichael Lynn},
 	booktitle={Proceedings of the First International Conference on Genetic Algorithms},
@@ -84,8 +109,11 @@
 }
 
 @misc{sahara_points,
-	title = {Western {S}ahara {TSP} dataset. {D}ostępne pod adresem: \url{http://www.math.uwaterloo.ca/tsp/world/countries.html} dnia 26.04.2015},
-	author = { University of Waterloo }
+	title = {Western {S}ahara {TSP} dataset.},
+	author = { University of Waterloo },
+	howpublished = {\url{http://www.math.uwaterloo.ca/tsp/world/countries.html}},
+	year = {2015},
+	note = {[Online; accessed 19-July-2015]}
 }
 
 @misc{knapsack_data,
@@ -101,15 +129,13 @@
 	year={2012}
 }
 
-@INPROCEEDINGS{msga,
+@conference{msga,
 	author={Lis, J. and Eiben, A.E.},
-	booktitle={Evolutionary Computation, 1997., IEEE International Conference on},
+	booktitle={IEEE International Conference on Evolutionary Computation},
 	title={A multi-sexual genetic algorithm for multiobjective optimization},
 	year={1997},
 	month={Apr},
-	pages={59-64},
-	keywords={genetic algorithms;intermediate solutions;multi-parent crossover;multi-sexual genetic algorithm;multiobjective optimization;nondominated solutions;recombination process;Biomedical engineering;Computer science;Constraint optimization;Decision feedback equalizers;Decision making;Design optimization;Genetic algorithms;Optimization methods;Sorting},
-	doi={10.1109/ICEC.1997.592269},}
+	pages={59-64},}
 
 @article{allenson,
 	title={Genetic algorithms with gender for multi-function optimisation},
@@ -137,7 +163,7 @@
 	year={2003}
 }
 
-@inproceedings{simulating,
+@conference{simulating,
 	title={Simulating Gender Separation With Genetic Algorithms.},
 	author={Vrajitoru, Dana},
 	booktitle={GECCO},
