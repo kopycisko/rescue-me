@@ -61,3 +61,19 @@ Thesis rules and related
 [Thesis related info] http://wiz.pwr.edu.pl/studenci/dyplomanci/tematy-prac-dyplomowych
 [Instructions for thesis I] http://wiz.pwr.edu.pl/fcp/aGBUKOQtTKlQhbx08SlkTVwVQX2o8DAoHNiwFE1wZDyEPG1gnBVcoFW8SBDRKTxMKRy0SODwBBAEIMQheCFVAORFCHzY/41/public/main/dyplomowanie/tematy_prac/zalecenia_praca_magisterska.docx
 [Instructions for thesis II] http://wiz.pwr.edu.pl/fcp/aGBUKOQtTKlQhbx08SlkTVwVQX2o8DAoHNiwFE1wZDyEPG1gnBVcoFW8SBDRKTxMKRy0SODwBBAEIMQheCFVAORFCHzY/41/public/main/dyplomowanie/_praca_dypl_zalecenia_edytorskie.pdf
+
+Propozycje materiałów do przejżenia:
+# Ye Chencheng, Jingzhong Xiao li. Underground personnel positioning system based on RFID [J].
+Journal of Wuhan University of Technology. 2010.32(15):148-152.
+# Sun yanjing, Qian jiansheng, Li shiyin, Dou Linming. Theory and key Technology for Mine
+Internet of Things [J]. Coal Technology.2011.39 (2):69-72.
+# Cheng Jun. The implementation and application of underground personnel positioning system [J].
+Journal of Anhui University of Technology, 27:150-154.
+# Yang Gong Jian, Liu Yong, Hanjian Song, etc. Research on indoor tracking algorithm for RFID
+network [J]. Computer Engineering and Applications. 2010.46(36):114-117.
+# Krystyna Dziadak, James Sommerville, Bimal Kumar. RFID based 3D buried assets location
+system[C]. ITCon, 2008, 13, Vol.13(2008):155-165.
+# Felix C. P. Hui, Henry C. B. Chan, and S. H. Fung. RFID-based Location Tracking System Using
+a Peer-to-Peer Network Architecture[J]. Lecture Notes in Engineering & Computer Science,
+2014,2209(1):135-140.
+# http://ieeexplore.ieee.org/document/1294542/
