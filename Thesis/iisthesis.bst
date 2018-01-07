@@ -570,8 +570,8 @@ FUNCTION {article}
   new.block
   crossref missing$
     { journal "journal" output.check
-      format.vol.num.pages output
       format.date "year" output.check
+      format.vol.num.pages output
     }
     { format.article.crossref output.nonnull
       format.pages output
@@ -697,9 +697,6 @@ FUNCTION {inproceedings}
   new.block
   crossref missing$
     { format.in.ed.booktitle "booktitle" output.check
-      format.bvolume output
-      format.number.series output
-      format.pages output
       address empty$
  { organization publisher new.sentence.checkb
    organization output
@@ -713,6 +710,9 @@ FUNCTION {inproceedings}
    publisher output
  }
       if$
+      format.bvolume output
+      format.number.series output
+      format.pages output
     }
     { format.incoll.inproc.crossref output.nonnull
       format.pages output
