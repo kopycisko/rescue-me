@@ -6,6 +6,7 @@
 % * The template was adapted to be compliance with the newest editorial
 % * requirements introduced on the IIS/PWr department in the May 2006.
 % *
+% * modified by Rafal Sztandera - english version 2018
 % * modified skz_thesis.sty created by Michal Stochmialek
 % * modified from University of Tulsa MS Thesis class
 % * modified from the University of Washington thesis class
@@ -218,40 +219,48 @@
 \includegraphics[width=9.32cm]{\@instituteLogo}
 \begin{tabular*}{\textwidth}{>{\columncolor[gray]{.8}}p{0.57cm}>{\columncolor[gray]{.8}}p{0.57cm}|p{13.5cm}}
 	\hline
-	 & &\large{\bfseries{\rule{0pt}{0.5cm}\ Wydział Informatyki\ i\ Zarządzania}} \\[3pt]
-	 & &\ \ \large{Kierunek studiów: Informatyka}\\
+	 & &\large{\bfseries{\rule{0pt}{0.5cm}\ Faculty of Computer Science and Management}} \\[1pt]
+	 & &\ \ \small{Field of study: COMPUTER SCIENCE}\\
 	 %& &\ \ Specjalność: Inteligentne Systemy Informatyczne\\
-	 & &\ \ Specjalność: \@major\\
-	 & &\multicolumn{1}{c}{\hspace{1cm}\rule{0pt}{1.5cm} \large{Praca dyplomowa - magisterska}} \\
-	 & &\multicolumn{1}{p{13.5cm}}{\hspace{1cm}\rule{0pt}{2.5cm} \centering\bfseries\sc\large{\@title}} \\
+	 & &\ \ \small{Specialty: \@major}\\
+	 & &\multicolumn{1}{c}{\hspace{1cm}\rule{0pt}{1.5cm} \bfseries\large{Master Thesis}} \\
+	 & &\multicolumn{1}{p{13.5cm}}{\hspace{1cm}\rule{0pt}{1cm} \centering\bfseries\large{\@title}} \\
 	 & &\multicolumn{1}{c}{\hspace{1cm}\rule{0pt}{1cm}\@author} \\
-	 & &\multicolumn{1}{p{13.5cm}}{\rule{0pt}{1.5cm}\small\begin{flushright}\noindent słowa kluczowe:\\ \@slowaKluczowe\end{flushright}} \\
+	 & &\multicolumn{1}{p{13.5cm}}{\small\begin{flushright}\noindent keywords:\\ \@slowaKluczowe\end{flushright}} \\
 	 & & \multicolumn{1}{p{13.5cm}}{
 		\begin{flushright}
 					\begin{tabular}{p{12.0cm}}
-							 \small krótkie streszczenie:\newline \@abstractSH
+							 \small short summary:\newline \@abstractSH
 					\end{tabular}
 		\end{flushright}
 %	 	\rule{0.5cm}{1cm}{\small krótkie streszczenie:\newline \@abstractSH}
 	 	} \\
 	 	& & \multicolumn{1}{p{13.5cm}}{
 		\begin{center}
-					\begin{tabular}{|c|c|c|c|}
-							 \hline
-							% \multirow{2}{*}{\small{Promotor:}}& \multirow{2}{*}{Dr inż. Mariusz Paradowski} & \scriptsize{ } & \scriptsize{ } \\
-							\multirow{2}{*}{\small{Promotor:}}& \multirow{2}{*}{\@advisor} & \scriptsize{ } & \scriptsize{ } \\
-							  &  & \small{......................} & \small{.......................} \\
-							 \hline
-							 \ & \scriptsize\textit{imię i nazwisko} & \scriptsize\textit{ocena} & \scriptsize\textit{podpis} \\
-							 \hline
-					\end{tabular}
+		\begin{tabular}{|c|c|c|c|}
+				 \hline
+				% \multirow{2}{*}{\small{Promotor:}}& \multirow{2}{*}{Dr inż. Mariusz Paradowski} & \scriptsize{ } & \scriptsize{ } \\
+				\multirow{3}{*}{\small{Supervisor:}}& \multirow{2}{*}{\@advisor} & \scriptsize{ } & \scriptsize{ } \\
+				  &  & \small{......................} & \small{.......................} \\
+				 \cline{2-4}
+				 \ & \scriptsize\textit{Title/ degree/ name and surname} & \scriptsize\textit{grade} & \scriptsize\textit{signature} \\
+				 \hline
+         \multicolumn{4}{|c|}{} \\
+         \multicolumn{4}{|c|}{The final evaluation of the thesis} \\
+         \hline
+         \multirow{3}{*}{\small\shortstack{Przewodniczący\\ Komisji egzaminu\\ dyplomowego:}}& \scriptsize{ } & \scriptsize{ } & \scriptsize{ } \\
+          & \small{.........................................} & \small{......................} & \small{.......................} \\
+         \cline{2-4}
+         \ & \scriptsize\textit{Title/ degree/ name and surname} & \scriptsize\textit{grade} & \scriptsize\textit{signature} \\
+         \hline
+		\end{tabular}
 		\end{center}
 		} \\
-		& & \textit{\small Do celów archiwalnych pracę dyplomową zakwalifikowano do:*} \\
-		& & \textit{\small \hspace{1cm} a) kategorii A (akta wieczyste)  } \\
-		& & \textit{\small \hspace{1cm} b) kategorii BE 50 (po 50 latach podlegające ekspertyzie)} \\
-		& & \textit{\small *niepotrzebne skreślić} \\
-	& & \rule{0pt}{0.7cm} \\
+		& & \small{ For the purposes of archival thesis qualified to: *} \\
+		& & \small{ \hspace{1cm} a) Category A (perpetual files)  } \\
+		& & \small{ \hspace{1cm} b) Category BE 50 (subject to expertise after 50 years)} \\
+		& & \small{ *Delete as appropriate} \\
+    & & \multicolumn{1}{p{13.5cm}}{\small\begin{flushright}\noindent stamp of the faculty \end{flushright}} \\
 	&\multicolumn{1}{>{\columncolor[gray]{0.0}}p{0.57cm}|}{} & \multicolumn{1}{c}{\rule{0pt}{0.7cm} \large{Wrocław \@date}}
 
 \end{tabular*}

@@ -33,6 +33,9 @@ Podobne projekty:
 * Google Tango - augmented reality
 * Apple CoreLocation
 
+http://wasp-sweden.org/custom/uploads/2017/03/JohnSvensson-poster.pdf
+* How could additional data sources, such as IMU’s or LiDAR’s, be used to further improve localization?
+
 Related therms
 * indoor positioning system (IPS) - locating object inside a building - https://en.wikipedia.org/wiki/Indoor_positioning_system
 
@@ -81,3 +84,4 @@ a Peer-to-Peer Network Architecture[J]. Lecture Notes in Engineering & Computer 
 
 Notes on materials
 * article_wsn_monitoring - description of architecture and implementation of WSN for monitoring in mine
+* articles_monitoring_polish - exmaples of monitoring of undergorund operations with software wisualizations and proposals; [chapter 29 - monitoring, chapter 30 - technologies available, chapter 46 - list of SCADA software solutions]

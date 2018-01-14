@@ -3,10 +3,13 @@
 \begin{document}
 \chapter{Goals and thesis scope}
 
-Following citations are used only in purpose of Bibliography formatting test purpose: \cite{pletwonogiMajaHaremy} and \cite{sahara_points} and \cite{msga}.
+Following document investigates position finding system implementation basing on consumer grade smartphone and network of reference points using Bluetooth Low Energy technology.
+
+As part of the work, there are presented currenty known position finding solutions within underground environment, available technologies and a method of position finding for consumer grade smartphones in underground installations is proposed. There are presented test cases and experiments supported by data analysis from measurements of given factors of the solution. Experiments are focused on stability, repeatability, accuracy and reliability factors. The work do not discuss the mining model representation but general architecture and data exchange model. but there are proposed soluin terms of the location of the reference points, the location of the miner (system user), the safety points and the evacuation exits. The model should allow both the user to navigate to the nearest safety point, taking into account the current state of the corridors, and to allow presentation of the current position in graphical form. As part of the work, a complete model of the solution are be proposed along with the prototype of application for the mobile device. Finally, there are proposed future works that would base on a concept of integration of the location system with the function of remotely updating corridors. There are be provided example use cases.
 
 
-\chapter{Introduction}
+
+\chapter{Underground envioronment description}
 
 \section{Underground installation characteristics}
 
@@ -49,6 +52,33 @@ The wireless communication systems used on surface cannot be applied straightawa
 \end{itemize}
 
 
+\section{Positioning systems}
+
+Position finding in underground installations is a problem that arrised along with the advance in the available technologies. Demand for such functionality comes from two main reasons:
+\begin{itemize}
+	\item safety of mine workers,
+	\item the need of tool that will support human and equipment resource planning and distribution.
+\end{itemize}
+
+\subsection{Safety aspect} % (fold)
+\label{sub:safety_aspect}
+
+Protecting and rescueing people lifes are one of the most important challanges for the underground construction and mining industry since many years. In case of accident there is need to perform appropriate search and rescue actions immediatley as the survival rate decreases rapidly as time passes. As for underground construction and mining industry positioning systems are rather in research stage then in real use, executives doesn't know exact position af miners before accident and how many of them are trapped and how big is the scale of destruction. Currently used techniques for rescueing people after an accident requires to count people that came out to know how many people are trapped and then digg though the falled corridors and perform searching operations that rely on old low frequency technology like GLON. GLON is a polish old low frequency radio solution for finding signal emmited from miners lamp, allowing on detection from a few meters \cite{GLON}. Personal safety equipment consists of oxygen masks enabling to survive 50 minutes, and lamps with GLON transmitter. In case of accident in copper mine "Rudna" in Poland that had a place on 29'th November, 2016  \cite{newspaper_rudna} rescue action started 20 minutes after rock mass movement. Part corridor with chamber for mobile machines and excavation got collapsed. After 1,5 hour it was discovered that there are trapped miners. Rescue team had to dig fallen rocks from both sides of corridor without knowledge where trapped miners are because steel elements from collapsed corridor housing influenced the GLON system measures. Positioning system with online underground monitoring would give immediate information who and were was in time of accident and speed up rescueing operations. Unfortunately there was no such system. Current safety regulations does not take new technology into account. Mines do not know where exactly their miners are, they know only the region.
+
+
+Positioning system can be used also by people working underground directly from their personal digital equipment as a kind of navigation system which can help to evacuate from underground installation. It could provide information about their current position within mine and there would be given informations about dangerous areas and recommended escape paths in case of emergency.
+% subsection safety_aspect (end)
+
+\subsection{Business aspect} % (fold)
+\label{sub:business_aspect}
+
+Another use case for positioning system is that stakeholders want to know where the equipment is placed, how many time it needs to do it's operations, if there are some unplanned breakes in machine work. Delays in case of any underground operations are very costly. Resources monitoring can depict bootlenecks in machine operations may provide informations how to balance the workload in order to make operations smoother and more efficient. Data gathered by positioning systems can be also used in time and cost estimations. Mine stakeholders can see in real time what is the current distribution of equipment what enables them to perform real time coordination of ongoing process parts. The positioning systems are mainly used to deliver information to systems that operates above ground. Todays underground operations are partly or fully automated. The process of the operations is monitored and managed remotely from operation centers on surface. Supervior and control of such operations are similiar to that known on above ground process plants which are controlled by SCADA -- Supervisory Control And Data Acquisition software systems \cite{Thesis_CM}.
+
+Underground construction industry use automation technology heavily in nearly all aspects: safety, work automation, work and environment monitoring, internal and external communication, transport, maintainig ventilation, power or fresh water supply and others. Automated solutions are also used for example to control access to mine like entries for cars and mobile mine machines or for safety purpose to quickly cut off rooms where petrol oil are stored in case of accident or fire detection. Those automated systems can be configured and controlled from places they are mounted under ground or from central systems located above ground where central monitoring and work control take a place. Such centers collect informations distributed by systems and provide information about envioronmental parameters or work performance. Devices and mobile machines that work underground are also connected to that system through means of onboard microcontrollers or computers and wireless network. Thanks to it it is possible to provide to central system work performance information or device health status that can be usefull for service during periodical device checks or repairs. Positioning systems implementations may work togehter with these devices which allows underground operation executives to have a up to date map of current works and processes being in progress. Positioning information can be used also by mobile devices by themselves. Example of devices that make use positioning data are modern mobile machine gateways devices \cite{Thesis_CM} which are kind of black-box devices for big mining machines like loaders. Those devices can use positioning information as a trigger for reports of work efficiency expressed in load - unload cycles (IREDES Performance Profile report).
+% subsection business_aspect (end)
+
+
+Nowadays there are available positioning systems for underground installations that can provide aproximate localization of people or equipment.
 
 
 
@@ -58,21 +88,5 @@ The wireless communication systems used on surface cannot be applied straightawa
 Answer questions:
 * If mobile device (smartphone class) can be used in undergorund installations?
 * How usage of mobile device in underground installations may differ from usage in normal conditions (outside underground installation)?
-
-\section{Navigation system use-cases}
-* Introduce 2-3 ideas with visualizations
-
-CASE# 1 Mobile application to help evacuate the underground installation
-
-Miners do not have maps with themselves during their work. Maps are kept in Sztygarówka (supervisors place).
-Current safety regulations does not take new technology into account. Mines do not know where exactly their miners are. Personal safety equipment consists of oxygen masks enabling to survive 50 minutes, and lamps with GLON transmitter, allowing on detection from a few meters.
-
-European Union encourages to search for a good solution for the miners localization, which, in one of the postulates of its set of recommendations for the coal and steel sector ('Personnel Tracking' task). There are solutions for underground localisation but they allows only to approximate miner's position (error can be range from 300 m (range of a single radio receiver) to the distance to the next transmitter).
-
-This work is a response to the lack of a solution to aid the evacuation of a miner from a threatened area. As part of the work, presentations will be made of the positioning of underground systems, and a method of positioning in underground systems will be proposed, supported by measurements made during the test of the solution. Test will focus on stability, repeatability, accuracy and reliability factors. The work will discuss the mining model representation in terms of the location of the reference points, the location of the miner (system user), the safety points and the evacuation exits. The model should allow both the user to navigate to the nearest safety point, taking into account the current state of the corridors, and to allow presentation of the current position in graphical form. As part of the work, a complete model of the solution will be proposed along with the prototype of application for the mobile device. Finally, there will proposed future works that would base on a concept of integration of the location system with the function of remotely updating corridors. There will be provided example use cases.
-
-  Use case studies: fire, smoky corridor
-  Use case studies: no electricity (dark, no ventilation)
-
 
 \end{document}
