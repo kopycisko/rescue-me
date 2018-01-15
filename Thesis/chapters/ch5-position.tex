@@ -7,11 +7,15 @@
 
 \section{Known solutions analysis}
 %Known solutions analysis (against defined criteria)
-* List of known positioning system in underground installations
-* Characteristics of known positioning systems
-** Their concept Advantages and disadvantages
-** How can be used
-** How they perform the communication (physic/hardware aspect)
+\begin{itemize}
+	\item List of known positioning system in underground installations
+	\item Characteristics of known positioning systems
+	\begin{itemize}
+		\item Their concept Advantages and disadvantages
+		\item How can be used
+		\item How they perform the communication (physic/hardware aspect)
+	\end{itemize}
+\end{itemize}
 
 There are known solutions for location and monitoring people in undergorund installations. They are together named as LAMPS systems - Location and Moinitoring for Personal Safety systems. Those systems use three components in general:
 *
@@ -23,66 +27,95 @@ Positioning systems with respect of the what is the target of acquired data. The
 Computer recognise loading and dumping points by data provided by positioning system. It acumulates data about machine speed, distance traveled, time, amount of load that is carring and put into the report which creation is triggered by positioning information.
 
 
-
-* Advantages and disadvantages of solutions
-* How the solutions fulfil given criteria (ex. how accurate given solution can be)
+\begin{itemize}
+	\item Advantages and disadvantages of solutions
+	\item How the solutions fulfil given criteria (ex. how accurate given solution can be)
+\end{itemize}
 
 Possible subsections that will discuss in detail given technologies.
 Inertial system
 https://en.wikipedia.org/wiki/Inertial_navigation_system
 
 Considering reference points:
-* communication technology:
-** Bluetooth - the availability, supported by modern mobile technology,
-** ZigBee,
-** WiFi
-** RFID
-** ... others
-* system architecture
-** server - client
-** client - server
-** WSN and IOT
-** Peer-to-Peer [Felix C. P. Hui, Henry C. B. Chan, and S. H. Fung. RFID-based Location Tracking System Using
-a Peer-to-Peer Network Architecture[J]. Lecture Notes in Engineering & Computer Science,
-2014,2209(1):135-140.]
-** With respect of where environment layout model is stored (related - GIS systems; GeoSoft, Vulcan, MineSight, SURPAC Range, or
-Mining Visualization System (MVS))
+\begin{itemize}
+	\item communication technology:
+	\begin{itemize}
+		\item Bluetooth - the availability, supported by modern mobile technology,
+		\item ZigBee,
+		\item WiFi
+		\item RFID
+		\item ... others
+	\end{itemize}
+	\item system architecture
+	\begin{itemize}
+		\item server - client
+		\item client - server
+		\item WSN and IOT
+		\item Peer-to-Peer
+		%[Felix C. P. Hui, Henry C. B. Chan, and S. H. Fung. RFID-based Location Tracking System Using a Peer-to-Peer Network Architecture[J]. Lecture Notes in Engineering & Computer Science, 2014,2209(1):135-140.]
+		%\item With respect of where environment layout model is stored (related - GIS systems; GeoSoft, Vulcan, MineSight, SURPAC Range, or Mining Visualization System (MVS))
+	\end{itemize}
+\end{itemize}
 
 %WIRELESS TECHNOLOGIES
-RFID technology make use of electromagnetic field phenomena that allows to transfer information to reader from special component, RFID tag. RFID tags are powered by readers though electromagnetic field; they do not use batteries or wired external supply. In order to acquire information from tag readers have to propagate electromagnetic waves. Tags cumulates power from electromagnetic field in capacitor. When tag have enough power then it transmits the response with tag's data to the reader and goes to sleep for a given time. Reader get signal from tag and perform filtering and decoding operations on it in order to get tag's data.
-%WHAT IS THE RANGE? HOW MANY ENERGY MUST BE USED TO GET THE DATA FROM RFID?
 
-%WiFi
 %BLE
 %ZigBee
 
-\subsection{Hardware and environmental constratins} % (fold)
-\label{sub:hardware_and_environmental_constratins}
-State of the art in underground navigation solutions. Theoretical topic.
+\subsection{WiFi access points and WiFi fingerprinting} % (fold)
+\label{sub:wifi_fingerprinting}
 
-Phisics related to waves propagation in underground corridor
+WiFi network infrastructure is a one of the available solutions that can be used as a source of information about current position of the device. The basic solution for positioning with use of this technology is about recognising wireless lan network access points by thier SSID or physical address of network cards \cite{WLAN_fingerprinting}. As there exists working position finding solution that base on that technology the accuracy of the solution is about 100-300 meters \cite{thesis_tablet_positioning}.
 
-* Waves difraction, <tłumienie>
-* What are known issues related to wireless communication in underground installations
+What is specific for radio waves attenuation at 2,4 GHz frequency is that their signal is present from relative large distances in mine in compare to the same devices signal range in the open space environment. What is also characteristic is that the signal strength, after its peak close to the WiFi transceiver antenna its going to stabilize in distance about 10m from source and then the signal strength is residing on similiar level up to distance arround 300 meters from its source when it goes down \cite{Thesis_CM}.
 
-
-
-*TO be adapted; book-wcin
-Requirements stated for communication system for the undeground operations:
-* must be intrinsically safe and explosion proof
-* should adhere to the ingress protection (IP) standards;
-* must be rugged in structure
-* must be size flexible
-* must have totality in design including cables, power supply unit, base stations, etc
-* must be value-added priced;e stations, etc
-* must be robust, inexpensive, easy to expand,
-and enable fast and secure connections
+\begin{figure}[ht]
+\includegraphics[width=\textwidth]{pictures/wifi_link_short.pdf}
+\centering
+\caption{Wireless lan throughput and signal strength with respect of distance from the signal source (wireless access point) \cite{Thesis_CM}. }
+\label{fig:wifi_link_short}
+\end{figure}
 
 
-% subsection hardware_and_environmental_constratins (end)
+On figure \ref{fig:wifi_link_short} it is presented how wireless lan link parameters differs with respect of distance between client device and the network access point. Measures presented there are taken from 0 up to 50 meters from signal source. In case of this chart there were presented uplink and downlink throughput measured by amount of data gathered on each testing probe taken each meter distance from the signal source and the related signal strength expressed in dBm units. Values presented on chart are medians of all gathered values and factors for given distance. Test was caried out in straight underground tunnel in the biggest coal mine in Slovenia: Premogovnik Velenje. Connection throughtput between client and server remains nearly the same for distances in range from 0 up to 50 meters. Signal strength is presented in logarithimc unit dBm. Signal strength falls significantly in first 10 meters from 0 to -40 dBm. After distance of 10 meteres value of signal strength is ranged in between -40 and -50 dBm with small and not regular diviations. After 45 meters from source the value drops slightly bellow -50 dBm.
 
-\subsection{WSN based positioning finding systems} % (fold)
-\label{sub:wsn_based_positioning_finding_systems}
+\begin{figure}[ht]
+\includegraphics[width=\textwidth]{pictures/wifi_link_long.pdf}
+\centering
+\caption{Wireless lan range \cite{Thesis_CM}. }
+\label{fig:wifi_link_long}
+\end{figure}
+
+Figure \ref{fig:wifi_link_long} presents tests results performed on longer distance till connvectivity was not possible due to too low signal strength. On distances from 50 up to 240 meters parameters of link are similiar. Down link data remains at 40 MB and at 38 after 140 meters with drops to 20 MB. Up link data measurments are more unstable than in case of down link in therms of drops in delivered amount of data, but trend seems to be steady on range from 50 till 220 meters from access point. Then both data uplink and down link drops by 10 MB.  Speed of data transfer between access point and client device remain similiar from very beggining till distance around 370 where signal is not enogh to conduct connection. Signal strength is characteristic only for first 10 meters from signal source. Then signal strength oscilates between -40 and -60 dBm on distances 10 -- 50 meters, between -50 and -80 dBm on distances 50 -- 240 meters, between -60 and -90 on distances 240 -- 320 meres and between -80 and -90 on longer distances. Following data does not represent any straight forward solution to adjust positioniong information to make positioning more precise and accurate. Only on distances close to the signal source it is possible to estimate more precise position while signal strength values differ significantly from the values that occures on the rest of distances. There can be identified following range zones with respect of WiFi signal behaviour \cite{Thesis_CM}:
+\begin{enumerate}
+	\item near field zone: 0 -- 40m distance from signal source where wave attenuation curve is similiar to that in free field distribution,
+	\item coverage zone: 40 -- 200m distance from signals source where can be identified symptoms of waveguide propagation and signal strength remain to be arround -50 dBm,
+	\item monitoring zone: distances since 200m from signals source where signal starts to vary from -75 up to -85 dBm and becomes to be unusable for communication purpose but client and access point are visible for each other,
+	\item out-of-range zone: where signal is too low and both client and access point are not visible for each other.
+\end{enumerate}
+
+One of the approaches for the Wireless LAN based positioniong system is to assume that given client is present in given area of underground installation if it is in coverage zone of one of Wireless LAN access point. Client can be registered by access point software and followed until he leave coverage zone. As the coverage zone is about 200 meter distance from access point then total accuracy of this solution is about 400 meters. Second approach assume positioning accuracy improvment by signal strength interpretation and recognistion if client is in near field zone. This approach is easy to be implemented as signal strength values in near field zone differs from values from the rest of zones. Such solutions are implemented in mines in Germany \cite{Thesis_CM} and in Swedish Boliden's mines \cite{thesis_tablet_positioning}.
+
+
+%TODO - wlan and AoA; wlan and ...???
+%TODO - fingerprinting; There is known concept of recognising position in mine by informations distributed by
+
+
+% subsection wifi_fingerprinting (end)
+
+\subsection{RFID tags} % (fold)
+\label{sub:rfid_tags}
+
+RFID technology make use of electromagnetic field phenomena that allows to transfer information to reader from special component, RFID tag. Passive RFID tags are powered by readers though electromagnetic field; they do not use batteries or wired external supply. In order to acquire information from tag readers have to propagate electromagnetic waves. Tags cumulates power from electromagnetic field in capacitor. When tag have enough power then it transmits the response with tag's data to the reader and goes to sleep for a given time. Reader get signal from tag and perform filtering and decoding operations on it in order to get tag's data. There are also available variants of active RFID tags wich use it's own power supply.
+
+RFID technology is used in underground installations in certain locations to serve as check points. In this manner are monitored underground trains or dispatch of materials is being monitored. Passive RFID modules are installed on containers or mobile machines like trains. Those modules can be read by passive RFID readers that are connected to the mine network via dedicated control unit like Mining Infrastructure Computer \cite{Thesis_CM}. Control unit is responsible for RFID reader configuration and translation of its readings into standarized positioning information format. It also supplement data from RFID reader with its identificator or coordinates which express position of a reader on mine model. RFID can operate at 868MHz band. RFID with 8dBi antenna is able to detect RFID passive tags at range of up to 3 meters.
+
+%WHAT IS THE RANGE? HOW MANY ENERGY MUST BE USED TO GET THE DATA FROM RFID?
+% subsection rfid_tags (end)
+
+
+\subsection{WSN based position finding systems} % (fold)
+\label{sub:wsn_based_position_finding_systems}
 
 There are proposals of position finiding and tracking systems based internet of things (IOT) soultions \cite{WSN_tracking, WSN_monitoring}. The idea is to create means of wireless communication to locate miners during their daily basis. It is proposed to create a network of wireless nodes (WSN) that read signal from tag devices (RFID) carried by miners and transfer it through nodes network to sink nodes that are directly connected to the mine core data transfer installation such as industrial Ethernet. Miners position data is sent to acquisition server. Intermediate and nodes are directly connected one or more nodes laying in the range of their wireless communication module. They form together ad hoc, multi-hop, self-organizing network of nodes that is able to transfer data, reorganise its structure in case of mailfunction of one of the nodes and allow to configure nodes remotely due to the implemented wireless communication technology and dedicated routing protocol. Network of nodes can be easily expanded by adding new nodes. Due to the fact that communication is wireless, nodes can be placed also in danger or new areas where wired network devices are not allowed or the related infrastructure doesn't exists.
 
@@ -120,34 +153,63 @@ Parameters $P_t$ (signal power generated by tag), $G_t$ (tag antenna gain), $G_{
 %drawback of WSN - simplified assumtion about propagation in underground corridors because of wave diffractions on it's walls; - not needed precision of two diamensional space; assumption about RFID tag range (WHAT IS THE RANGE OF RFID). In order to fulfill assumption there is need to put WSN nodes close to each other which higher the costs; - Limited lifetime
 %advantages of WSN - wireless nodes with rfid reader modules are cheaper than wired ones (in the same price we can install more nodes)
 
-\section{Mobile device sensorics - literature preview}
-* Why mobile device is good for positioning purposes? What are the factors?
-* What sensorics are present in mobile device.
-* Which of them will be useful to increase positioning accuracy
+\section{Mobile device dedicated positioning systems} % (fold)
+\label{sec:mobile_device_dedicated_positioning_systems}
 
-\section{Abilities and limitations of mobile device in context of available positioning methods}
-* What means of communication (ex. wireless) can be used in context of positioning system
-* Battery limitations
-* Sensitivity of receivers
+Todays smartphone class mobile device contains set of sensorics that can be used as a base for interial positioning system. In underground oprations industry this idea is not the newest as there were tryies of this technology implementations inside handheld devices for people working underground with use of semiconductor based MEMS gyroscopes \cite{Thesis_CM}. Such devices were connected to the underground wireless network through access points which was responsible for transfering positioning information to the central systems above ground.
+% section mobile_device_dedicated_positioning_systems (end)
+
+\subsection{Mobile device sensorics}
+\begin{itemize}
+	\item Why mobile device is good for positioning purposes? What are the factors?
+	\item What sensorics are present in mobile device.
+	\item Which of them will be useful to increase positioning accuracy
+\end{itemize}
+
+
+
+\subsection{Abilities and limitations of mobile device in context of available positioning methods}
+\begin{itemize}
+	\item What means of communication (ex. wireless) can be used in context of positioning system
+	\item Battery limitations
+	\item Sensitivity of receivers
+\end{itemize}
+
+
+\subsection{Position finding basing on localization system and mobile device model}
+
+Localization system choise (system based on beacons)
+\begin{itemize}
+	\item  Motivation
+	\item  Prototype system description
+	\item  Mobile device - system interaction description
+	\begin{itemize}
+		\item  Method of detecting reference points description
+		\item  What are the possibilities to improve positioning on your mobile device?
+		\item  How could the process of installing a localisation system in a mine look like?
+		\item  How the parameters of the environment (corridor height, corridor width, type of rock, type of corridor corridors, presence of other networks operating on similar frequencies (WiFi, GSM (harmonic frequencies)), others) affect reference point signal quality.
+	\end{itemize}
+\end{itemize}
 
 
 \section{Solution requirements}
-Requirements as
-* The position of the mobile device will be determined by the environment model
+Requirements as the position of the mobile device will be determined by the environment model.
 
-Define criteria that will be used to compare position finding solutions (existing or conceptual)
-* How to save a corridor model in computer memory
-* wireless communication
-* resistance to power outages and communications
-* Do I need the ability to change configuration of reference points (configuration of devices that perform role of reference points)?
-* What parameters can be read from the reference points (range, distance, ?)
-* How long should the network work properly?
-* How to detect irregularities in reference points?
-* How to fix problems in reference points?
-* What problems may occur with points of reference?
-* If there are restrictions upon existing network topology (ex. in order to get access to servers located on surface)
-* Can the mobile device be useful in case of lack of signal (GSM/Wi-Fi/BLE)?
-* example: accuracy, durability, cost, maintability (energy, fault)
+Define criteria that will be used to compare position finding solutions (existing or conceptual):
+\begin{itemize}
+	\item How to save a corridor model in computer memory
+	\item wireless communication
+	\item resistance to power outages and communications
+	\item Do I need the ability to change configuration of reference points (configuration of devices that perform role of reference points)?
+	\item What parameters can be read from the reference points (range, distance, ?)
+	\item How long should the network work properly?
+	\item How to detect irregularities in reference points?
+	\item How to fix problems in reference points?
+	\item What problems may occur with points of reference?
+	\item If there are restrictions upon existing network topology (ex. in order to get access to servers located on surface)
+	\item Can the mobile device be useful in case of lack of signal (GSM/Wi-Fi/BLE)?
+	\item example: accuracy, durability, cost, maintability (energy, fault)
+\end{itemize}
 
 Safety purpose of position finding system is very important for many countries \cite{positioning_tests}. European Union encourages to search for a good solution for the miners localization, which, in one of the postulates of its set of recommendations for the coal and steel sector ('Personnel Tracking' task). There are solutions for underground localisation but they allows only to approximate miner's position (error can be range from 300 m (range of a single radio receiver) to the distance to the next transmitter).
 
@@ -156,17 +218,6 @@ Underground position finding system must be compatible with mobile devices of sm
 
 Position finding system bases on idea of interaction between mobile device and the undeground envioronment. In case of the nessesity of extension that enviornment by electionic devices that will provide positioning data or means of connection with mine network there is need to state that such devices must be safe. Safety regulations in this matter differs with respect of the type of underground installation, the regional, country, or even association of countries \cite{Thesis_CM}. The goal of this paper is not to provide solution that will be adjusted to each installation type or safety regulation, but to investigate possibilities and propose state of the art solution. As the enviornmental restrictions for devices and related infrastructure that can be needed for given solution there will be assumed general rules that are being in use in commercial tunneling \cite{Thesis_CM}.
 
-\section{Position finding basing on localization system and mobile device model}
-
-Localization system choise (system based on beacons)
-* Motivation
-* Prototype system description
-* Mobile device - system interaction description
-** Method of detecting reference points description
-** What are the possibilities to improve positioning on your mobile device?
-** How could the process of installing a localisation system in a mine look like?
-** How the parameters of the environment (corridor height, corridor width, type of rock, type of corridor corridors, presence of other networks operating on similar frequencies (WiFi, GSM (harmonic frequencies)), others) affect reference point signal quality.
-
 
 
 \chapter{Mobile device position finding algorithm}
@@ -174,12 +225,15 @@ Localization system choise (system based on beacons)
 
 \section{Position finding requirements} % (fold)
 \label{sec:position_finding_requirements}
-
-* Should repeat and answer requirements stated for localization system.
-* example:
-** Reading signal and its parameters from reference points;
-** Identification of reference points
-** Current location presentation on the environment model
+\begin{itemize}
+	\item Should repeat and answer requirements stated for localization system.
+	\item example:
+	\begin{itemize}
+		\item Reading signal and its parameters from reference points;
+		\item Identification of reference points
+		\item Current location presentation on the environment model
+	\end{itemize}
+\end{itemize}
 
 
 % section position_finding_requirements (end)
@@ -203,44 +257,51 @@ Localization system choise (system based on beacons)
 \section{Tests criteria and assumptions} % (fold)
 \label{sec:tests_criteria_and_assumptions}
 
-* Define factors that are important to state if solution is good or not
-* Will allow to check if system fulfills requirements
-* Test features stated in 'Localization system choise section'
+\begin{itemize}
+	\item Define factors that are important to state if solution is good or not
+	\item Will allow to check if system fulfills requirements
+	\item Test features stated in 'Localization system choise section'
+\end{itemize}
 
 % section tests_criteria_and_assumptions (end)
 
 \section{Tests metodology} % (fold)
 \label{sec:tests_metodology}
 
-* Testing environment descipription
-* Equimpent used during tests. Example:
-** using a representative wifi router, 801.11g techonology, simple circular antenna (eg Minetronics MMG) - for charts.
-** using a representative beacon
-** dBm signal strength depending on the distance and polarity of the mobile device from the signal source
-* Pictures
+\begin{itemize}
+	\item Testing environment descipription
+	\item Equimpent used during tests. Example:
+	\begin{itemize}
+		\item using a representative wifi router, 801.11g techonology, simple circular antenna (eg Minetronics MMG) - for charts.
+		\item using a representative beacon
+		\item dBm signal strength depending on the distance and polarity of the mobile device from the signal source
+	\end{itemize}
+	\item Pictures
+\end{itemize}
 
 % section tests_metodology (end)
 
 \section{Tests of system and basic algorithm} % (fold)
 \label{sec:tests_of_system_and_basic_algorithm}
-
-* Check if system works with basic algorithm
-* Tests in few configurations
-* State if some factors have impact on signal quality
-* State if some factors have impact on position finding
+\begin{itemize}
+	\item Check if system works with basic algorithm
+	\item Tests in few configurations
+	\item State if some factors have impact on signal quality
+	\item State if some factors have impact on position finding
+\end{itemize}
 % section tests_of_system_and_basic_algorithm (end)
 
 \section{Tests of extended algorithm} % (fold)
 \label{sec:tests_of_extended_algorithm}
 
-* Capture data that will be base for comparison between simple and extended position finding algorithm accuracy
+Capture data that will be base for comparison between simple and extended position finding algorithm accuracy.
 
 % section tests_of_extended_algorithm (end)
 
 \section{Experiments results} % (fold)
 \label{sec:experiments_results}
 
-* Resluts with analysis
+Resluts with analysis.
 
 % section experiments_results (end)
 

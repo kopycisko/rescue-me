@@ -260,6 +260,7 @@
 		& & \small{ \hspace{1cm} a) Category A (perpetual files)  } \\
 		& & \small{ \hspace{1cm} b) Category BE 50 (subject to expertise after 50 years)} \\
 		& & \small{ *Delete as appropriate} \\
+    & & \\
     & & \multicolumn{1}{p{13.5cm}}{\small\begin{flushright}\noindent stamp of the faculty \end{flushright}} \\
 	&\multicolumn{1}{>{\columncolor[gray]{0.0}}p{0.57cm}|}{} & \multicolumn{1}{c}{\rule{0pt}{0.7cm} \large{Wrocław \@date}}
 

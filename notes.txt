@@ -39,6 +39,9 @@ http://wasp-sweden.org/custom/uploads/2017/03/JohnSvensson-poster.pdf
 Related therms
 * indoor positioning system (IPS) - locating object inside a building - https://en.wikipedia.org/wiki/Indoor_positioning_system
 
+TODO for tests in mine:
+* sprawdzić rozkład mocy sygnału dla WiFi (TEŻ!!) Do zamieszczenia we wstępie pracy.
+
 
 References:
 [Fund for Coal and Steel] Research Fund for Coal and Steel Demonstration of process optimization for increasing the efficiency and safety by integrating leading edge electronic information and communication technologies (ICT) in coal mines (OPTI-MINE)
