@@ -1,0 +1,39 @@
+Simplified hardware requirement and recommendation list for handheld mobile device for Android 7.0 os.
+
+Screen
+		Size at least 480 dp x 320 dp
+		Technology: 16-bit color, pixel aspect ratio (PAR) between 0.9 and 1.15
+Input Devices
+	touchscreen or keyboard (buttons)
+Sensors (recommended)
+		Accelerometer
+		Magnetometer
+		GPS
+		Gyroscope
+		Barometer
+		Thermometer (optional)
+		Photometer (optional)
+		Proximity Sensor
+		Fingerprint Sensor
+		6-DOF Pose Sensor
+Data Connectivity
+	GSM or CDMA telephony (must)
+	IEEE 802.11 (Wi-Fi) (recommended)
+	Wi-Fi Direct (Wi-Fi peer-to-peer) (recommended)
+	Bluetooth and Bluetooth Low Energy (must)
+	Near-Field Communications (NFC) (recommended)
+	Minimum network capability (at least one): EDGE, HSPA, EV-DO, 802.11g, Ethernet, Bluetooth PAN
+Cameras (recommended)
+	Rear-Facing camera (at least 2 mega pixels)
+	Front-Facing Camera (at least 640x480 pixels) (optional)
+	External Camera (via USB) (optional)
+Memory (minimal)
+	512MB RAM
+	3GB non volatile memory
+Shared external storage (minimal)
+	SD card 1GB
+USB (chargning and data exchange purposes)
+Audio
+	Microphone
+	Audio output (speaker/output port)
+	Near-ultrasound recording (18.5 kHz to 20 kHz band)
