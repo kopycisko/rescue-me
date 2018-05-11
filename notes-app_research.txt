@@ -1,0 +1,53 @@
+General purpose
+WiFi Indoor Localization - navi creates the cells on image, scans for bssid
+indoor positioning - like above
+indoor GPS - navi based on img and wifi map, interesting
+anyplace indoor service - integrate google apps with sensorics and ??
+sailstech
+	buildngo - create indoor positioning navigation with use of maps and fingerprinting. It use wifi and bluetooth technology and compass and gyroscope
+taglocate - use NFC tags, QR codes and OSM XML geometry
+
+
+Dedicated
+Indoor Positioning Siemens Steinhausen - beacon based; not tested - password protected; work inside
+UDFinder | Indoor Localization -
+Wifarer Indoor Navigator
+
+
+Related tools
+insoft
+	Wagon Installation , qr scanner - assigning qr codes to uwb localization
+	infsoft BLE Scanner
+	infsoft calibration , maps
+pole star
+	nao logger (suite for wifi based indoor positioning + sensors fusioning)
+sailstech
+	WiFi Beacon GPS -
+Situm
+	Mapping Tool - indoor positioning systems calibraitions; system use wifi finerprinting, gyroscope, (magnetic field fingerprinting?)
+OnYourMap
+	Indoor navigator - solute for indoor navigation with use of beacons
+favendo
+	bluloc configuration - suite for indoor positioning and beacons managamanet
+
+
+Trash
+indoor positioning system - crash
+crux indoor location - server conn error
+FIND - WiFi based local GPS - server conn error
+fusion site survey tool - do not open
+
+
+
+side-interesting
+lone worker protection
+accuware dragonfly - positioning system based on vision (images)
+
+
+TODO
+oriient indoorGPS
+goindoor deployment - beacons management
+WiFiLine
+EngineerGo!
+tagin!
+
