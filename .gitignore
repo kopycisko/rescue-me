@@ -1,3 +1,10 @@
+## Custom
+## exclude virtual env directories
+.ve/
+
+## exclude nordic beacon build env
+Software/beacon
+
 ## Core latex/pdflatex auxiliary files:
 *.aux
 *.lof

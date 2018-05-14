@@ -41,6 +41,15 @@ Related therms
 
 TODO for tests in mine:
 * sprawdzić rozkład mocy sygnału dla WiFi (TEŻ!!) Do zamieszczenia we wstępie pracy.
+* Testy beaconów:
+** test zasięgu / mocy w zależności od układu bluetooth (elektronika). Dostępne układy:
+*** CC2640
+* Test konsumpcji baterii
+* Testy poprawności kalkulacji dystansu
+** w metrach (jeśli zaimplementowane)
+** możliwych powiązań między odległością, a parametrami połączenia
+** testy dla 2-ch beaconów
+** testy na skrzyzowaniu (3 beacony)
 
 
 References:
