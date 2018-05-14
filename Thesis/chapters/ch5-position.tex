@@ -167,6 +167,8 @@ Smartphone class mobile devices are treated in the engeener industry as a powerf
 
 There is no limitation in extending smartphones with internal sensorics. Acording to the Android 7.0 Compatibility Definition - TODO - there is no such sensoric that must be mounted and implemented into the Android system in order to be compatible with the operating system. It is also stated that device can contain as many various sensorics as producer wish under condition of having a compliant software implementation that deals with the sensorics. Although Android compatibility definition recognise some of them and recommends to be installed on the device. There are also technical requirements given under the sensorics recommendation in case of presence of such on the device.
 
+In sake of simplicity Android defines all of componentes providing external information to the device as sensors. Thus components such as GPS signal receiver or a processed and filtered sensor fusion outcome like in case of rotation vector (fusion of accelerometer and gyroscope data) are recognised as different kinds of sensors. Such abstract definition comes from the Sensor Stack which is the part of Android framework.
+
 Sensorics mentioned in the compatibility definition are:
 \begin{itemize}
  	\item Accelerometer,
@@ -174,21 +176,34 @@ Sensorics mentioned in the compatibility definition are:
 	\item GPS,
 	\item Gyroscope,
 	\item Barometer,
+	\item Thermometer,
+	\item Photometer,
 	\item Proximity Sensor,
 	\item Fingerprint Sensor,
 	\item 6-DOF Pose Sensor.
  \end{itemize}
 
-All of components listed above, except fignerprint sensor, can be used within the position finding system in order to give extra information about current physical state of the device. Compatibility definition guarantee some quality parameters of sensorics mounted in the mobile phone.
+All of components listed above, except fignerprint sensor, thermometer and photometer, can be used within the position finding system in order to give extra information about current physical state of the device. Compatibility definition guarantee some quality parameters of sensorics mounted in the mobile phone.
 
 3-axis accelerometer can be used to detect movement changes. It provides the information how big the change was in terms of force that the device was affected. Thanks to the information there can be identified if user made a step or to compute the speed of the user in some mean of transport like a robust car by computing integral function over time from detected acceleration. It is required from that sensor to raport events at least at 100 Hz frequency (recommended minimum frequency is 200 Hz), to detect forces in range of frefall case up to forces at value of four times the gravity (4g) or more on any axis, minimal outcome resolution is 12-bits (recommended minimum is 16-bits), should allow for online calibration and calibration parameters persistance, be temperature componsated and have a standard deviation no grated than $ 0.05 \frac{m}{s^2} $. Document defines also the maximum accepted amount of power that the sensor can consume during its operation - not more than 4 mW (recommended values are bellow 2 mW during the operation and bellow 0.5 mW when the device is in static condition).
 
 3-axis magnetometer (aka compass) provides the data concerning detected values of the magnetic field. Data available from the operating system level are expressed are in micro-Tesla({\mu}T). Sensor must be able to measure between -900 {\mu}T and +900 {\mu}T on each axis before saturating with the resolution of 0.6 {\mu}T (recommended 0.2 {\mu}T or denser). Magnetometer have to compensate hard iron and soft iron effects where hard iron offset have to be less than 700 {\mu}T. That value forces the producers to place the sensor in as far from current-induced and magnet-induced magnetic fields like speaker. Sensor installation have to support online calibration and compensation methods and store the parameters in persistent memory. It is required from the magnetometer to report at minimum frequency of 10 Hz (recommended 50 Hz).
 
-GPS/GNSS receiver are also not required component for a smartphone with Android 7.0 operating system. This receiver is also treated a one of the sensor. If the sensor is mounted then it is required to match set of time, reliability and accuracy constraints:
+GPS/GNSS receiver is not required component for a smartphone with Android 7.0 operating system. If the sensor is mounted then it is required to match set of time, reliability and accuracy requirements like:
 \begin{itemize}
-	\item Fast time to first fix requirement - sensor have to determine its position within maximum 10 secods. ...
+	\item Fast time to first fix requirement - sensor have to determine its position within maximum 10 secods,
+	\item Accuracy and responsiveness requirement - position have to be determined at least 95\% of the time under condition of acceleration up to $ 1 \frac{m}{s^2} $, within $ 20 m $ and speed $ 0.5 \frac{m}{s} $.
+	\item Robustness requitement - have to be allowed to track at least 8 satelites from one constellation simultaneusely (recommended 24 GPS satelites at the time and one from other global positioning system like Glonass, Beidou or Galileo).
 \end{itemize}
+It is assumed that the outcome of GPS "sensor" can be supported by the information issued from the Internet such as information about current sattelites position and can be based on some assised or predicted GPS technique.
+
+Gyroscope is an angular change sensor. If installed on the device it must be able to measure up to 1000 degree change per second, report at frequency not less than 100 Hz (recommended 200 Hz), provide information of 12-bit resolution (16-bits are recommended), be self calibrating and compensating during its work, march variance requirement defined as $ 1e^7 \frac{rad^2}{s^2} $ per 1 Hz.
+
+Barometer is an ambient air pressure sensor. It available is must report its measures at 5 Hz frequency, be temperature compensated and have "adequate precision" for altitude estimation.
+
+Proximity sensor gives the proximity information of an object in the same direction as the screen. The required accuracy is at least 1-bit meaning that proximity sensor produces simple outcome that is interpreted as boolean value expressed state wether the user is close to the devices screen or not.
+
+Pose sensor with 6 degrees of freedom (6-DOF) is an optional sensor that can be implemented in the Android compatible software. Sensor provides information about himself as part of the environment in perspective of end point of maniplator with 3 kinematic pairs, each with rotation possibilities. The method and related hardware is not discussed within the operating system compliance definition. The only rescriction stated to the sensor is that it have to be more accurate than rotation vector sensor. Basic implementation can make use of camera or depth sensor to compute the output value. Output is an quaretnion that express the rotation and a translation expressed in SI units. Sensor is used in virtual reality applications.
 
 Android compliant definition strongly recommends the procudents to provide implementations of 'composite sensors' such as step detector, significant motion detector, gravity, linear acceleration, rotation vector. These measures are an efect of digital processing of data from single sensor like accelerometer in case of step detector or a sensor fusioning basing on multiple sensors like on megnetometer and gyroscope in case of rotation vector and accelerometer and magnetometer in case of geomagnetic rotation vector. The operating system recognise already filtered and processed data directly an outcome from an composite sensor which is actually a form of abstraction that hides the details of data processing.
 
