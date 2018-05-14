@@ -207,13 +207,7 @@ Pose sensor with 6 degrees of freedom (6-DOF) is an optional sensor that can be 
 
 Android compliant definition strongly recommends the procudents to provide implementations of 'composite sensors' such as step detector, significant motion detector, gravity, linear acceleration, rotation vector. These measures are an efect of digital processing of data from single sensor like accelerometer in case of step detector or a sensor fusioning basing on multiple sensors like on megnetometer and gyroscope in case of rotation vector and accelerometer and magnetometer in case of geomagnetic rotation vector. The operating system recognise already filtered and processed data directly an outcome from an composite sensor which is actually a form of abstraction that hides the details of data processing.
 
-Management of sensorics have to be implemented in a compliant manner in order to allow the operating system to interact with those sensorics. In case of Android 7.0, output of an accelerometer and magnetometer have to be normalized and presented to the system in the "Android sensor coordinate system" format. It means that the raw data are firstly filtered and then processed. Such prepared data are accesible for both operating system and the application developers.
-
-
-\begin{itemize}
-	\item What sensorics are present in mobile device.
-	\item Which of them will be useful to increase positioning accuracy
-\end{itemize}
+Management of sensorics have to be implemented in a compliant manner in order to allow the operating system to interact with those sensorics. All of the sensor outcome are yet processed, normalized and expressed in a defined way like in case of an accelerometer and magnetometer where output is expressed within the "Android sensor coordinate system" format.
 
 - todo - filtering; sensor fusion
 
@@ -225,6 +219,7 @@ TODO - describe each of cons
 
 
 \begin{itemize}
+	\item Which of them will be useful to increase positioning accuracy
 	\item Why mobile device is good for positioning purposes? What are the factors?
 	\item What means of communication (ex. wireless) can be used in context of positioning system
 	\item Battery limitations
@@ -294,19 +289,29 @@ Position finding system bases on idea of interaction between mobile device and t
 
 % section position_finding_requirements (end)
 
-\section{Simple position finding algorithm implementation} % (fold)
-\label{sec:simple_position_finding_algorithm_implementation}
+\section{Solution architecture} % (fold)
+\label{sec:solution_architecture}
 
 * Simple algorithm will use localization system only (no internal sensors)
-
-% section simple_position_finding_algorithm_implementation (end)
-
-\section{Extended position finding algorithm implementation} % (fold)
-\label{sec:extended_position_finding_algorithm_implementation}
-
 * Algorithm will use localization system and internal sensors
 
-% section extended_position_finding_algorithm_implementation (end)
+% section solution_architecture (end)
+
+\section{External solution infrastructure} % (fold)
+\label{sec:external_solution_infrastructure}
+
+% section external_solution_infrastructure (end)
+
+\section{Data processing and analysis} % (fold)
+\label{sec:data_processing}
+
+% section data_processing (end)
+
+\section{Position finding algorithm implementation} % (fold)
+\label{sec:simple_position_finding_algorithm_implementation}
+
+Description of android framework, project components, problems occured, pitfails and remedies
+% section simple_position_finding_algorithm_implementation (end)
 
 \chapter{Localization system tests}
 
