@@ -193,7 +193,7 @@ GPS/GNSS receiver is not required component for a smartphone with Android 7.0 op
 \begin{itemize}
 	\item Fast time to first fix requirement - sensor have to determine its position within maximum 10 secods,
 	\item Accuracy and responsiveness requirement - position have to be determined at least 95\% of the time under condition of acceleration up to $ 1 \frac{m}{s^2} $, within $ 20 m $ and speed $ 0.5 \frac{m}{s} $.
-	\item Robustness requitement - have to be allowed to track at least 8 satelites from one constellation simultaneusely (recommended 24 GPS satelites at the time and one from other global positioning system like Glonass, Beidou or Galileo).
+	\item Robustness requitement - have to be allowed to track at least 8 satelites from one constellation simultaneusely (recommended 24 GPS satelites at the time and one from other global positioning satelite system like Glonass, Beidou or Galileo).
 \end{itemize}
 It is assumed that the outcome of GPS "sensor" can be supported by the information issued from the Internet such as information about current sattelites position and can be based on some assised or predicted GPS technique.
 
@@ -209,10 +209,24 @@ Android compliant definition strongly recommends the procudents to provide imple
 
 Management of sensorics have to be implemented in a compliant manner in order to allow the operating system to interact with those sensorics. All of the sensor outcome are yet processed, normalized and expressed in a defined way like in case of an accelerometer and magnetometer where output is expressed within the "Android sensor coordinate system" format.
 
-- todo - filtering; sensor fusion
 
+\subsection{Abilities and limitations of smartphone class mobile device in context of available positioning methods}
 
-\subsection{Abilities and limitations of mobile device in context of available positioning methods}
+In sake of generalization this paper investigate case of regular consumer grade smartphone which are devices with a common setup compliant with Android 7.0 operating system. No specialized devices are taken into consideration.
+
+Wireless technology is a common way for exchanging the data between the handheld mobile device and the envioronment. There are available GPS, Bluetooth, WiFi and terrestrial networks(GSM related) technologies. In case of underground each of these technologies has to be installed explicitely beacause bellow the ground none of these signals are available. GNSS (Global Navigation Satelite System) signal receiver is not usefull under the ground as there is no signal from sattelites available. There are tryies to make use of that technology by re-sending the acquired GNSS positioning data from sattelites in indoor environment by a set of transmitters that mimic sattelites \cite{GPS_retransmission} but it cannot be applied to the consumer grade smartphone as the Android applications have access to already processed pseudorange data into sattelite positions. Such solution is called Glonal Navigation Satelite System based indoor positioning system (GNSS-IPS)\cite{GPS_retransmission_differential}. Approach where transmitters places on ground fake sattelite signal is known as pseudolite. In case of indoor environment positioning data acquired from sattelites are drifted due to the fact of non-line-of-sight that is why position obtained indoor is called as pseudo-position. There are known tryies of using this approach in order to obtain positioning data but there is not known any sucessful implementation in underground environment.
+
+Terrestrial networks, like GSM, can be also used as a source of positioning information but it requires some modification in order to shortcome problems with high variance of the signal. There is no possibility to do modification on that level to the Android software on devices available on the market nevertheless some prototype installations of extended terrestial network by positioning information were done and sucessful \cite{terrestrial_positioning}\cite{terrestrial_positioning_tdoa}.
+
+Smartphone class devices are equiped with cameras. Images that captured by the cameras can be used for positioning purposes. There are known solutions that make use of visible light \cite{visible_light_positioning} that recognise source of light like LED which are called LED beacons and compute the position basing on the angle-of-arrival (AOA) algotithm.
+
+Thanks to the presence of intertial sensors such as accelerometers and gyroscopes there are known implementations inertial navigation. Pedestrian Dead Recokoning (PDR) is based on the measures from the accelerometer which allows for step detection and an estimation of a step length \cite{inertial_navi_unaided} \cite{inertial_navi_pocket}.
+
+Positioning techniques that invole following devices are not useful or cannot be connected to the mobile devices:
+\begin{itemize}
+	\item laser scanner as long as it requires stable position for doing the environmental mapping and recognition and it needs to explicitly be extended to some wireless communication module,
+	\item ultrasonic sensor as long as it requires stable position in order to measure signal travel time correctly and needs means of computational resources in order to process the raw data and send them thorugh some wireless connection to the mobile phone.
+\end{itemize}
 
 TODO - describe each of pros
 TODO - describe each of cons
@@ -304,6 +318,8 @@ Position finding system bases on idea of interaction between mobile device and t
 
 \section{Data processing and analysis} % (fold)
 \label{sec:data_processing}
+
+- todo - filtering; sensor fusion
 
 % section data_processing (end)
 
