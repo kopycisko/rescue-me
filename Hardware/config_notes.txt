@@ -1,0 +1,78 @@
+Eddystone;
+Last service;
+Characteristics:
+0000 fffX
+1. UUID
+2. Major
+3. Minor
+4. Mpower
+//Measured Power is a RSSI when the distance is 1 meter
+
+5. Device name
+6. Adver power
+"01"represent -40db;
+"02"represent -30db;
+"03" represent -20db;
+"04"represent -16db;
+"05"represent -12db;
+"06"represent -8db;
+"07"represent -4db;
+"08"represent 0db;
+"09"represent +4db.
+
+7. Password
+wyślij kod:
+AA140611
+8. Frequence
+Default: 0x0A
+9. Reset
+10. Company ID
+11. Deploy mode
+12. Eddystone URL
+13. Eddystone UID
+
+___
+Radioland ibeacon
+Set name: 0x11 42 34
+Set frequency: 0x16 02
+Set power: 0x17
+
+51822 can write：
+0xD8 represent -30dBm
+0xEC represent -20dBm
+0xF0 represent -16dBm
+0xF4 represent -12dBm
+0xF8 represent -8dBm
+0xFC represent -4dBm
+0x00 represent 0dBm
+0x04 represent 4dBm
+
+__
+Bytereal BR521325
+0000ff XX
+a1. Auth Code
+a2. Auth Time
+a3. ADV Type
+b1. Major and minor ID
+b2. iBeacon UUID
+b3. Advert interval
+default: 0x0A; 100 ms interval is an integer multiple of the broadcast
+b4. Device ID (name)
+example: iBeacons # [with "#" End]
+
+b5. Deploy mode
+b8. Measure Power
+ex: 0xC5 [default value: 0xC5, namely TX Power= -59]
+b9. Tx Power
+default: 0x02
+
+bb. Advert Blink
+default: 0x00
+bc. MAC
+bf. Soft Restart
+
+
+
+
+
+
