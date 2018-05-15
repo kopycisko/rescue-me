@@ -62,7 +62,7 @@ Considering reference points:
 %BLE
 %ZigBee
 
-\subsection{WiFi access points and WiFi fingerprinting} % (fold)
+\subsection{WiFi signal strength analysis and WiFi fingerprinting} % (fold)
 \label{sub:wifi_fingerprinting}
 
 WiFi network infrastructure is a one of the available solutions that can be used as a source of information about current position of the device. The basic solution for positioning with use of this technology is about recognising wireless lan network access points by thier SSID or physical address of network cards \cite{WLAN_fingerprinting}. As there exists working position finding solution that base on that technology the accuracy of the solution is about 100-300 meters \cite{thesis_tablet_positioning}.
@@ -102,6 +102,21 @@ One of the approaches for the Wireless LAN based positioniong system is to assum
 
 
 % subsection wifi_fingerprinting (end)
+
+\section{Positioning with Beacons and Bluetooth technology} % (fold)
+\label{sec:positioning_with_beacons_and_bluetooth_technology}
+
+Beacons are transmitters that use Bluetooth low energy technology in order to send out small set of informations. They are designed to be small and energy efficient in order to allow them to be independent from the external power source. The main application of beacons are indoor positioning systems while beacons can be treated as a set of reference points building the static infrastructe of landmarks where the position is a funtion of received signal strength from beacons by the user. Beacons can be also attached to the non static objects or even user can emmit beacon information. Then the responsibility of position estimation lies on the infrastructure that gathers the signals.
+
+Common way of estimating the position is taking into account the measure of received signal strength from the beacon transmitter called RSSI (received signal strength indicator). RSSI denotes the power of received radio signal measured in dBm (decibel-miliwatts). The measure is actually the raw value that express the powerd inducted on the receivers antenna as a result of transmission. None additional sensors are required to take that measure. Value is available on most of wireless technologies as a part of diagnotic report serving as indicator how good the connection is. The higher the RSSI value then the higher the signal strength so transmitter is closer to the receiver. Such relation between the RSSI value and the distance is known under a various of models that tries to describe the propagation of electromagnetic radio waves with use of some statisic and probabilitic distribution \cite{RSSI_path_loss_prediction_model}. Such models are needed because of calculus complexity while using actual physical model of the phenomena. In order to perform physical calculus there is need detailed description of the envioronment including every element that may influance the radio wave propagation. Calculus could include d'Alembert equation for signal power density on limited space which requires 6 variables concerning distance and time in 3 axis. Calculus should take into account presence of radio wave diffractions and attenuations on materials present in the indoor envioronment. As the propagation space is not ideal and the amount of elements influences the propagation is large such calculations are not being performed.
+
+Example of statisically obtained model that descibes relation between received signal strength is \textit{Log-distance path loss model}:
+
+$$ RSSI = -10 n \log_{10} (\frac{d}{d_0}) + A_0 $$
+
+where $ d $ is the distance between the receiver and transmitter, $A_0$ is a reference RSSI value measured at $d_0$ distance from the transmitter, $n$ is the signal propagation exponent.
+
+% section positioning_with_beacons_and_bluetooth_technology (end)
 
 \subsection{RFID tags} % (fold)
 \label{sub:rfid_tags}
