@@ -346,8 +346,91 @@ Description of android framework, project components, problems occured, pitfails
 
 \chapter{Localization system tests}
 
+In order to check if the proposed solution is good enough to estimate the position of the mobile phone there was performed tests of chosen hardware components as well as proposed infrastructure that extends the environment and serve as the referencing system. There were performed tests of inertial navigation part of the solution by reviewing the outcome of the internal sensorics of the chosen smartphone under perspective of thier applicability to the positioning estimation algorithm. Finally there were performed tests the prototype software application that combines both environmental information from the reference points and the inertial navigation in the real environment, in underground part of Stara Kopalnia museum placed on the site of the former Coal Mine in Wałbrzych.
+
 \section{Tests criteria and assumptions} % (fold)
 \label{sec:tests_criteria_and_assumptions}
+
+In order to test the reference system infrastructure there was need to test reference point device (Beacon transmitter) in context of interaction between this device and the receiver (Smartphone). For the hardware testing, there were following factors being specified:
+\begin{itemize}
+	\item receiver distance from the transmitter,
+	\item receiver antenna orientation,
+	\item receiver type,
+	\item transmitter type,
+	\item transmitter power,
+	\item transmitter placement,
+	\item transmitter antenna direction,
+	\item distance between transmitters.
+\end{itemize}
+
+Those factors were assumed that impacts the final received signal strength value.
+
+According to \textit{Log-distance path loss model} \cite{RSSI_path_loss_prediction_model} the distance between receiver and transmitter is the major factor that impacts on the signal strength. There was need to check how distance impacts on the signal strength in the desired environment in the underground corridor.
+
+As the Beacon operates on the 2,4 GHz fequency then it is assumed that all of the transmission path elements can impact on the resultant power strength. That is why during the tests there was checked if different antenna orientations of the transmitter and  receiver causes different results. In case of the transmitter antenna orientation there were tested two cases:
+\begin{enumerate}
+	\item vertical orientation where antenna points to the floor
+\end{enumerate}
+
+During tests there were tested omni directional antennas as they are commonly being in use for Bluetooth technology
+
+TODO: https://superuser.com/questions/805935/how-to-directinize-bluetooth-signal
+
+Hardware tests were designed in a manner that each of those factors were tested separately. There were performed following test cases:
+
+\begin{itemize}
+	\item Obtain signal attenuation curve with respect of the power of the transmitter by measuring the received signal stregth at given distances from the signal source.
+	\item Signal range per given transmitter power setting and receiver in „pocket” orientation. Dynamic tests in a sequence: * 5 sec under the transmitter, * move 5 meters away (actor is an obstacle), * 5 sec on 5 meters distance
+
+% case 1. There were selected two transmitter power settings for this test case.P ower density measured on discrete distances from signal source
+* -12dBm transmitter power
+* -16dBm transmitter power
+* -20dBm transmitter power
+* -30dBm transmitter power
+Singal range per given transmitter power setting and different receiver orientation. Static test: directly under the transmitter
+* -12dBm transmitter power; orientation: -
+* -12dBm transmitter power; orientation: |
+* -12dBm transmitter power; orientation: P
+* -16dBm transmitter power; orientation: -
+* -16dBm transmitter power; orientation: |
+* -16dBm transmitter power; orientation: P
+* -20dBm transmitter power; orientation: -
+* -20dBm transmitter power; orientation: |
+* -20dBm transmitter power; orientation: P
+* -30dBm transmitter power; orientation: -
+* -30dBm transmitter power; orientation: |
+* -30dBm transmitter power; orientation: P
+Line of sight (LOS) test. Tests performed with no LOS condition. Rest parameters same as in test 1,1. Test is designed to be compared with results of analogue test no. 1,1
+* With LOS (source not shadowed, same as 1.1)
+* Without LOS (source not visible due to corridor shape)
+Impact of actor position; obtain attenuation curve in case where an actor is an obstacle between transmitter and receiver
+* 4dBm transmitter power; power density measured on discrete distances from signal source
+* 4dBm transmitter power; power density measured on discrete distances from signal source; actor in an obstacle
+Obtain transmitter signal attenuation curve per different transmitter antenna directions for transmitter mounted on ceiling
+↓direction
+→direction
+Obtain transmitter signal attenuation curve per different transmitter antenna directions for transmitter mounted on wall
+↓direction
+→direction
+Obtain transmitter signal attenuation curve for different transmitters microcontrollers and hardware
+* B1
+* B2  - default transmitter power (not changed for tests)
+* B3 – was set to -8dBm, but result was observable like -16dBm in B1
+* B4
+Obtain transmitter signal attenuation curve for different reicevers (smartphones)
+* Samsung Galaxy S7 (BLE 4.1)
+* Blackberry Z10 (BLE 4.0)
+Dynamic tests with 3 beacons. Tested two distances between beacons. Tests start with 5s measurement of signal strength 20m before first transmitter, consists of walk along corridor (70/80m), ends with 5s measurement of signal strength 20m after last transmitter
+* transmitter in 10m intervals (two tests: there + way back)
+* transmitter in 15m intervals (two test: there + way backs)
+Dynamic tests with 3 beacons. Tested two orientations of receiver. Tests start with 5s measurement of signal strength 20m before first transmitter, consists of walk along corridor (70m), ends with 5s measurement of signal strength 20m after last transmitter
+* F-/B- (due to movement) receiver orientation
+* P receiver orientation
+Wall and ceiling transmitter placement comparison
+* transmitter on the ceiling
+* transmitter on the wall
+
+\end{itemize}
 
 \begin{itemize}
 	\item Define factors that are important to state if solution is good or not
