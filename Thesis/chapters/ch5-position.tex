@@ -120,8 +120,7 @@ where $ d $ is the distance between the receiver and transmitter, $A_0$ is a ref
 
 Bluetooth technology was developed and is maintened by the Bluetooth Special Interest Group (Bluetooth SIG) which is the standard organisation capable for licensing the Bluetooth technologies and trademarks to the manufacturers. Bluetooth technology operates on frequencies from 2,4GHz to 2,4835GHZ which was devided into into 80 channels. In order to adopt transmission channel to the current load on given frequencies, Bluetooth implement a mechanism called \textit{Adaptive Frequency Hopping} which allows to change channels being in use during the transmission without interrupting it. Subsequent Bluetooth technologies are aimed to ensure bigger data transfer, lower energy use and increase the transmission security. Since version 4.0 if Bluetooth standard there is availablable special protocol that is optimised for lower power consumption. This protocol is called \textit{Bluetooth Low Energy} while the whole Bluetooth 4.0 standard including classic and high speed protocols is called \textit{Bluetooth Smart}. Since 5.0 version of the standard the set of the protocols are called just \textit{Bluetooth 5}. Market is dominated with Beacons that use Bluetooth Low Energy protocol in version 4.0 that is why this paper focuses only on this version of protocol.
 
-
-
+Bluetooth is as set of profiles. Each version of the technology contain definitions of profiles that are up to date to that version and optionally are reverse compatible with older ones. Each profile describe what communication protocols and data format it use. Protocols available for the profiles are also defined by the Bluetooth technology. Bluetooth Low Energy protocol use \textit{Generic Attribute Profile (GATT)} which is a set of services that can be used within the transaction between devices. Service is a name for collection of characteristics that express state of device. Bluetooth defines 59 services within the GATT such as TPS (Tx Power Service), IPS (Indoor Positioning Service) or HRS (Heart Rate Service). Services are idenfied by their UUID number which must be unique. Despite the defined service, there is a possibility to create own services. Characteristics are defined with given format type, properties and security permissions. There are available such format types as signed or unsigned integer ranging between 1 and 8 bytes, float, string or a structure. Allowed properties of the characteristics describe if the value within the characterisic can be readed (read property), changed (write property), required acknowledgement (indicate property) or being in use just for notification purposes (notify property). There is possibility to add custom properties as well. Security persmissions part of the characteristic definition are about definining if given property can be executed with or without an authentication. For example Measurement Interval characteristic of the Health Thermometer Service is defined with Read, Indicate and Write properties and security permissions stating that there is not required any authentication for reading but it is needed for writing.
 
 % section positioning_with_beacons_and_bluetooth_technology (end)
 
@@ -250,7 +249,7 @@ Positioning techniques that invole following devices are not useful or cannot be
 	\item ultrasonic sensor as long as it requires stable position in order to measure signal travel time correctly and needs means of computational resources in order to process the raw data and send them thorugh some wireless connection to the mobile phone.
 \end{itemize}
 
-Support for the Beacons.
+Smartphones provides support for Beacons - simple Bluetooth Low Energy devices. There are available libraries that allows monitoring of Bluetooth devices. There are available two modes for searching for Beacons: region monitoring and ranging. Region monitoring is an energy efficient way for searching for Beacons. It allows for long delays between consequent listening periods (like 10 seconds), turning receiver into sleep mode, and background service being active while the positioning application is turned off. In case where positioning application is turned off, the background service inform user that his smartphone found himself in the range of given Beacon region and run the positioning application. Such functionality is often implemented by shopping malls official applications allowing for location aware push-messages. Such advertising technique is called \textit{geofencing} \cite{beacon_rssi_analysis}. Region monitoring gives a rough information wether there is or there is not any Beacon device being in range. On the other hand, ranging gives details about all devices being in range with details such as RSSI, name, and other, protocol dependent data. Ranging use more receiver power as listening time is bigger (like 1 second) and there are smaller time intervals between consequent listening sessions (like 10 milliseconds).
 
 TODO - describe each of pros
 TODO - describe each of cons
@@ -330,20 +329,33 @@ Position finding system bases on idea of interaction between mobile device and t
 \section{Solution architecture} % (fold)
 \label{sec:solution_architecture}
 
-* Simple algorithm will use localization system only (no internal sensors)
-* Algorithm will use localization system and internal sensors
+\begin{itemize}
+	\item Simple algorithm will use localization system only (no internal sensors)
+	\item Algorithm will use localization system and internal sensors
+	\item Explain how beacons will interact with the positioning system
+\end{itemize}
 
 % section solution_architecture (end)
 
 \section{External solution infrastructure} % (fold)
 \label{sec:external_solution_infrastructure}
 
+There is need to mention in this secion
+\begin{itemize}
+	\item Beacons choisen as the hardware equipment.
+	\item Constraints assumed - power settings, batteries sizes (capacities), distances, placement, etc
+	\item Draw schematic way of infrastructure placement
+	\item Mention someting about installation and maintenance procedure
+	\item How beacons will be recognisable (names). What other parameters will they contain
+\end{itemize}
 % section external_solution_infrastructure (end)
 
 \section{Data processing and analysis} % (fold)
 \label{sec:data_processing}
 
-- todo - filtering; sensor fusion
+\begin{itemize}
+	\item - todo - filtering; sensor fusion
+\end{itemize}
 
 % section data_processing (end)
 
