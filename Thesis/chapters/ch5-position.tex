@@ -122,6 +122,8 @@ Bluetooth technology was developed and is maintened by the Bluetooth Special Int
 
 Bluetooth is as set of profiles. Each version of the technology contain definitions of profiles that are up to date to that version and optionally are reverse compatible with older ones. Each profile describe what communication protocols and data format it use. Protocols available for the profiles are also defined by the Bluetooth technology. Bluetooth Low Energy protocol use \textit{Generic Attribute Profile (GATT)} which is a set of services that can be used within the transaction between devices. Service is a name for collection of characteristics that express state of device. Bluetooth defines 59 services within the GATT such as TPS (Tx Power Service), IPS (Indoor Positioning Service) or HRS (Heart Rate Service). Services are idenfied by their UUID number which must be unique. Despite the defined service, there is a possibility to create own services. Characteristics are defined with given format type, properties and security permissions. There are available such format types as signed or unsigned integer ranging between 1 and 8 bytes, float, string or a structure. Allowed properties of the characteristics describe if the value within the characterisic can be readed (read property), changed (write property), required acknowledgement (indicate property) or being in use just for notification purposes (notify property). There is possibility to add custom properties as well. Security persmissions part of the characteristic definition are about definining if given property can be executed with or without an authentication. For example Measurement Interval characteristic of the Health Thermometer Service is defined with Read, Indicate and Write properties and security permissions stating that there is not required any authentication for reading but it is needed for writing.
 
+Broadcast messages are way how Bluetooth Low Energy devices communicate with them selves. In order to distinguish types of messages they use different format of this message. On the market of Beacons there are two major protocols that defines broadcast message format. The first -- \textit{iBeacon} -- was developed by Apple and the second -- \textit{Eddystone} -- was developed by Google. Those broadcast messages formats are the basis for creating "Ranges" definitions explained in details in section \ref{subs:smartphone_abilities_and_limitations}.
+
 % section positioning_with_beacons_and_bluetooth_technology (end)
 
 \subsection{RFID tags} % (fold)
@@ -232,6 +234,7 @@ Management of sensorics have to be implemented in a compliant manner in order to
 
 
 \subsection{Abilities and limitations of smartphone class mobile device in context of available positioning methods}
+\label{subs:smartphone_abilities_and_limitations}
 
 In sake of generalization this paper investigate case of regular consumer grade smartphone which are devices with a common setup compliant with Android 7.0 operating system. No specialized devices are taken into consideration.
 
