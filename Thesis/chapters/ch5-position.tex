@@ -210,7 +210,7 @@ All of components listed above, except fignerprint sensor, thermometer and photo
 
 3-axis accelerometer can be used to detect movement changes. It provides the information how big the change was in terms of force that the device was affected. Thanks to the information there can be identified if user made a step or to compute the speed of the user in some mean of transport like a robust car by computing integral function over time from detected acceleration. It is required from that sensor to raport events at least at 100 Hz frequency (recommended minimum frequency is 200 Hz), to detect forces in range of frefall case up to forces at value of four times the gravity (4g) or more on any axis, minimal outcome resolution is 12-bits (recommended minimum is 16-bits), should allow for online calibration and calibration parameters persistance, be temperature componsated and have a standard deviation no grated than $ 0.05 \frac{m}{s^2} $. Document defines also the maximum accepted amount of power that the sensor can consume during its operation - not more than 4 mW (recommended values are bellow 2 mW during the operation and bellow 0.5 mW when the device is in static condition).
 
-3-axis magnetometer (aka compass) provides the data concerning detected values of the magnetic field. Data available from the operating system level are expressed are in micro-Tesla({\mu}T). Sensor must be able to measure between -900 {\mu}T and +900 {\mu}T on each axis before saturating with the resolution of 0.6 {\mu}T (recommended 0.2 {\mu}T or denser). Magnetometer have to compensate hard iron and soft iron effects where hard iron offset have to be less than 700 {\mu}T. That value forces the producers to place the sensor in as far from current-induced and magnet-induced magnetic fields like speaker. Sensor installation have to support online calibration and compensation methods and store the parameters in persistent memory. It is required from the magnetometer to report at minimum frequency of 10 Hz (recommended 50 Hz).
+3-axis magnetometer (aka compass) provides the data concerning detected values of the magnetic field. Data available from the operating system level are expressed are in micro-Tesla($\mu T$). Sensor must be able to measure between -900 $\mu T$ and +900 $\mu T$ on each axis before saturating with the resolution of 0.6 $\mu T$ (recommended 0.2 $\mu T$ or denser). Magnetometer have to compensate hard iron and soft iron effects where hard iron offset have to be less than 700 $\mu T$. That value forces the producers to place the sensor in as far from current-induced and magnet-induced magnetic fields like speaker. Sensor installation have to support online calibration and compensation methods and store the parameters in persistent memory. It is required from the magnetometer to report at minimum frequency of 10 Hz (recommended 50 Hz).
 
 GPS/GNSS receiver is not required component for a smartphone with Android 7.0 operating system. If the sensor is mounted then it is required to match set of time, reliability and accuracy requirements like:
 \begin{itemize}
@@ -393,10 +393,20 @@ According to \textit{Log-distance path loss model} \cite{RSSI_path_loss_predicti
 
 As the Beacon operates on the 2,4 GHz fequency then it is assumed that all of the transmission path elements can impact on the resultant power strength. That is why during the tests there was checked if different antenna orientations of the transmitter and  receiver causes different results. In case of the transmitter antenna orientation there were tested two cases:
 \begin{enumerate}
-	\item vertical orientation where antenna points to the floor
+	\item vertical orientation where antenna points to the floor,
+	\item horizontal orientation where antenna points to the wall (or the oposite wall in case of mounting the antenna on the wall).
 \end{enumerate}
 
-During tests there were tested omni directional antennas as they are commonly being in use for Bluetooth technology
+During tests there were tested omni directional antennas build into Beacon and mobile phone hardware as they are commonly used in Beacons as well as in Smartphones devices. It was also experimentally proven that in case of 2,4 GHz wireless technologies in underground envioronment directional antennas do not increase usable coverage as well as sector anntennas \cite{Thesis_CM}.
+
+As the proposed solution have to be applicable for different models of Smartphone devices it is not acceptable to force users to held their devices in a given position with respect of the direction of the Bluetooth antennas build into them. Producents are free in terms of designing the Smartphones main boards including the antennas placement. Such informations are not published. Even having the possibility to open the device and look for the antenna it is diffcult to distinguish the antenna used for Bluetooth from the other used for example for terrestrial mobile networks. In case of Beacons, antenna placement is visible from the first sight. On figure \ref{fig:beacons_used_in_tests} antenna placements was highlighted. In case of Beacon 1 and 3 there are mounted meander monopol antennas, in case of Beacon 2 there is mounted called meander "IFA" -- \textit{Inverted-F antenna}, in case of Beacon 4 antenna is not visible on the picture.
+
+\begin{figure}[ht]
+\includegraphics[width=\textwidth, keepaspectratio]{pictures/beacons_used_in_tests.pdf}
+\centering
+\caption{Beacons transmitters used during tests. Beacon 1 is a Wellcore procduct based on Nordic NRF51822 chip, Beacon 2 is a ByteReal product based on Dialog Semiconductor DA14580 chip, Beacon 3 is a Wellcore product based on Nordic NRF51822 chip, Beacon 4 is a Radioland product based on Texas Instruments TI2640 chip. On pictures there are highlighted antennas placement.}
+\label{fig:beacons_used_in_tests}
+\end{figure}
 
 TODO: https://superuser.com/questions/805935/how-to-directinize-bluetooth-signal
 
