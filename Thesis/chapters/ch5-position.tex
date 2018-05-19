@@ -428,12 +428,12 @@ As the proposed solution have to be applicable for different models of Smartphon
 \label{fig:beacons_used_in_tests}
 \end{figure}
 
-There are a few big microcontroller producents on the market that offers compound units having integrated computational resources, programming busses and data exchange solutions including Bluetooth Low Energy wireless module. The main three competitors are Nordic Semicondutor with NRF chips, Dialog Semicondutor with DA chips and Texas Instruments with TI and CC chips. They compete on fields of power consumtion, usability in terms of set of integrated modules, computational power and permament storage size of their products. Those integrated circuts are used by Beacon producents as the main processing units with implemented Bluetooth protocols and stack and set of profiles that allows the users to configure Beacon parameters such as name or transmitter power and get information from extra sensorincs measures build into the Beacon like temperature or battery level. Integrated circuts are the part of PCB which also contains a battery slot, power circut and antenna circut. For tests there were chosen Beacons offered by the various producents form China thus their products were easily available via the Internet and they were cheaper than from producents from Europe or U.S. like Estimote or Texas Instruments\cite{beacons_ble_evaluation}. Aim of tests with different Beacons was to check how much PCB design influences results in terms of antenna radiation, signal coverage and stability. During tests there were used following beacons:
+There are a few big microcontroller producents on the market that offers compound units having integrated computational resources, programming busses and data exchange solutions including Bluetooth Low Energy wireless module. The main three competitors are Nordic Semicondutor with NRF chips, Dialog Semicondutor with DA chips and Texas Instruments with TI and CC chips. They compete on fields of power consumtion, usability in terms of set of integrated modules, computational power and permament storage size of their products. Those integrated circuts are used by Beacon producents as the main processing units with implemented Bluetooth protocols and stack and set of profiles that allows the users to configure Beacon parameters such as name or transmitter power and get information from extra sensorincs measures build into the Beacon like temperature or battery level. Integrated circuts are the part of PCB which also contains a battery slot, power circut and antenna circut. For tests there were chosen Beacons offered by the various producents form China thus their products were easily available via the Internet and they were cheaper than from producents from Europe or U.S. like Estimote or Texas Instruments\cite{beacons_ble_evaluation}. Aim of tests with different Beacons was to check how much PCB design influences results in terms of antenna radiation, signal coverage and stability. In order to distinguish beacons during tests, each of them was labeled. There were used following beacons:
 \begin{enumerate}
-	\item Wellcore beacon based on Nordic Semiconductor NRF51822 chip, with a 8500 mAh, 3,6V lithium battery (cost: 7 \$),
-	\item ByteReal beacon based on Dialog Semiconductor DA14580 chip, with a standard CR2477 battery (950 mAh, 3 V, cost: 8,25 \$),
-	\item Wellcore beacon based on Nordic Semiconductor NRF51822 chip, with two standard CR277 batteries (1900 mAh, 3 V, cost: 10 \$),
-	\item Radioland beacon based on Texas Instruments TI2640 chip, with a standard CR2032 battery (220 mAh, 3 V, cost: 6,78 \$).
+	\item Wellcore beacon based on Nordic Semiconductor NRF51822 chip, with a 8500 mAh, 3,6V lithium battery (cost: 7\$, labeled as $B1$),
+	\item ByteReal beacon based on Dialog Semiconductor DA14580 chip, with a standard CR2477 battery (950 mAh, 3 V, cost: 8,25\$, labeled as $B2$),
+	\item Wellcore beacon based on Nordic Semiconductor NRF51822 chip, with two standard CR277 batteries (1900 mAh, 3 V, cost: 10\$, labeled as $B3$),
+	\item Radioland beacon based on Texas Instruments TI2640 chip, with a standard CR2032 battery (220 mAh, 3 V, cost: 6,78\$, labeled as $B4$).
 \end{enumerate}
 
 During tests there were following smartphone related factors taken into consideration: smartphone orientation and smartphone model. There was tested how differs received signal strength with when smartphone is hold horizontally (screen points to the ceiling), vertically (screen points to the user) or is kept in the pocket. There were also performed beacon ranging tests with use of two different smarphone devices: Samsung Galaxy S7 and Blackberry Z10. Samsung is equiped with Bluetooth 4.1 while Blackberry is equiped with Bluetooth 4.0. The aim of this test was to compare the result in order to check how different construction impact on the received signal strength. There was need to verify assumption about having defined constraint values on received signal that regardless the smartphone model will allow to qualify distance from signal source basing on acquired signal value.
@@ -503,6 +503,27 @@ Hardware tests were designed in a manner that each of those factors were tested 
 
 \section{Tests metodology} % (fold)
 \label{sec:tests_metodology}
+
+Tests were performed in part of XVIII century exchavation corridor which is available for sighseeing as a part of Stara Kopalnia museum in Walbrzych in Poland. Corridor used during tests is placed 10 m bellow the ground and it is 185,7 m long. Corridor is 3,2 m high and 3,2 m wide. Corridors goes up on it's north side so this part of the corridor was used only once during line of sight test case. There is also one "T" shaped crossection with a similiar corridor that is 157 m meter length.
+
+During the tests in the corridor there was $10^\circ$C  and $71 \%$ of humadity. In order to avoid diffractions from corridors endings, transmitters were placed in the middle of the corridor at it's 90 m.
+
+During the test there was used
+\begin{itemize}
+	\item  measuring wheel for measuring the distance between subsequent distances taken into consideration for signal attenuation charts,
+	\item smartphones with application that was collecting and storing the data (Bluetooth Low Energy receivers) and
+	\item prepared beacons -- Bluetooth Low Energy transmitters.
+\end{itemize}
+
+Beacons were prepared in a manner that their names were changed into B1(1), B1(2), B1(3), B2, B3 and B4 in order to distinguish them during evaluation. Beacon names were included into advertisment frame, which were then written into log files from the signal recording sessions.
+
+\begin{figure}[ht]
+\includegraphics[width=\textwidth, keepaspectratio]{pictures/corridor.pdf}
+\centering
+\caption{Test place scheme.}
+\label{fig:corridor}
+\end{figure}
+
 
 \begin{itemize}
 	\item Testing environment descipription
