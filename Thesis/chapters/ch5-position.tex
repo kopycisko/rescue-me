@@ -142,6 +142,8 @@ $RSSI$ is a measure obtained during receiving process and $n$ is a constance.
 	\item passing address of a web site related to the Beacon.
 \end{itemize}
 
+
+
 % section positioning_with_beacons_and_bluetooth_technology (end)
 
 \subsection{RFID tags} % (fold)
@@ -396,8 +398,8 @@ In order to check if the proposed solution is good enough to estimate the positi
 In order to test the reference system infrastructure there was need to test reference point device (Beacon transmitter) in context of interaction between this device and the receiver (Smartphone). For the hardware testing, there were following factors being specified:
 \begin{itemize}
 	\item receiver distance from the transmitter,
-	\item receiver antenna orientation,
-	\item receiver type,
+	\item smartphone orientation,
+	\item smartphone model,
 	\item transmitter type,
 	\item transmitter power,
 	\item transmitter placement,
@@ -422,67 +424,74 @@ As the proposed solution have to be applicable for different models of Smartphon
 \begin{figure}[ht]
 \includegraphics[width=\textwidth, keepaspectratio]{pictures/beacons_used_in_tests.pdf}
 \centering
-\caption{Beacons transmitters used during tests. Beacon 1 is a Wellcore procduct based on Nordic NRF51822 chip, Beacon 2 is a ByteReal product based on Dialog Semiconductor DA14580 chip, Beacon 3 is a Wellcore product based on Nordic NRF51822 chip, Beacon 4 is a Radioland product based on Texas Instruments TI2640 chip. On pictures there are highlighted antennas placement.}
+\caption{Beacons transmitters used during tests. Beacon 1 is a Wellcore procduct based on Nordic Semiconductor NRF51822 chip, Beacon 2 is a ByteReal product based on Dialog Semiconductor DA14580 chip, Beacon 3 is a Wellcore product based on Nordic NRF51822 chip, Beacon 4 is a Radioland product based on Texas Instruments TI2640 chip. On pictures there are highlighted antennas placement.}
 \label{fig:beacons_used_in_tests}
 \end{figure}
 
-TODO: https://superuser.com/questions/805935/how-to-directinize-bluetooth-signal
+There are a few big microcontroller producents on the market that offers compound units having integrated computational resources, programming busses and data exchange solutions including Bluetooth Low Energy wireless module. The main three competitors are Nordic Semicondutor with NRF chips, Dialog Semicondutor with DA chips and Texas Instruments with TI and CC chips. They compete on fields of power consumtion, usability in terms of set of integrated modules, computational power and permament storage size of their products. Those integrated circuts are used by Beacon producents as the main processing units with implemented Bluetooth protocols and stack and set of profiles that allows the users to configure Beacon parameters such as name or transmitter power and get information from extra sensorincs measures build into the Beacon like temperature or battery level. Integrated circuts are the part of PCB which also contains a battery slot, power circut and antenna circut. For tests there were chosen Beacons offered by the various producents form China thus their products were easily available via the Internet and they were cheaper than from producents from Europe or U.S. like Estimote or Texas Instruments\cite{beacons_ble_evaluation}. Aim of tests with different Beacons was to check how much PCB design influences results in terms of antenna radiation, signal coverage and stability. During tests there were used following beacons:
+\begin{enumerate}
+	\item Wellcore beacon based on Nordic Semiconductor NRF51822 chip, with a 8500 mAh, 3,6V lithium battery (cost: 7 \$),
+	\item ByteReal beacon based on Dialog Semiconductor DA14580 chip, with a standard CR2477 battery (950 mAh, 3 V, cost: 8,25 \$),
+	\item Wellcore beacon based on Nordic Semiconductor NRF51822 chip, with two standard CR277 batteries (1900 mAh, 3 V, cost: 10 \$),
+	\item Radioland beacon based on Texas Instruments TI2640 chip, with a standard CR2032 battery (220 mAh, 3 V, cost: 6,78 \$).
+\end{enumerate}
+
+During tests there were following smartphone related factors taken into consideration: smartphone orientation and smartphone model. There was tested how differs received signal strength with when smartphone is hold horizontally (screen points to the ceiling), vertically (screen points to the user) or is kept in the pocket. There were also performed beacon ranging tests with use of two different smarphone devices: Samsung Galaxy S7 and Blackberry Z10. Samsung is equiped with Bluetooth 4.1 while Blackberry is equiped with Bluetooth 4.0. The aim of this test was to compare the result in order to check how different construction impact on the received signal strength. There was need to verify assumption about having defined constraint values on received signal that regardless the smartphone model will allow to qualify distance from signal source basing on acquired signal value.
 
 Hardware tests were designed in a manner that each of those factors were tested separately. There were performed following test cases:
 
-\begin{itemize}
+\begin{enumerate}
 	\item Obtain signal attenuation curve with respect of the power of the transmitter by measuring the received signal stregth at given distances from the signal source.
-	\item Signal range per given transmitter power setting and receiver in „pocket” orientation. Dynamic tests in a sequence: * 5 sec under the transmitter, * move 5 meters away (actor is an obstacle), * 5 sec on 5 meters distance
+	\item Signal range per given transmitter power setting and smartphone placed in the pocket. Dynamic tests performed on a distance of 5 meters.
+	\item Received signal strength per given transmitter power setting and different smartphone orientation. Static test performed directly under the transmitter.
+	\item Line of sight (LOS) test. Comparison of signal attenuation curve measured in a part of the corrdor where smartphone and transmitter were in line of sight and signal attenuation curve measured in a part of the corridor where corridor goes up and transmitter and smartphone are not in a line of sight.
+	\item Test of line of sight impact on the signal attenuation curve where user is and is not an obstacle between transmitter and smartphone.
+	\item Test how different antenna orientations of transmitter mounted on ceiling impacts on signal attenuation curve. Tested vertical and horizontal orientations.
+	\item Test how different antenna orientations of transmitter mounted on wall impacts on signal attenuation curve. Tested vertical and horizontal orientations.
+	\item Test how beacons from different vendors impacts on the signal attenuation curve. For this test beacons transmitting power was adjusted in order to obtain similiar signal gain on the radio path.
+	\item Test how different smartphone models impact on the signal attenuation curve. Two different smatphones were used: Samsung Galaxy S7 with Bluetooth 4.1 and Blackberry Z10 with Bluetooth 4.0 module.
+	\item Walk scenario case test. Dynamic test with three beacons mounted on the wall while the user with a smartphone is walking along them. Tested two distancess between beacons: 10 m and 15 m.
+	\item Wall scenario case test. Dynamic test with three beacons mounted on the wall while the user with a smartphone is walking along them. Tested how smartphone kept in the pocket influence the attenuation curve.
+	\item  Compare signal attenuation curve when transmitter is placed on the wall and when it is placed on the ceiling.
 
 % case 1. There were selected two transmitter power settings for this test case.P ower density measured on discrete distances from signal source
-* -12dBm transmitter power
-* -16dBm transmitter power
-* -20dBm transmitter power
-* -30dBm transmitter power
-Singal range per given transmitter power setting and different receiver orientation. Static test: directly under the transmitter
-* -12dBm transmitter power; orientation: -
-* -12dBm transmitter power; orientation: |
-* -12dBm transmitter power; orientation: P
-* -16dBm transmitter power; orientation: -
-* -16dBm transmitter power; orientation: |
-* -16dBm transmitter power; orientation: P
-* -20dBm transmitter power; orientation: -
-* -20dBm transmitter power; orientation: |
-* -20dBm transmitter power; orientation: P
-* -30dBm transmitter power; orientation: -
-* -30dBm transmitter power; orientation: |
-* -30dBm transmitter power; orientation: P
-Line of sight (LOS) test. Tests performed with no LOS condition. Rest parameters same as in test 1,1. Test is designed to be compared with results of analogue test no. 1,1
-* With LOS (source not shadowed, same as 1.1)
-* Without LOS (source not visible due to corridor shape)
-Impact of actor position; obtain attenuation curve in case where an actor is an obstacle between transmitter and receiver
-* 4dBm transmitter power; power density measured on discrete distances from signal source
-* 4dBm transmitter power; power density measured on discrete distances from signal source; actor in an obstacle
-Obtain transmitter signal attenuation curve per different transmitter antenna directions for transmitter mounted on ceiling
-↓direction
-→direction
-Obtain transmitter signal attenuation curve per different transmitter antenna directions for transmitter mounted on wall
-↓direction
-→direction
-Obtain transmitter signal attenuation curve for different transmitters microcontrollers and hardware
-* B1
-* B2  - default transmitter power (not changed for tests)
-* B3 – was set to -8dBm, but result was observable like -16dBm in B1
-* B4
-Obtain transmitter signal attenuation curve for different reicevers (smartphones)
-* Samsung Galaxy S7 (BLE 4.1)
-* Blackberry Z10 (BLE 4.0)
-Dynamic tests with 3 beacons. Tested two distances between beacons. Tests start with 5s measurement of signal strength 20m before first transmitter, consists of walk along corridor (70/80m), ends with 5s measurement of signal strength 20m after last transmitter
-* transmitter in 10m intervals (two tests: there + way back)
-* transmitter in 15m intervals (two test: there + way backs)
-Dynamic tests with 3 beacons. Tested two orientations of receiver. Tests start with 5s measurement of signal strength 20m before first transmitter, consists of walk along corridor (70m), ends with 5s measurement of signal strength 20m after last transmitter
-* F-/B- (due to movement) receiver orientation
-* P receiver orientation
-Wall and ceiling transmitter placement comparison
-* transmitter on the ceiling
-* transmitter on the wall
+% case 2. Dynamic tests in a sequence: * 5 sec under the transmitter, * move 5 meters away (actor is an obstacle), * 5 sec on 5 meters distance. Tested following transmitter power values:
+% * -12dBm transmitter power
+% * -16dBm transmitter power
+% * -20dBm transmitter power
+% * -30dBm transmitter power
+% case 3. There were tested following tx power settings and smartphone orientations
+% * -12dBm transmitter power; orientation: -
+% * -12dBm transmitter power; orientation: |
+% * -12dBm transmitter power; orientation: P
+% * -16dBm transmitter power; orientation: -
+% * -16dBm transmitter power; orientation: |
+% * -16dBm transmitter power; orientation: P
+% * -20dBm transmitter power; orientation: -
+% * -20dBm transmitter power; orientation: |
+% * -20dBm transmitter power; orientation: P
+% * -30dBm transmitter power; orientation: -
+% * -30dBm transmitter power; orientation: |
+% * -30dBm transmitter power; orientation: P
+% case 4. Line of sight (LOS) test. Tests performed with no LOS condition. Rest parameters same as in test 1,1. Test is designed to be compared with results of analogue test no. 1,1
+% case 5. Impact of actor position; obtain attenuation curve in case where an actor is an obstacle between transmitter and receiver
+% * 4dBm transmitter power; power density measured on discrete distances from signal source
+% * 4dBm transmitter power; power density measured on discrete distances from signal source; actor in an obstacle
+%  case 6. Obtain transmitter signal attenuation curve per different transmitter antenna directions for transmitter mounted on ceiling: ↓direction, →direction
+% case 7, Obtain transmitter signal attenuation curve per different transmitter antenna directions for transmitter mounted on wall: ↓direction, →direction
+% case 8. Obtain transmitter signal attenuation curve for different transmitters  hardware: * B1, * B2  - default transmitter power (not changed for tests), * B3 – was set to -8dBm, but result was observable like -16dBm in B1, * B4
+% case 9. Obtain transmitter signal attenuation curve for different reicevers (smartphones) : * Samsung Galaxy S7 (BLE 4.1), * Blackberry Z10 (BLE 4.0)
+% case 10. Dynamic tests with 3 beacons. Tested two distances between beacons. Tests start with 5s measurement of signal strength 20m before first transmitter, consists of walk along corridor (70/80m), ends with 5s measurement of signal strength 20m after last transmitter
+% * transmitter in 10m intervals (two tests: there + way back)
+% * transmitter in 15m intervals (two test: there + way backs)
+% case 11. Dynamic tests with 3 beacons. Tested two orientations of receiver. Tests start with 5s measurement of signal strength 20m before first transmitter, consists of walk along corridor (70m), ends with 5s measurement of signal strength 20m after last transmitter
+% * F-/B- (due to movement) receiver orientation
+% * P receiver orientation
+% case 12. Wall and ceiling transmitter placement comparison
+% * transmitter on the ceiling
+% * transmitter on the wall
 
-\end{itemize}
+\end{enumerate}
 
 \begin{itemize}
 	\item Define factors that are important to state if solution is good or not
