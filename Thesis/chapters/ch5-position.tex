@@ -359,7 +359,7 @@ General solution architecture for the prototype positioning system is presented 
 	\item application for smartphone that process and combines the data from the environment and internal sensorics.
 \end{itemize}
 
-It is assumed that reference points infractructure is mounted in a way that each beacon is denoted in configuration file consisting of a list of beacons with placement position assigned. It is possible to make application more robust and underground installation site undepentent while position information can be provided by reference points itselves. This proposal rely on already defined beacon positionis as this approach allows each end-user application to work as a maintenance tool that is able to detect problems of the infrastructure including beacon failures.
+It is assumed that reference points infractructure is mounted in a way that each beacon is denoted in configuration file consisting of a list of beacons with placement position assigned. It is possible to make application more robust and underground installation site undepentent while position information can be provided by reference points itselves. This proposal rely on already defined beacon positionis as this approach allows each end-user application to work as a maintenance tool that is able to detect problems of the infrastructure including beacon failures. Proposal system does not include such maintenance feature but it may be an addon into the next release.
 
 \begin{figure}[ht]
  % trim={<left> <lower> <right> <upper>}
@@ -368,6 +368,24 @@ It is assumed that reference points infractructure is mounted in a way that each
 \caption{General solution architecture. Position processing module gathers data from smartphone sensorics, data and acquired signal parameters from reference points and serves current position as an output.}
 \label{fig:architecture_general}
 \end{figure}
+
+The core positioning information is gathered from the reference points. They have constat position and they are the most corelated with the physical layout of underground installation. Having only this information it is possible to obtain positioning information as accurate as distance between subsequent beacons mounted on site. In order to make the position more accurate than in case of aligining the smartphone position to the position of the nearest beacon, there can be involved distance model that will allow for distance aproximation basing on the received signal strength value. As the signal strength in a tunnel varies havily there was no such model found or defined yet (refer to the section \ref{sec:positioning_with_beacons_and_bluetooth_technology}). Although there was proposed a solution that make positioning solution more accurate.
+
+In order to maintain ability of determining the position by measuring received signal strength from beacons and provide long battery life of the beacon in the same time there were following beacon trasmission parameters assumed:
+\begin{itemize}
+	\item beacon will send his advertisement frame once per second,
+	\item beacon will be set up with $-16 dBm$ transmitter power or equivalent that ensure beacon coverage of $20 m$ in underground environment,
+	\item beacons will be placed in $10 m$ distances between each other,
+	\item beacons which advertisement messages were received with more than $-85 dBm$ RSSI are assumed to be \textit{immediate} to the smartphone, those with more than $-95 dBm$ RSSi are assumed to be \textit{near} to the smartphone, rest are assumed to be placed \textit{far},
+	\item if there was found at least one \textit{immediate} beacon then current smartphone position is assumed to be same as the beacon with the highest RSSI value.
+	\item if there are two or more \textit{near}-placed beacons and if there was found similiar ($+/- 2 dBm$) RSSI values among them, the current smarthone position is assumed to be in a half way between beacons with these similiar RSSI values.
+\end{itemize}
+
+Due to the fact that received signal strength has significantly bigger values within the area of $0 - 2,5 m$ from the transmitter then this distance was classified as \textit{immediate}. RSSI values observed in \textit{immediate} range were bigger than $-85 dBm$. RSSI values lower than $-95 dBm$ are treated as a noise thus frames that were acquired with such RSSI value or lower are classified as \textit{far} and are placed in $20 m$ or more from the smartphone receiver. Signals with RSSI between $-85 dBm -- -95 dBm$ are assumed that were sent by beacons which are classified as \textit{near}, placed in range $2,5 - 20 m$ from smartphone.
+
+In proposed solution each beacon is placed in $10 m$ gaps. Each beacon is configured to cover distance of maximum $20 m$ but minimum of $10 m$. Such assumptions causes redundancy where in the perfect scenario user that is staying \textit{immediate} to the beacon is aqcuiring signals also from two other \textit{near} beacons. In case when one of the beacons is not working there is still possibility to align current user position to the place where faulty beacon is mounted. That is possible due to the assumption that if smartphone detect two beacons that are \textit{near} and received signal strength of their advertisement frames are similiar then smartphone is in the middle of the beacons. similiar signal strength means that the difference between each of them is less than $2 dBm$ what is equal to $1,25 m$ according to \textit{Log-distance path loss model}.
+
+Output of the intertial sensorics can produce missleading position information. For example basing on the accelereometer data only it may turn out that the user have changed direction of the movement while he is still moving forward. It may effect with worsen the positioning information instead of making the position more accurate.
 
 \begin{itemize}
 	\item Simple algorithm will use localization system only (no internal sensors)
@@ -380,7 +398,7 @@ It is assumed that reference points infractructure is mounted in a way that each
 \section{External solution infrastructure} % (fold)
 \label{sec:external_solution_infrastructure}
 
-Reference points infrastructure is a vital part of the proposed positioning system. In order to provide realiable reference information there is need ensure that installation is easily maintable, infrastructure parts are in good condition and were placed in defined way with accordance to the position, orientation and mounting recommendations. For this purpose installation step was defined as it is shown on figure \ref{fig:infrastructure_installation_proc}.
+Reference points infrastructure is a vital part of the proposed positioning system. In order to provide realiable reference information there is need ensure that installation is easily maintable, infrastructure parts are in good condition and were placed in defined way with accordance to the position, orientation and mounting recommendations. For this purpose installation step was defined as it is shown on figure \ref{fig:infrastructure_installation_proc}. Prior to the works on site it is suggested to plan where beacons will be placed in the installation. Outcome of this plan should be a list of beacons names and the positions expressed in pairs of corridor name and a meter counted from the beggining of the corridor. Also a map with marked places where beacons will be mounted would be a good addon that will help the installation engineer with his works. Then each beacon should be labeled in accordance to the plan and configured with the name from label and recommeded transmitting power. Such preparation will shorten installation time and will avoid potential problems with missconfiguration.
 
 \begin{figure}[ht]
  % trim={<left> <lower> <right> <upper>}
