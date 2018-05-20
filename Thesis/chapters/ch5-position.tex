@@ -381,7 +381,7 @@ In order to maintain ability of determining the position by measuring received s
 	\item if there are two or more \textit{near}-placed beacons and if there was found similiar ($+/- 2 dBm$) RSSI values among them, the current smarthone position is assumed to be in a half way between beacons with these similiar RSSI values.
 \end{itemize}
 
-Due to the fact that received signal strength has significantly bigger values within the area of $0 - 2,5 m$ from the transmitter then this distance was classified as \textit{immediate}. RSSI values observed in \textit{immediate} range were bigger than $-85 dBm$. RSSI values lower than $-95 dBm$ are treated as a noise thus frames that were acquired with such RSSI value or lower are classified as \textit{far} and are placed in $20 m$ or more from the smartphone receiver. Signals with RSSI between $-85 dBm -- -95 dBm$ are assumed that were sent by beacons which are classified as \textit{near}, placed in range $2,5 - 20 m$ from smartphone.
+Due to the fact that received signal strength has significantly bigger values within the area of $0 m$ -- $2,5 m$ from the transmitter then this distance was classified as \textit{immediate}. RSSI values observed in \textit{immediate} range were bigger than $-85 dBm$. RSSI values lower than $-95 dBm$ are treated as a noise thus frames that were acquired with such RSSI value or lower are classified as \textit{far} and are placed in $20 m$ or more from the smartphone receiver. Signals with RSSI between $-85 dBm$ -- $-95 dBm$ are assumed that were sent by beacons which are classified as \textit{near}, placed in range $2,5 m$ -- $20 m$ from smartphone.
 
 In proposed solution each beacon is placed in $10 m$ gaps. Each beacon is configured to cover distance of maximum $20 m$ but minimum of $10 m$. Such assumptions causes redundancy where in the perfect scenario user that is staying \textit{immediate} to the beacon is aqcuiring signals also from two other \textit{near} beacons. In case when one of the beacons is not working there is still possibility to align current user position to the place where faulty beacon is mounted. That is possible due to the assumption that if smartphone detect two beacons that are \textit{near} and received signal strength of their advertisement frames are similiar then smartphone is in the middle of the beacons. similiar signal strength means that the difference between each of them is less than $2 dBm$ what is equal to $1,25 m$ according to \textit{Log-distance path loss model}.
 
@@ -420,6 +420,16 @@ There is need to mention in this secion
 
 \section{Data processing and analysis} % (fold)
 \label{sec:data_processing}
+
+Proposed positioning system depends on inputs from the smartphone's wireless receiver and internal sensorics. Raw data cannot be used directly by the positioning algorithm because of different nature of those signals and the high dirfts and noise levels that affects both wireless transmission and inertial sensorics measures. In order to make signal useful there is need to apply filtering that will normalize the outcome of particular information source and possibly improve position estimation.
+
+\begin{figure}[ht]
+ % trim={<left> <lower> <right> <upper>}
+\includegraphics[width=0.9\textwidth, trim={2cm 2cm 2cm 2cm},clip]{pictures/architecture_beacons_processing.pdf}
+\centering
+\caption{Porposed position aligning method based on the received signal strenghts from reference points.}
+\label{fig:architecture_beacons_processing}
+\end{figure}
 
 \begin{itemize}
 	\item - todo - filtering; sensor fusion
