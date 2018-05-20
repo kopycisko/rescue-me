@@ -167,7 +167,7 @@ WSN and RFID based positioning system is designed to serve such functionalities 
 %WHAT IS THE PRECISION? HOW CAN BE APPLIED INTO MOBILE PHONE (TARGET)? WHAT IS NODES POWER SUPPLY?
 
 \begin{figure}[ht]
-\includegraphics[width=0.7\textwidth]{pictures/wsn_topology.png}
+\includegraphics[width=\textwidth]{pictures/wsn_topology.png}
 \centering
 \caption{Wireless Network Sensor topology in underground corridor example \cite{WSN_monitoring}. }
 \label{fig:wsn_topology}
@@ -352,6 +352,23 @@ Position finding system bases on idea of interaction between mobile device and t
 \section{Solution architecture} % (fold)
 \label{sec:solution_architecture}
 
+General solution architecture for the prototype positioning system is presented on the figure \ref{fig:architecture_general}. Solution consists of:
+\begin{itemize}
+	\item reference system installation based on beacon devices,
+	\item smartphone device with Bluetooth receiver and inertial sensorics (at least accelerometer),
+	\item application for smartphone that process and combines the data from the environment and internal sensorics.
+\end{itemize}
+
+It is assumed that reference points infractructure is mounted in a way that each beacon is denoted in configuration file consisting of a list of beacons with placement position assigned. It is possible to make application more robust and underground installation site undepentent while position information can be provided by reference points itselves. This proposal rely on already defined beacon positionis as this approach allows each end-user application to work as a maintenance tool that is able to detect problems of the infrastructure including beacon failures.
+
+\begin{figure}[ht]
+ % trim={<left> <lower> <right> <upper>}
+\includegraphics[height=\textwidth, angle=270, trim={0 0 4cm 0},clip]{pictures/architecture_general.pdf}
+\centering
+\caption{General solution architecture. Position processing module gathers data from smartphone sensorics, data and acquired signal parameters from reference points and serves current position as an output.}
+\label{fig:architecture_general}
+\end{figure}
+
 \begin{itemize}
 	\item Simple algorithm will use localization system only (no internal sensors)
 	\item Algorithm will use localization system and internal sensors
@@ -362,6 +379,16 @@ Position finding system bases on idea of interaction between mobile device and t
 
 \section{External solution infrastructure} % (fold)
 \label{sec:external_solution_infrastructure}
+
+Reference points infrastructure is a vital part of the proposed positioning system. In order to provide realiable reference information there is need ensure that installation is easily maintable, infrastructure parts are in good condition and were placed in defined way with accordance to the position, orientation and mounting recommendations. For this purpose installation step was defined as it is shown on figure \ref{fig:infrastructure_installation_proc}.
+
+\begin{figure}[ht]
+ % trim={<left> <lower> <right> <upper>}
+\includegraphics[width=\textwidth, trim={0 18cm 0 0},clip]{pictures/infrastructure_installation_proc.pdf}
+\centering
+\caption{Infrastructure installation procedure.}
+\label{fig:infrastructure_installation_proc}
+\end{figure}
 
 There is need to mention in this secion
 \begin{itemize}
