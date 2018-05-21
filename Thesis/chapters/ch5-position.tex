@@ -304,9 +304,41 @@ Localization system choise (system based on beacons)
 
 
 \section{Solution requirements}
+Positioning system as such have to match requirements related to the reliability and robustness, accuracy, power efficiency, installation and maintenance effort and safety.
+
+% Reliability and robustness
+Provided positioning solution should allow users to make use of it within the ordinary works as well as in case of an accident. The minimum time that the positioning system should work without any external power supply is 72 hours. That value comes from a term of \textit{golden 72 hours} which relates to the period of time after the accident, after which survival rate decreases rapidly \cite{positioning_tests}. System should work also in case when part of it's infrastructure is not working properly like in case of an accident where some corridors can be destroyed including the positioning system infrastructure.
+
+%Installation and maintenance
+Ease of maintenance in terms of semi-automated methods for detecting the pitfails or failures and posibility to fix broken positioning infrastrucrture without necessity of involving specialised engineers should be matched. Such requirement can be met for example by simplicity of the positioning system infrastructure or automated configuration methods that makes the infrastructure self-organising itself. Infrastructure should be also scallable as underground installations are likely to be extended during the excavation process. Infrastructure should be open for software and internal modules updates and extensions of already mounted devices. That allows the positioning system to be further developed.
+
+% Power efficiency
+Power efficiency is an requirement that causes the system to be more likely independent from the on-site power supply. Infrastructure can have own power source and set of methods that limits power consumption of its devices. Infrastructure can be also extended by some power harvesting methods such as thermoelectric or piezoelectric generators.
+
+% Safety requirement
+Safety purpose of position finding system is very important for many countries \cite{positioning_tests}. European Union encourages to search for a good solution for the miners localization, which, in one of the postulates of its set of recommendations for the coal and steel sector ('Personnel Tracking' task). There are solutions for underground localisation but they allows only to approximate miner's position (error can be range from 300 m (range of a single radio receiver) to the distance to the next transmitter).
+
+Underground position finding system must be compatible with mobile devices of smartphone class. Special mobile devices that were prepared to work in bad conditions like in coal or salt mines differs mainly with their housing in compare their non-commercial, personal-use equivalents. This assumption limits the range of available technologies that can be used in order to provide means of communication between mobile device and the enviornment.
+
+Position finding system bases on idea of interaction between mobile device and the undeground envioronment. In case of the nessesity of extension that enviornment by electionic devices that will provide positioning data or means of connection with mine network there is need to state that such devices must be safe. Safety regulations in this matter differs with respect of the type of underground installation, the regional, country, or even association of countries \cite{Thesis_CM}. The goal of this paper is not to provide solution that will be adjusted to each installation type or safety regulation, but to investigate possibilities and propose state of the art solution. As the enviornmental restrictions for devices and related infrastructure that can be needed for given solution there will be assumed general rules that are being in use in commercial tunneling \cite{Thesis_CM}.
+
+% TODO - present summary as a table
+Requirements summary:
+* Reliability / robustness
+** self powered for 72 hours
+** able to work even in case where part of infstratructure got failed
+* Installation and maintenance
+** Semi-automated methods for monitoring the positioning system status
+** Support for positioning infrastructure reperation by avoiding manual system reconfiguration
+** Solution should be scallable in order to extend positioning system with the new corridors
+** Infrastructure devices should be open for software and internal modules updates and extensions.
+* Power efficiency
+** Possibly self powered
+
+% TODO
 Requirements as the position of the mobile device will be determined by the environment model.
 
-Define criteria that will be used to compare position finding solutions (existing or conceptual):
+Define criteria that are the basis for position finding solutions comparison (existing or conceptual):
 \begin{itemize}
 	\item How to save a corridor model in computer memory
 	\item wireless communication
@@ -321,15 +353,6 @@ Define criteria that will be used to compare position finding solutions (existin
 	\item Can the mobile device be useful in case of lack of signal (GSM/Wi-Fi/BLE)?
 	\item example: accuracy, durability, cost, maintability (energy, fault)
 \end{itemize}
-
-Safety purpose of position finding system is very important for many countries \cite{positioning_tests}. European Union encourages to search for a good solution for the miners localization, which, in one of the postulates of its set of recommendations for the coal and steel sector ('Personnel Tracking' task). There are solutions for underground localisation but they allows only to approximate miner's position (error can be range from 300 m (range of a single radio receiver) to the distance to the next transmitter).
-
-Underground position finding system must be compatible with mobile devices of smartphone class. Special mobile devices that were prepared to work in bad conditions like in coal or salt mines differs mainly with their housing in compare their non-commercial, personal-use equivalents. This assumption limits the range of available technologies that can be used in order to provide means of communication between mobile device and the enviornment.
-
-
-Position finding system bases on idea of interaction between mobile device and the undeground envioronment. In case of the nessesity of extension that enviornment by electionic devices that will provide positioning data or means of connection with mine network there is need to state that such devices must be safe. Safety regulations in this matter differs with respect of the type of underground installation, the regional, country, or even association of countries \cite{Thesis_CM}. The goal of this paper is not to provide solution that will be adjusted to each installation type or safety regulation, but to investigate possibilities and propose state of the art solution. As the enviornmental restrictions for devices and related infrastructure that can be needed for given solution there will be assumed general rules that are being in use in commercial tunneling \cite{Thesis_CM}.
-
-
 
 \chapter{Mobile device position finding algorithm}
 * Algorithm that will make use of chosen localization system and mobile device internal sensors.
@@ -427,7 +450,7 @@ Proposed positioning system depends on inputs from the smartphone's wireless rec
  % trim={<left> <lower> <right> <upper>}
 \includegraphics[width=0.9\textwidth, trim={2cm 2cm 2cm 2cm},clip]{pictures/architecture_beacons_processing.pdf}
 \centering
-\caption{Porposed position aligning method based on the received signal strenghts from reference points.}
+\caption{Porposed position aligning method based on the received signal strengths from reference points.}
 \label{fig:architecture_beacons_processing}
 \end{figure}
 
