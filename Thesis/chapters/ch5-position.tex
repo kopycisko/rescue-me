@@ -1,26 +1,24 @@
 \documentclass[../main.tex]{subfiles}
 
 \begin{document}
-\chapter{Position finding solutions and applications}
+\chapter{Position finding solutions for indoor environment}
 
+Underground installation is a specific case of an indoor environment. What is the characteristic for indoor environment is a large amount of signal diffractions and attenuarions by various materials, weaker signals of terrestial networks and global navigation sattelite systems and a need of more precise positioning information than in open space. Underground installations are completaly isolated from the wireless networks available on ground which is good because of lower radio noise. They are also limited in space what makes the diffraction happening as frequent as in ordinary indoor conditions. That arrises the question wether solutions that are working for indoor environments could be also applicable to the underground conditions. It is not obvious question as it is known that radio technologies behaves differently in underground corridors because of rock, steel, concrete, a hexahedral\cite{rf_in_mines_straight_gallery}\cite{rf_in_tunnel_waveguide_effect} alike shape and a working heavy machinery with powerfull motor engines that produce large amount of electromagnetic distortions.
 
-* What features should have the model in order to be used for navigation?
+\begin{figure}[ht]
+ % trim={<left> <lower> <right> <upper>}
+\includegraphics[width=\textwidth, trim={0 23cm 0 0},clip]{pictures/smartphone_localization_approaches.pdf}
+\centering
+\caption{Position finding approaches classification for smartphones.\cite{inertial_navi_velocity_model}}
+\label{fig:smartphone_localization_approaches}
+\end{figure}
 
+Smartphone based indoor positioning approaches can be classified as shown on figure \ref{fig:smartphone_localization_approaches}. Signal processing is one of the most common used technique for positioning in mobile devices. They are equiped with radio transceivers that works on different frequencies and in different technologies when each of them are characterized with physical parameters that can be measured by the device and reuse for positioning purpose. More sophisticated signal solutions include techniques that provides additional data that can be used for positioning purpose like in case of Global Navigation Sattelite Systems. Dead reckoning approach comes from the possibilty of measuring the physical state of the handheld device by a set of incorporated sensors such as accelerometer or gyroscpe. Vision based solutions take an advantage from having camera being mounted on the device in order to run pattern recognition algorithms that can map acquired image to the position.
+
+In this chapter there are revieved successful approaches for indoor positioning including hardware devices and infrastructure related system architectures and algorithmic approaches that are suitable for smarpthone devices.
 
 \section{Known solutions analysis}
 %Known solutions analysis (against defined criteria)
-\begin{itemize}
-	\item List of known positioning system in underground installations
-	\item Characteristics of known positioning systems
-	\begin{itemize}
-		\item Their concept Advantages and disadvantages
-		\item How can be used
-		\item How they perform the communication (physic/hardware aspect)
-	\end{itemize}
-\end{itemize}
-
-There are known solutions for location and monitoring people in undergorund installations. They are together named as LAMPS systems - Location and Monitoring for Personal Safety systems. Those systems use three components in general:
-*
 
 
 Positioning systems with respect of the what is the target of acquired data. There can be defined three categories of positioning systems: positioning systems that are dedicated to acquire and transfer information about objects position to systems on surface, systems that are dedicated for on site usage to locate the device inside the underground installation and systems that combine both approaches.
