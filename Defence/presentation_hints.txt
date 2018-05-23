@@ -1,0 +1,14 @@
+presentation hints:
+
+* introduction : sum up the work with 5-6 sentences
+* what is the purpose (why did pick such topic - motivation)
+* state scientific problem
+* overview of other solutions
+* what i have done (like experimetns)
+* explain methodology
+* what i achieved
+* what have i learned
+
+
+Formatting:
+* add number of slides: current vs all
