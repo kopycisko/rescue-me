@@ -589,8 +589,82 @@ Hardware tests were designed in a manner that each of those factors were tested 
 	\item Walk scenario case test. Dynamic test with three beacons mounted on the wall while the user with a smartphone is walking along them. Tested two distancess between beacons: 10 m and 15 m.
 	\item Wall scenario case test. Dynamic test with three beacons mounted on the wall while the user with a smartphone is walking along them. Tested how smartphone kept in the pocket influence the attenuation curve.
 	\item  Compare signal attenuation curve when transmitter is placed on the wall and when it is placed on the ceiling.
+\end{enumerate}
 
-% case 1. There were selected two transmitter power settings for this test case.P ower density measured on discrete distances from signal source
+\begin{itemize}
+	\item Define factors that are important to state if solution is good or not
+	\item Will allow to check if system fulfills requirements
+	\item Test features stated in 'Localization system choise section'
+\end{itemize}
+
+% section tests_criteria_and_assumptions (end)
+
+\section{Tests metodology} % (fold)
+\label{sec:tests_metodology}
+
+Tests were performed in part of XVIII century exchavation corridor which is available for sighseeing as a part of Stara Kopalnia museum in Walbrzych in Poland. Corridor used during tests is placed 10 m bellow the ground and it is 185,7 m long. Corridor is 3,2 m high and 3,2 m wide. Corridors goes up on it's north side so this part of the corridor was used only once during line of sight test case. There is also one "T" shaped crossection with a similiar, perpendicular corridor that is 157 m meter length.
+
+\begin{figure}[ht]
+\includegraphics[width=\textwidth, keepaspectratio]{pictures/corridor.pdf}
+\centering
+\caption{Test place scheme.}
+\label{fig:corridor}
+\end{figure}
+
+During the tests in the corridor there was $10^\circ$C  and $71 \%$ of humadity. In order to avoid diffractions from corridors endings, transmitters were placed in the middle of the corridor at it's 90 m.
+
+During the test there was used
+\begin{itemize}
+	\item  measuring wheel for measuring the distance between subsequent distances taken into consideration for signal attenuation charts,
+	\item smartphones with application that was collecting and storing the data (Bluetooth Low Energy receivers) and
+	\item prepared beacons -- Bluetooth Low Energy transmitters.
+\end{itemize}
+
+Beacons were prepared in a manner that their names were changed into B1(1), B1(2), B1(3), B2, B3 and B4 in order to distinguish them during evaluation. Beacon names were included into advertisment frame, which were then written into log files from the signal recording sessions.
+
+\begin{figure}[ht]
+\includegraphics[width=\textwidth, keepaspectratio]{pictures/tests_corridor_general.pdf}
+\centering
+\caption{Test place from perpendicular corridor perspective.}
+\label{fig:tests_corridor_genera}
+\end{figure}
+
+
+\begin{itemize}
+	\item Testing environment descipription
+	\item Equimpent used during tests. Example:
+	\begin{itemize}
+		\item using a representative wifi router, 801.11g techonology, simple circular antenna (eg Minetronics MMG) - for charts.
+		\item using a representative beacon
+		\item dBm signal strength depending on the distance and polarity of the mobile device from the signal source
+	\end{itemize}
+	\item Pictures
+\end{itemize}
+
+% section tests_metodology (end)
+
+\section{Tests of wireless reference points in underground environment} % (fold)
+\label{sec:tests_of_system_and_basic_algorithm}
+
+The first series of tests were about observation how different factors influence the received signal strength. Factors taken into consideration, beacon and smartphone devices used during tests are listed in section \ref{sec:tests_criteria_and_assumptions}.
+
+For the signal attenuation cerve test case there were selected two transmitter power settings: $4 dBm$ which is the higher transmitter power setting and $-16 dBm$ which was taken experimentally. During the tests there was received signal strength measured on discrete distances from signal source, at 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 12,5, 15, 20, 25, 30, 35, 40, 45, 50, 60, 70, 80, 90 meters in case of $4 dBm$ setting and at 0, 1, 2, 3, 4, 6, 8, 10, 12,5, 15, 20, 25, 35 meters in case of $-16 dBm$ setting. During the test there was used "Beacon 1" device mounted on the ceiling vertically and "Samsung" smartphone.
+
+\begin{figure}[ht]
+\centering
+\begin{minipage}{0.49\linewidth}
+ % trim={<left> <lower> <right> <upper>}
+\includegraphics[width=\textwidth, trim={3cm 0 3cm 0},clip]{pictures/tests_beacon_celing_horizontal.pdf}
+\caption{Beacon 1 mounterd on a ceiling with horizontal antenna direction.}
+\end{minipage}\hfill%
+\begin{minipage}{0.49\linewidth}
+ % trim={<left> <lower> <right> <upper>}
+\includegraphics[width=\textwidth, trim={0 1cm 0 0},clip]{pictures/tests_beacon_celing_vertical.pdf}
+\caption{Beacon 1 mounterd on a ceiling with vertical antenna direction}
+\end{minipage}
+\end{figure}
+
+
 % case 2. Dynamic tests in a sequence: * 5 sec under the transmitter, * move 5 meters away (actor is an obstacle), * 5 sec on 5 meters distance. Tested following transmitter power values:
 % * -12dBm transmitter power
 % * -16dBm transmitter power
@@ -627,55 +701,7 @@ Hardware tests were designed in a manner that each of those factors were tested 
 % * transmitter on the ceiling
 % * transmitter on the wall
 
-\end{enumerate}
 
-\begin{itemize}
-	\item Define factors that are important to state if solution is good or not
-	\item Will allow to check if system fulfills requirements
-	\item Test features stated in 'Localization system choise section'
-\end{itemize}
-
-% section tests_criteria_and_assumptions (end)
-
-\section{Tests metodology} % (fold)
-\label{sec:tests_metodology}
-
-Tests were performed in part of XVIII century exchavation corridor which is available for sighseeing as a part of Stara Kopalnia museum in Walbrzych in Poland. Corridor used during tests is placed 10 m bellow the ground and it is 185,7 m long. Corridor is 3,2 m high and 3,2 m wide. Corridors goes up on it's north side so this part of the corridor was used only once during line of sight test case. There is also one "T" shaped crossection with a similiar corridor that is 157 m meter length.
-
-During the tests in the corridor there was $10^\circ$C  and $71 \%$ of humadity. In order to avoid diffractions from corridors endings, transmitters were placed in the middle of the corridor at it's 90 m.
-
-During the test there was used
-\begin{itemize}
-	\item  measuring wheel for measuring the distance between subsequent distances taken into consideration for signal attenuation charts,
-	\item smartphones with application that was collecting and storing the data (Bluetooth Low Energy receivers) and
-	\item prepared beacons -- Bluetooth Low Energy transmitters.
-\end{itemize}
-
-Beacons were prepared in a manner that their names were changed into B1(1), B1(2), B1(3), B2, B3 and B4 in order to distinguish them during evaluation. Beacon names were included into advertisment frame, which were then written into log files from the signal recording sessions.
-
-\begin{figure}[ht]
-\includegraphics[width=\textwidth, keepaspectratio]{pictures/corridor.pdf}
-\centering
-\caption{Test place scheme.}
-\label{fig:corridor}
-\end{figure}
-
-
-\begin{itemize}
-	\item Testing environment descipription
-	\item Equimpent used during tests. Example:
-	\begin{itemize}
-		\item using a representative wifi router, 801.11g techonology, simple circular antenna (eg Minetronics MMG) - for charts.
-		\item using a representative beacon
-		\item dBm signal strength depending on the distance and polarity of the mobile device from the signal source
-	\end{itemize}
-	\item Pictures
-\end{itemize}
-
-% section tests_metodology (end)
-
-\section{Tests of system and basic algorithm} % (fold)
-\label{sec:tests_of_system_and_basic_algorithm}
 \begin{itemize}
 	\item Check if system works with basic algorithm
 	\item Tests in few configurations
