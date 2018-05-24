@@ -55,12 +55,13 @@ There is no standard position marking convetion that are used accross the underg
 \label{fig:room_and_pillar_scheme}
 \end{figure}
 
+Corridors layout can also invole different levels. Figure \ref{fig:mine_with_levels_scheme} depicts example of such layout. On each floor there are placed room and pillar production blocks. Naming convention for corridors are the same like in room and pillar case. The way down is also a kind of a corridor with a constant, steep angle. Device which is inside of such corridor can be located by the corridor name and the meter counted from the begging on a top level.
 
 \begin{figure}[ht]
 \includegraphics[width=\textwidth]{pictures/mine_with_levels_scheme.pdf}
 \centering
 \caption{Multi-level corridors layout and example naming convention.}
-\label{fig:room_and_pillar_scheme}
+\label{fig:mine_with_levels_scheme}
 \end{figure}
 
 
@@ -107,13 +108,34 @@ The wireless communication systems used on surface cannot be applied straightawa
 % subsection hardware_and_environmental_constratins (end)
 \section{Positioning systems}
 
-The position finding problem is a known problem, deeply investigated in field of robotics and automation. \cite{discover_beacons_and_position}
+The position finding problem can be categorised with respect of the nature of those problems as well as related solution approaches.
 
-Position finding in underground installations is a problem that arrised along with the advance in the available technologies. Demand for such functionality comes from two main reasons:
+In order to perform categorisation there is need to introduce terms of node, anchor and user. Node is an element of a network or infrastructure, that can take actively part in solving the problem of a localisation. Example of a node can be wireless device that is suited to be a part of WSN network. More details about WSN networks in section \ref{sub:wsn_based_position_finding_systems}. Anchor is a node which position is already known. Anchor plays a role of a reference point that can be used for obtaining the position of nodes or users. User is a mobile entity that is not a part of a infrastructe but make use of it in order to obtain positioning information for himself.
+
+Position finding problems are problems of:
 \begin{itemize}
-	\item safety of mine workers,
-	\item the need of tool that will support human and equipment resource planning and distribution.
+ 	\item nodes localisation, where the main interest is to obtain position of entities that build up infrastructure,
+ 	\item users localisation, where the main interest is to obtain position of mobile entities basing on the infrastructure,
+ 	\item nodes and users localisation, where there is need to obtain position of nodes and users at the same time.
+ \end{itemize}
+Figure \ref{fig:localisation_approaches} introduces also a categorisation with respect of the fact that position of anchors and nodes are static or can change in time. As it is depicted, localisation of users problem crossects with the localisation of nodes problem in cases where nodes are a mobile entities. Localisation of users and nodes at the same time is a problem which is mainly related to the filed of robotics where no information about the evironment are provided at once. There are investigated solutions for that sort of problems, called Simultaneous Localisation and Configuration (SLAC) and Simultaneous Localisation and Mapping (SLAM) \cite{discover_beacons_and_position}.
+
+\begin{figure}[ht]
+ % trim={<left> <lower> <right> <upper>}
+\includegraphics[width=\textwidth, trim={0 20cm 0 0},clip]{pictures/localisation_approaches.pdf}
+\centering
+\caption{Categorisation of localization problems and related solution approaches\cite{discover_beacons_and_position}.}
+\label{fig:localisation_approaches}
+\end{figure}
+
+Within this paper there is investigated problem of user localisation only. Solutions for that problem are descibed in details in chapter \ref{chapter:position_finding_solutions}.
+
+Position finding in underground installations is a problem that arrised along with the advance in the available technologies. There is big demand on the market of underground installations for such functionality, There two main applications of position finding solutions:
+\begin{itemize}
+	\item workers safety,
+	\item extension to the task management, monitoring, resource planning and distribution tools.
 \end{itemize}
+
 
 \subsection{Safety aspect} % (fold)
 \label{sub:safety_aspect}
