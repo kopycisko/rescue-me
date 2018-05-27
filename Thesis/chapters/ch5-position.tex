@@ -516,6 +516,9 @@ Proposed positioning system depends on inputs from the smartphone's wireless rec
 	\item - todo - filtering; sensor fusion
 \end{itemize}
 
+TODO - move it to the post processing/ filtering techniques section
+It means that values of signals strength cannot be used directly as an input for  because t the on the current signal strengths. That is why filtering techniques are needed in order to make the signal free from random changes and more robust in terms of environmental distortions.
+
 % section data_processing (end)
 
 \section{Position finding algorithm implementation} % (fold)
@@ -625,7 +628,7 @@ Beacons were prepared in a manner that their names were changed into B1(1), B1(2
 \begin{figure}[ht]
 \includegraphics[width=\textwidth, keepaspectratio]{pictures/tests_corridor_general.pdf}
 \centering
-\caption{Test place from perpendicular corridor perspective.}
+\caption{Side view on the test place (at the end of the corridor) from perpendicular corridor perspective.}
 \label{fig:tests_corridor_genera}
 \end{figure}
 
@@ -641,6 +644,22 @@ Beacons were prepared in a manner that their names were changed into B1(1), B1(2
 	\item Pictures
 \end{itemize}
 
+Scope of tests performed underground as well as the values of distinguished variables chosen for the tests, got summaried in the table \ref{tab:test_parameters}.
+
+\begin{table}[ht]
+\includegraphics[width=\textwidth, keepaspectratio]{tables/test_parameters_p1.pdf}
+\centering
+\end{table}
+\begin{table}[ht]
+ % trim={<left> <lower> <right> <upper>}
+\includegraphics[width=\textwidth, trim={0 11cm 0 0},clip]{tables/test_parameters_p2.pdf}
+\centering
+\caption{List of test cases and related parameters.}
+\label{tab:test_parameters}
+\end{table}
+
+\FloatBarrier
+
 % section tests_metodology (end)
 
 \section{Tests of wireless reference points in underground environment} % (fold)
@@ -648,49 +667,174 @@ Beacons were prepared in a manner that their names were changed into B1(1), B1(2
 
 The first series of tests were about observation how different factors influence the received signal strength. Factors taken into consideration, beacon and smartphone devices used during tests are listed in section \ref{sec:tests_criteria_and_assumptions}.
 
-For the signal attenuation cerve test case there were selected two transmitter power settings: $4 dBm$ which is the higher transmitter power setting and $-16 dBm$ which was taken experimentally. During the tests there was received signal strength measured on discrete distances from signal source, at 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 12,5, 15, 20, 25, 30, 35, 40, 45, 50, 60, 70, 80, 90 meters in case of $4 dBm$ setting and at 0, 1, 2, 3, 4, 6, 8, 10, 12,5, 15, 20, 25, 35 meters in case of $-16 dBm$ setting. During the test there was used "Beacon 1" device mounted on the ceiling vertically and "Samsung" smartphone. Figure \ref{fig:tests_case1_attenuation} presents...
+\subsection{Signal stability analysis} % (fold)
+\label{sub:signal_stability_analysis}
 
-\begin{figure}[ht]
-\includegraphics[width=\textwidth, keepaspectratio]{pictures/tests_case1_attenuation}
-\centering
-\caption{Attenuation curve with respect of the trasmitter power.}
-\label{fig:tests_case1_attenuation}
-\end{figure}
-
-\begin{figure}[ht]
-\includegraphics[width=\textwidth, keepaspectratio]{pictures/tests_case1_distance_model_20m}
-\centering
-\caption{Attenuation curve with respect of the trasmitter power.}
-\label{fig:tests_case1_distance_model_20m}
-\end{figure}
-
-\begin{figure}[ht]
-\includegraphics[width=\textwidth, keepaspectratio]{pictures/tests_case1_distance_model_90m}
-\centering
-\caption{Attenuation curve with respect of the trasmitter power.}
-\label{fig:tests_case1_distance_model_90m}
-\end{figure}
+As a test base there was taken a several probes of received signal strengths at different distances from the signal source. As it is shown on the figure \ref{fig:tests_case1_fluctuations_over_time}, signal strenghts are not stable in time. The general rule of \textit{log-distance path loss model}\ref{eq:log-distance-model} where the short distance between transmitter and receiver causes biger signal strengths are observed, but there are strong fluctuations in time. Model was dicussed in section \ref{sec:positioning_with_beacons_and_bluetooth_technology}.
 
 \begin{figure}[ht]
 \includegraphics[width=\textwidth, keepaspectratio]{pictures/tests_case1_fluctuations_over_time}
 \centering
-\caption{Attenuation curve with respect of the trasmitter power.}
+\caption{Received signal strengths measured each second at different distances between signal source and smarphone. Each line represents received signal strength obtained at given distance.}
 \label{fig:tests_case1_fluctuations_over_time}
 \end{figure}
 
+Basing on results from this test there was made obervation about the relation between the distance and the scale of fluctuation affecting the signal strengths. The biggest fluctuations are present between $0$ and $10$ meters from the signal source. On the distance of $70$ meters and more signal strengths got flatten thus also a standard deviation is low. This relation is depicted on the figure \ref{fig:tests_case1_fluctuations_over_time_std_dev}.
+
 \begin{figure}[ht]
+\includegraphics[width=\textwidth, keepaspectratio]{pictures/tests_case1_fluctuations_over_time_std_dev}
 \centering
+\caption{Standard deviation taken from received signal strengths measured each second at different distances between signal source and smarphone.}
+\label{fig:tests_case1_fluctuations_over_time_std_dev}
+\end{figure}
+
+\textit{Log-distance path loss model} assumes only one input (received signal strength) what is directly a basis for distance estimation. As the model is based on logarithm (see equation \ref{eq:log-distance-model}) then fluctuactions around reference value have smaller impact on the obtained distance aproximation than the fluctuations arround the values that are away from the reference value. In order to verify how model fits into the measures then distance aproximations based on that model was computed on average values of the received signal strengths measured at given distances. There was more than 25 probes of the signal strengths taken to the average. Figure \ref{fig:tests_case1_distance_model_90m} depicts results of a aproximating the distance from beacon placed on the ceiling with the highest possible signal strength of $4dBm$ on a range of $90 m$. X-axis described the actual distance, y-axis describes approximated distance -- output of a model. Estimations in longer distances were not accurate -- they error was about $\pm 30m$ on a $20$ meters distance and more.
+
+\begin{figure}[ht]
+\includegraphics[width=\textwidth, keepaspectratio]{pictures/tests_case1_distance_model_90m}
+\centering
+\caption{Application of \textit{log-distance path loss model} on received signal strengths measured at discrete distances from signal source at range of $90m$.}
+\label{fig:tests_case1_distance_model_90m}
+\end{figure}
+
+
+Figure \ref{fig:tests_case1_distance_model_20m} focuses on range in between $0$ and $20$ meters from signal source. In this range aproximation error was about $\pm 1.5$ meters. Such result leads to the assumtion that on distances lower than $20m$ from the signal source, proposed model can provide approximation which fits to the required accuracy stated for the positioning system.
+
+\begin{figure}[ht]
+\includegraphics[width=\textwidth, keepaspectratio]{pictures/tests_case1_distance_model_20m}
+\centering
+\caption{Application of \textit{log-distance path loss model} on received signal strengths measured at discrete distances from signal source at range of $20m$.}
+\label{fig:tests_case1_distance_model_20m}
+\end{figure}
+
+% subsection signal_stability_analysis (end)
+\FloatBarrier
+
+\subsection{Robustness of a received signal strenght measures} % (fold)
+\label{sub:robustness_of_a_received_signal_strenght_measures}
+
+
+One of the objectives stated for tests was to check how placement, orientation and different models of the devices impacts the received signal strength values. List of variables taken into consideration with explanation were written in section \ref{sec:tests_criteria_and_assumptions}. Pictures \ref{fig:tests_beacon_celing_horizontal} and \ref{fig:tests_beacon_celing_vertical} presents how beacon was mounted on a ceiling with it's different orientations related to the antenna direction.
+
+\begin{figure}[ht]
 \begin{minipage}{0.49\linewidth}
  % trim={<left> <lower> <right> <upper>}
 \includegraphics[width=\textwidth, trim={3cm 0 3cm 0},clip]{pictures/tests_beacon_celing_horizontal.pdf}
 \caption{Beacon 1 mounterd on a ceiling with horizontal antenna direction.}
+\label{fig:tests_beacon_celing_horizontal}
 \end{minipage}\hfill%
 \begin{minipage}{0.49\linewidth}
  % trim={<left> <lower> <right> <upper>}
 \includegraphics[width=\textwidth, trim={0 1cm 0 0},clip]{pictures/tests_beacon_celing_vertical.pdf}
 \caption{Beacon 1 mounterd on a ceiling with vertical antenna direction.}
+\label{fig:tests_beacon_celing_vertical}
 \end{minipage}
 \end{figure}
+
+
+In order to check what is the signal range of a single beacon device, there was performed a test in which there was taken a series of recived signal measures at given distances from the signal source. There were selected two transmitter power settings for the test: $4 dBm$ which is the higher transmitter power setting and $-16 dBm$ which was taken experimentally. Distances were located at 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 12,5, 15, 20, 25, 30, 35, 40, 45, 50, 60, 70, 80, 90 meters in case of $4 dBm$ setting and at 0, 1, 2, 3, 4, 6, 8, 10, 12,5, 15, 20, 25, 35 meters in case of $-16 dBm$ setting. During the test there was used "B1" beacon mounted on the ceiling vertically. Figure \ref{fig:tests_case1_attenuation} presents results of this tests.
+
+\begin{figure}[ht]
+\includegraphics[width=\textwidth, keepaspectratio]{pictures/tests_case1_attenuation}
+\centering
+\caption{Attenuation curve for $4 dBm$ and $-16 dBm$ trasmitter power.}
+\label{fig:tests_case1_attenuation}
+\end{figure}
+
+Range of a beacon with the highest power setting available exceeds available space in a corridor, that is why data ends for $4 dBm$ ends at $90 m$. Received signal strengths measured on distances larger than $20m$ from the source of the signal are getting stabilized while strengths mesured closer than $20m$ from the signal source are falling significantly. Measures taken between $20m$ -- $90m$ from signal source are between $-80 dBm$ and $-90 dBm$, while the drop on the first $5m$ from the signal source is about $15 dBm$. What is an interesing is that received signal strength values were not decreasing on distances between $50m$ and $90m$. There was also observed that signal strengths get stabilized on larger distances what was depicted on figure \ref{fig:tests_case1_fluctuations_over_time_std_dev} expressing standard deviation of received signals, as well on figure \ref{fig:tests_case1_fluctuations_over_time} where can be observed the cource of the received signal strength values. Observation matches with the observations about the \textit{log-distance path loss model}
+
+
+\begin{figure}[ht]
+\includegraphics[width=\textwidth, keepaspectratio]{pictures/tests_case2_smartphone_in_pocket_tx_power}
+\centering
+\caption{Attenuation curve with respect of the trasmitter power.}
+\label{fig:tests_case2_smartphone_in_pocket_tx_power}
+\end{figure}
+
+\begin{figure}[ht]
+\includegraphics[width=\textwidth, keepaspectratio]{pictures/tests_case3_rssi_vs_smartphone_orientation}
+\centering
+\caption{Attenuation curve with respect of the trasmitter power.}
+\label{fig:tests_case3_rssi_vs_smartphone_orientation}
+\end{figure}
+
+\begin{figure}[ht]
+\includegraphics[width=\textwidth, keepaspectratio]{pictures/tests_case4_los}
+\centering
+\caption{Attenuation curve with respect of the trasmitter power.}
+\label{fig:tests_case4_los}
+\end{figure}
+
+\begin{figure}[ht]
+\includegraphics[width=\textwidth, keepaspectratio]{pictures/tests_case5_user_shadowing}
+\centering
+\caption{Attenuation curve with respect of the trasmitter power.}
+\label{fig:tests_case5_user_shadowing}
+\end{figure}
+
+\begin{figure}[ht]
+\includegraphics[width=\textwidth, keepaspectratio]{pictures/tests_case6_tx_placement_and_direction}
+\centering
+\caption{Attenuation curve with respect of the trasmitter power.}
+\label{fig:tests_case6_tx_placement_and_direction}
+\end{figure}
+
+\begin{figure}[ht]
+\includegraphics[width=\textwidth, keepaspectratio]{pictures/tests_case8_beacons_comparison}
+\centering
+\caption{Attenuation curve with respect of the trasmitter power.}
+\label{fig:tests_case8_beacons_comparison}
+\end{figure}
+
+\begin{figure}[ht]
+\includegraphics[width=\textwidth, keepaspectratio]{pictures/tests_case9_smartphone_comparison}
+\centering
+\caption{Attenuation curve with respect of the trasmitter power.}
+\label{fig:tests_case9_smartphone_comparison}
+\end{figure}
+
+% subsection robustness_of_a_received_signal_strenght_measures (end)
+\FloatBarrier
+\subsection{Real case scenario evaluation} % (fold)
+\label{sub:real_case_scenario_evaluation}
+
+
+\begin{figure}[ht]
+\includegraphics[width=\textwidth, keepaspectratio]{pictures/tests_case10_walk_10m_low_pass}
+\centering
+\caption{Attenuation curve with respect of the trasmitter power.}
+\label{fig:tests_case10_walk_10m_low_pass}
+\end{figure}
+
+\begin{figure}[ht]
+\includegraphics[width=\textwidth, keepaspectratio]{pictures/tests_case10_walk_10m_raw}
+\centering
+\caption{Attenuation curve with respect of the trasmitter power.}
+\label{fig:tests_case10_walk_10m_raw}
+\end{figure}
+
+\begin{figure}[ht]
+\includegraphics[width=\textwidth, keepaspectratio]{pictures/tests_case10_walk_15m_low_pass}
+\centering
+\caption{Attenuation curve with respect of the trasmitter power.}
+\label{fig:tests_case10_walk_15m_low_pass}
+\end{figure}
+
+\begin{figure}[ht]
+\includegraphics[width=\textwidth, keepaspectratio]{pictures/tests_case10_walk_15m_raw}
+\centering
+\caption{Attenuation curve with respect of the trasmitter power.}
+\label{fig:tests_case10_walk_15m_raw}
+\end{figure}
+
+\begin{figure}[ht]
+\includegraphics[width=\textwidth, keepaspectratio]{pictures/tests_case11_walk_10m_smartphone_orientation}
+\centering
+\caption{Attenuation curve with respect of the trasmitter power.}
+\label{fig:tests_case11_walk_10m_smartphone_orientation}
+\end{figure}
+% subsection real_case_scenario_evaluation (end)
+
 
 
 % case 2. Dynamic tests in a sequence: * 5 sec under the transmitter, * move 5 meters away (actor is an obstacle), * 5 sec on 5 meters distance. Tested following transmitter power values:
