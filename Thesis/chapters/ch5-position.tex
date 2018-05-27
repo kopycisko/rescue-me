@@ -814,29 +814,41 @@ Test consisted of taking probes of the received signal strengths at discrete dis
 
 Despite fluctuation observed at $30 m$ from the signal source in LOS session, the shape of both LOS and NLOS curves of received signal strengths with respect of the distance was comparable until the start of the steep part of the corridor. Then NLOS curve goes down so at $75m$ from the signal source the value of RSS is $-98.8\pm2.1$ which is $18.6dBm$ lower than in case of RSS values observed at similiar distance in LOS case. It means that despite the wave guide effect that was supposed to be observed in case of electromagnetic waves in underground installations \cite{rf_in_tunnel_waveguide_effect}, the influence on the received signal strength is so high that have to be taken into consideration during system planning and installation. This effect can be effectively reduced by limitting the emitted signal power strength and populating the beacon devices.
 
+On the figure \ref{fig:tests_case5_user_shadowing} there are presented received signal strength values obtained within the test of the propagation path obscuration by the user .
+
 \begin{figure}[ht]
 \includegraphics[width=\textwidth, keepaspectratio]{pictures/tests_case5_user_shadowing}
 \centering
-\caption{Attenuation curve with respect of the trasmitter power.}
+\caption{Received signal strength with respect of the distance from the signal source and the LOS condition where user is an obstacle on the propagation path.}
 \label{fig:tests_case5_user_shadowing}
 \end{figure}
 
+Test was performed two times: one session was about taking the measures while user was an obstacle in between the smartphone and the beacon (labeled on chart as "Obscured") and the second session which was about taking the measures while user was not an obstacle (labeled as "Not obscured"). Whole "Obscured" curve is bellow the "Not obscured". The difference between received signal strengths in both conditions is about the same in first $3m$ from the signal source, then is up to $10 dBm$ lower, despite the fluctuations. It means that there is need to reflect the need of additional signal strength required in case of user obscuration into the power setting of the beacons.
 
- Test was performed two times: one session was about taking the measures while user was an obstacle in between the smartphone and the beacon (labeled as \textbf{NLOS} on the chart) and the second session was about taking the measures while user was not an obstacle (labeled as \textbf{LOS})
+The next test, depicted on the figure \ref{fig:tests_case6_tx_placement_and_direction},  is about checking how different beacon placement and its orientation impacts the received signal strength.
 
 \begin{figure}[ht]
 \includegraphics[width=\textwidth, keepaspectratio]{pictures/tests_case6_tx_placement_and_direction}
 \centering
-\caption{Attenuation curve with respect of the trasmitter power.}
+\caption{Transmitter position and orientation impact on the received signal strength.}
 \label{fig:tests_case6_tx_placement_and_direction}
 \end{figure}
+
+The goal of this test was to deduce the best mounting place and orientation of the beacon inside the underground corridor. There were taken into account four possibilities: placement on the ceiling, placement on the wall, with vertical and horizontal antenna directions. The test was a static one, when probes were taken at discrete distances from the signal source. For test purposes transmitter power got reduced to value of $-16dBm$. Smartphone was oriented horizontally.
+
+The biggest received signal strength values were obtained with the beacon mounted on the ceiling in horizontal antenna direction. Signal strengths were at least $7dBm$ higher for this setting than for any other. There was also observed the biggest signal coverage for this setting -- $35m$. Vertical antenna orienations in both cases of mounting on the ceiling and the wall causes similiar ($\pm5dBm$) RSS values measures, despite the pick on $2m$ from the signal source of beacon mounted on the wall. Both vertical and horizontal orientations of beacon mounted on the wall characterizes with the signal strength pick on $2m$--$3m$ distance from the signal source. Results of the tests points to the fact that beacon placement affects the signal strength as well as the coverage and the part of the fluctuations.
+
+Test of different beacon hardwares was difficult beacause of different electronic solutions being used inside them. Figure \ref{fig:tests_case8_beacons_comparison} presents result of this test.
 
 \begin{figure}[ht]
 \includegraphics[width=\textwidth, keepaspectratio]{pictures/tests_case8_beacons_comparison}
 \centering
-\caption{Attenuation curve with respect of the trasmitter power.}
+\caption{Attenuation curve obtained with use of different beacons and their similiar power setting.}
 \label{fig:tests_case8_beacons_comparison}
 \end{figure}
+
+There is no standard for creating beacon devices. As many beacons as many hardware solutions for power management, additional sensorics mounted, and the antenna type and installation. In case of beacons that were bought in order to perform tests, each has to be individually configured in order to achive similiar coverage and received signal strengths. There were tested beacons B1, B2, B3, B4. Details about the beacons are available in section \ref{sec:tests_criteria_and_assumptions}.
+% case 8. Obtain transmitter signal attenuation curve for different transmitters  hardware: * B1, * B2  - default transmitter power (not changed for tests), * B3 – was set to -8dBm, but result was observable like -16dBm in B1, * B4
 
 \begin{figure}[ht]
 \includegraphics[width=\textwidth, keepaspectratio]{pictures/tests_case9_smartphone_comparison}
@@ -889,26 +901,6 @@ Despite fluctuation observed at $30 m$ from the signal source in LOS session, th
 
 
 
-% case 3. There were tested following tx power settings and smartphone orientations
-% * -12dBm transmitter power; orientation: -
-% * -12dBm transmitter power; orientation: |
-% * -12dBm transmitter power; orientation: P
-% * -16dBm transmitter power; orientation: -
-% * -16dBm transmitter power; orientation: |
-% * -16dBm transmitter power; orientation: P
-% * -20dBm transmitter power; orientation: -
-% * -20dBm transmitter power; orientation: |
-% * -20dBm transmitter power; orientation: P
-% * -30dBm transmitter power; orientation: -
-% * -30dBm transmitter power; orientation: |
-% * -30dBm transmitter power; orientation: P
-% case 4. Line of sight (LOS) test. Tests performed with no LOS condition. Rest parameters same as in test 1,1. Test is designed to be compared with results of analogue test no. 1,1
-% case 5. Impact of actor position; obtain attenuation curve in case where an actor is an obstacle between transmitter and receiver
-% * 4dBm transmitter power; power density measured on discrete distances from signal source
-% * 4dBm transmitter power; power density measured on discrete distances from signal source; actor in an obstacle
-%  case 6. Obtain transmitter signal attenuation curve per different transmitter antenna directions for transmitter mounted on ceiling: ↓direction, →direction
-% case 7, Obtain transmitter signal attenuation curve per different transmitter antenna directions for transmitter mounted on wall: ↓direction, →direction
-% case 8. Obtain transmitter signal attenuation curve for different transmitters  hardware: * B1, * B2  - default transmitter power (not changed for tests), * B3 – was set to -8dBm, but result was observable like -16dBm in B1, * B4
 % case 9. Obtain transmitter signal attenuation curve for different reicevers (smartphones) : * Samsung Galaxy S7 (BLE 4.1), * Blackberry Z10 (BLE 4.0)
 % case 10. Dynamic tests with 3 beacons. Tested two distances between beacons. Tests start with 5s measurement of signal strength 20m before first transmitter, consists of walk along corridor (70/80m), ends with 5s measurement of signal strength 20m after last transmitter
 % * transmitter in 10m intervals (two tests: there + way back)
