@@ -783,7 +783,7 @@ It is assumed that the solution should be suited for three possible smartphone o
 
 Singal strenghts received by the smartphone kept in the pocket are same or even lower at $0m$ distance (smartphone is directly under the beacon) than measured $5m$ away from signal source. Difference is not significant -- in case of $-16dBm$ and $-20dBm$ transmiting power settings, received signal strength values remains the same for the whole test ($\pm 3dBm$). In case of $-12dBm$ transmitter power setting there was observed that received signal got stronger on a $5m$ distance than just bellow the transmitter ($10\pm4 dBm$ change). Received signal strengths of the beacon with $-30dBm$ transmission power setting were low -- signals received in smaller distance than $1m$ from the signal source were ommited, rest were at the border of a noise level. That is why setting $-30dBm$ was rejected as one that provides so week signal, that in case of smartphone kept in the pocket can be filtered out as a noise.
 
-In latter test there were compared smartphone orientations in context of thier influence on the received signal strength value. As it is assumed that the crucial distance for the positioning system, that will allow for accuracy at least equal to the distance between beacons, tests were performed directly under the beacon. Beacon was placed on the ceiling with vertical anetenna direction. Test was a static test where at least 25 probes of the signal strength were taken at the same place. There were tested three values of the transmitter power in order to see if the transmitter power imacts on the all of smartphone orientations equaly.
+In latter test there were compared smartphone orientations in context of thier influence on the received signal strength value. As it is assumed that the crucial distance for the positioning system, that will allow for accuracy at least equal to the distance between beacons, tests were performed directly under the beacon. Beacon was placed on the ceiling with vertical anetenna direction. Test was a static test where at least 25 probes of the signal strength were taken at the same place. There were tested three values of the transmitter power in order to see if the transmitter power impacts on the all of smartphone orientations equaly. Setting of $-30dBm$ transmitter power was ommited in the evaluation. Results are presented on figure \ref{fig:tests_case3_rssi_vs_smartphone_orientation}.
 
 \begin{figure}[ht]
 \includegraphics[width=\textwidth, keepaspectratio]{pictures/tests_case3_rssi_vs_smartphone_orientation}
@@ -792,12 +792,27 @@ In latter test there were compared smartphone orientations in context of thier i
 \label{fig:tests_case3_rssi_vs_smartphone_orientation}
 \end{figure}
 
+Ideally, change of the transmission power expressed in $dBm$ should cause the same chagne in the received signal strength. That was not observed on the results of performed experiment. Change of $4 dBm$ and $8 dBm$ caused following change in observed signal strengths per smartphone orienations:
+\begin{itemize}
+	\item horizontally: $7.3\pm2.4 dBm$ and $11.3\pm5.1 dBm$,
+	\item vertically: $2\pm4 dBm$ and $8.5\pm5.1 dBm$,
+	\item kept in the pocket: $4.5\pm4.8 dBm$ and $7.1\pm3 dBm$.
+\end{itemize}
+
+Received signal strengths obtained by the smartphone in horizontal and vertical orientation differs by $2 dBm$ -- $4 dBm$ while standard deviations taken from the set of probes are about $2.5 dBm$ -- $5 dBm$. It means that in this test setup, horizontal and vertical orientations does not impact on the signal in an observable way. Fluctuations as well as obtained RSS value are on the same level. Significant difference is between horizontal or vertical orientation and the placement in the pocket. In all cases received signal strength was about $18\pm2 dBm$ lower. It means that there is need to ensure such setup of the wireless reference point installation that will ensure such transmission power that allow for correct identification of the beacon with some safety factor, even the receiver is in the pocket -- so reflecting additional $18dBm$ needed for this placement. Such safety factor is determined as a lowest acceptable value for the positioning system -- every signal with a lower value is treated as a noise.
+
+Another factor that influence radio frequency transmission is a presence of obstacles between transmitter and receiver. Situation where radio waves that can directly come from the signal source to the receiver without diffractions, in direct path, is called line-of-sight propagation. During the test session there was taken two types of obscuration taken into consideration: obscuration that results from the shape of the tunnel and user obscuration, when the user is in between the smartphone and the beacon. The first case is ilustrated on the figure \ref{fig:tests_case4_los}.
+
 \begin{figure}[ht]
 \includegraphics[width=\textwidth, keepaspectratio]{pictures/tests_case4_los}
 \centering
-\caption{Attenuation curve with respect of the trasmitter power.}
+\caption{Attenuation curve based on received signal strenght measured at dicrete distances from the signal source. Test taken in corridor which goes up starting from $61.5 m$ from the signal source. Red remarks concerns NLOS propagation and highlights the meter since when steep part of the corridor starts.}
 \label{fig:tests_case4_los}
 \end{figure}
+
+Test consisted of taking probes of the received signal strengths at discrete distances from the signal source in the "southern" part of the corridor, labeled as \textbf{LOS} and in the "northern" part of the corridor, labeled as \textbf{NLOS} (refer to the test place scheme on the figure \ref{fig:corridor}). Southern part of corridor is flat and there were no obstacles between the beacon and the smartphone during the test. Nothern part of the test place starts to go up at $61.5 m$ from the signal source. Steep grade is about $17\%$ so at $71.5 m$ from the signal source there is no direct path between beacon and the smartphone. Smartphone was oriented horizontally, beacon was mounted vertically on the ceiling.
+
+Despite fluctuation observed at $30 m$ from the signal source in LOS session, the shape of both LOS and NLOS curves of received signal strengths with respect of the distance was comparable until the start of the steep part of the corridor. Then NLOS curve goes down so at $75m$ from the signal source the value of RSS is $-98.8\pm2.1$ which is $18.6dBm$ lower than in case of RSS values observed at similiar distance in LOS case. It means that despite the wave guide effect that was supposed to be observed in case of electromagnetic waves in underground installations \cite{rf_in_tunnel_waveguide_effect}, the influence on the received signal strength is so high that have to be taken into consideration during system planning and installation. This effect can be effectively reduced by limitting the emitted signal power strength and populating the beacon devices.
 
 \begin{figure}[ht]
 \includegraphics[width=\textwidth, keepaspectratio]{pictures/tests_case5_user_shadowing}
@@ -805,6 +820,9 @@ In latter test there were compared smartphone orientations in context of thier i
 \caption{Attenuation curve with respect of the trasmitter power.}
 \label{fig:tests_case5_user_shadowing}
 \end{figure}
+
+
+ Test was performed two times: one session was about taking the measures while user was an obstacle in between the smartphone and the beacon (labeled as \textbf{NLOS} on the chart) and the second session was about taking the measures while user was not an obstacle (labeled as \textbf{LOS})
 
 \begin{figure}[ht]
 \includegraphics[width=\textwidth, keepaspectratio]{pictures/tests_case6_tx_placement_and_direction}
