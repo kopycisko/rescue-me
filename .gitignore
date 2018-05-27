@@ -5,6 +5,9 @@
 ## exclude nordic beacon build env
 Software/beacon
 
+## exclude temp libreoffice files
+*.~lock*#
+
 ## Core latex/pdflatex auxiliary files:
 *.aux
 *.lof
