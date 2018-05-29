@@ -349,7 +349,7 @@ Ease of maintenance in terms of semi-automated methods for detecting the pitfail
 Power efficiency is an requirement that causes the system to be more likely independent from the on-site power supply. Infrastructure can have own power source and set of methods that limits power consumption of its devices. Infrastructure can be also extended by some power harvesting methods such as thermoelectric or piezoelectric generators.
 
 % Smartphone
-Smartphone must provide energy-efficient solution for exchanging the data with positioning system while there are no battery charging points in underground installations. Smartphone with positioning extension activated should be able to work at least for 8 hours and possibly 72 hours with a limited use of a positioning extension. 8 hours is the regular worker shift time in underground mines.
+Smartphone must provide energy-efficient solution for exchanging the data with positioning system while there are no battery charging points in underground installations. Smartphone with positioning extension activated should be able to work at least for 8 hours and possibly 72 hours with a limited use of a positioning extension. 8 hours is the regular worker shift time in underground mines. Solution must be applicable for different models of smartphones.
 
 % Usability
 Solution must be easy to use for the user. In particular it should be integrated into the user smartphone in such a way that the user will not have to handle it in a specific way in order to use the positioning system. For example solution must be suited to work while the users smartphone is kept in his pocket as well as hold by the user in hand in front of him. Solution must be suited to provide positioning information when the user is not moving as well as he is walking. There should be assumed walking pace as $5 \frac{km}{h}$. Possibilities to adopt the solution to work with the higher speed of the user or, for example, users riding inside the vehicles are in plus.
@@ -392,6 +392,7 @@ Requirements summary stated for a positioning system and related infrastructure:
 		\item positioning system must be compliant with technologies supported by customer grade smartphone device,
 		\item smartphone should be able to work continuously for the 8 hours with activated positioning module.
 		\item recommended smartphone life time is 72 hours with limited power consumption and use of positioning module.
+		\item solution applicable for different smartphone models.
 	\end{itemize}
 	\item Usability
 	\begin{itemize}
@@ -828,13 +829,20 @@ Test was performed two times: one session was about taking the measures while us
 The next test, depicted on the figure \ref{fig:tests_case6_tx_placement_and_direction},  is about checking how different beacon placement and its orientation impacts the received signal strength.
 
 \begin{figure}[ht]
+\includegraphics[width=\textwidth, keepaspectratio]{pictures/beacon_wall_vertical.pdf}
+\centering
+\caption{Beacon B3 mounted on the wall in its vertical orientation.}
+\label{fig:beacon_wall_vertical}
+\end{figure}
+
+\begin{figure}[ht]
 \includegraphics[width=\textwidth, keepaspectratio]{pictures/tests_case6_tx_placement_and_direction}
 \centering
 \caption{Transmitter position and orientation impact on the received signal strength.}
 \label{fig:tests_case6_tx_placement_and_direction}
 \end{figure}
 
-The goal of this test was to deduce the best mounting place and orientation of the beacon inside the underground corridor. There were taken into account four possibilities: placement on the ceiling, placement on the wall, with vertical and horizontal antenna directions. The test was a static one, when probes were taken at discrete distances from the signal source. For test purposes transmitter power got reduced to value of $-16dBm$. Smartphone was oriented horizontally.
+The goal of this test was to deduce the best mounting place and orientation of the beacon inside the underground corridor. There were taken into account four possibilities: placement on the ceiling, placement on the wall, with vertical and horizontal antenna directions. On figure \ref{fig:beacon_wall_vertical} there is presented mounting point on the wall. The test was a static one, when probes were taken at discrete distances from the signal source. For test purposes transmitter power got reduced to value of $-16dBm$. Smartphone was oriented horizontally.
 
 The biggest received signal strength values were obtained with the beacon mounted on the ceiling in horizontal antenna direction. Signal strengths were at least $7dBm$ higher for this setting than for any other. There was also observed the biggest signal coverage for this setting -- $35m$. Vertical antenna orienations in both cases of mounting on the ceiling and the wall causes similiar ($\pm5dBm$) RSS values measures, despite the pick on $2m$ from the signal source of beacon mounted on the wall. Both vertical and horizontal orientations of beacon mounted on the wall characterizes with the signal strength pick on $2m$--$3m$ distance from the signal source. Results of the tests points to the fact that beacon placement affects the signal strength as well as the coverage and the part of the fluctuations.
 
@@ -847,28 +855,31 @@ Test of different beacon hardwares was difficult beacause of different electroni
 \label{fig:tests_case8_beacons_comparison}
 \end{figure}
 
-There is no standard for creating beacon devices. As many beacons as many hardware solutions for power management, additional sensorics mounted, and the antenna type and installation. In case of beacons that were bought in order to perform tests, each has to be individually configured in order to achive similiar coverage and received signal strengths. There were tested beacons B1, B2, B3, B4. Details about the beacons are available in section \ref{sec:tests_criteria_and_assumptions}.
-% case 8. Obtain transmitter signal attenuation curve for different transmitters  hardware: * B1, * B2  - default transmitter power (not changed for tests), * B3 – was set to -8dBm, but result was observable like -16dBm in B1, * B4
+There is no standard for creating beacon devices. As many beacons as many hardware solutions for power management, additional sensorics mounted, and the antenna type and installation. In case of beacons that were bought in order to perform tests, each had to be individually configured in order to achive similiar coverage and received signal strengths. That is why value signal strength obtained during the test is not an object of investigation but the curve shape and fluctuations. There were tested beacons B1, B2, B3, B4. Details about the beacons are available in section \ref{sec:tests_criteria_and_assumptions}.
+
+All of the beacons were mounted on the wall, with verical antenna direction. Each of them was tested separately. What is characteristic for that placement is that received signal strength measured at $0 m$ from the beacon is lower than $1$--$2$ meters away. Each measure proves that such rule is true despite different transmitter hardware. There can be also observed that signal strength is the biggest near the source, then drops about $10dBm$ on a distance of $5m$ from the signal source. Situation repeates with smaller aplitudes till the minimum acceptable signal strenght values. In case of beacon B1, B2 and B4 there were observed such values in the close distance to the signal source (about $0m$--$5m$) that significantly differs from those observed in bigger distances. Only B3 beacon emmit it's signal on not disitnguishable power levels within the close range.
+
+The next figure (\ref{fig:tests_case9_smartphone_comparison}) presents results of test with different smartphones being used as receivers of the signal.
 
 \begin{figure}[ht]
 \includegraphics[width=\textwidth, keepaspectratio]{pictures/tests_case9_smartphone_comparison}
 \centering
-\caption{Attenuation curve with respect of the trasmitter power.}
+\caption{Comparison of received signal strength values caputered by two different smartphone models: Samsung Galaxy S7 and Blackberry Z10.}
 \label{fig:tests_case9_smartphone_comparison}
 \end{figure}
+
+For this test there was used beacon B1 mounted vertically on the wall. There were performed measures of the RSS signal taken by two models of smartphones at 0, 1, 2, 3, 4, 6, 8, 10, 12.5, 15, 20, 25, 35 meters from the beacon. Curve shapes for both smartphones are moved with respect to each other by $5dBm$ on $0m$--$4m$ distances. Then the difference is about $2dBm$. Difference may come from the type and the amount material that was used to cover antennas inside the devices. Despite slight differences between signal strength, the receives signal strength pick is distinguishable by both smartphones. Bluetooth standard implemented by two smartphones also do not affect shape of attenuation curve. That means that the solution build on the Bluetooth technology based beacons behaves same for different types of smartphones being used.
 
 % subsection robustness_of_a_received_signal_strenght_measures (end)
 \FloatBarrier
 \subsection{Real case scenario evaluation} % (fold)
 \label{sub:real_case_scenario_evaluation}
 
+Second part of the test session in the underground installation was devoted to check if proposed position fining system based on the wireless reference points (Bluetooth becons) can take received signal strength as a fator determining the distance between the user device and the reference point. Aim of tests was take strength values of signals from beacons during the walk along the tunnel with sample positioning infrastructure and check how the oberved values fits to the proposed positioning solution.
 
-\begin{figure}[ht]
-\includegraphics[width=\textwidth, keepaspectratio]{pictures/tests_case10_walk_10m_low_pass}
-\centering
-\caption{Attenuation curve with respect of the trasmitter power.}
-\label{fig:tests_case10_walk_10m_low_pass}
-\end{figure}
+During tests there was 2 scenarios taken into consideration. One was about position of the smartphone: evalutaion of the signal strength values recorder by the smartphone carried in the pocket and smartphone held by the user in his hand (horizontal orientation). The second scenario consers distance between the reference points. There were evaluated $10m$ and $15m$ distances between the beacons. There were used three B1 beacons with $-16dBm$ power setting placed vertically on the wall.
+
+
 
 \begin{figure}[ht]
 \includegraphics[width=\textwidth, keepaspectratio]{pictures/tests_case10_walk_10m_raw}
@@ -877,12 +888,6 @@ There is no standard for creating beacon devices. As many beacons as many hardwa
 \label{fig:tests_case10_walk_10m_raw}
 \end{figure}
 
-\begin{figure}[ht]
-\includegraphics[width=\textwidth, keepaspectratio]{pictures/tests_case10_walk_15m_low_pass}
-\centering
-\caption{Attenuation curve with respect of the trasmitter power.}
-\label{fig:tests_case10_walk_15m_low_pass}
-\end{figure}
 
 \begin{figure}[ht]
 \includegraphics[width=\textwidth, keepaspectratio]{pictures/tests_case10_walk_15m_raw}
@@ -901,7 +906,6 @@ There is no standard for creating beacon devices. As many beacons as many hardwa
 
 
 
-% case 9. Obtain transmitter signal attenuation curve for different reicevers (smartphones) : * Samsung Galaxy S7 (BLE 4.1), * Blackberry Z10 (BLE 4.0)
 % case 10. Dynamic tests with 3 beacons. Tested two distances between beacons. Tests start with 5s measurement of signal strength 20m before first transmitter, consists of walk along corridor (70/80m), ends with 5s measurement of signal strength 20m after last transmitter
 % * transmitter in 10m intervals (two tests: there + way back)
 % * transmitter in 15m intervals (two test: there + way backs)
@@ -923,6 +927,21 @@ There is no standard for creating beacon devices. As many beacons as many hardwa
 
 \section{Tests of extended algorithm} % (fold)
 \label{sec:tests_of_extended_algorithm}
+
+\begin{figure}[ht]
+\includegraphics[width=\textwidth, keepaspectratio]{pictures/tests_case10_walk_10m_low_pass}
+\centering
+\caption{Attenuation curve with respect of the trasmitter power.}
+\label{fig:tests_case10_walk_10m_low_pass}
+\end{figure}
+
+\begin{figure}[ht]
+\includegraphics[width=\textwidth, keepaspectratio]{pictures/tests_case10_walk_15m_low_pass}
+\centering
+\caption{Attenuation curve with respect of the trasmitter power.}
+\label{fig:tests_case10_walk_15m_low_pass}
+\end{figure}
+
 
 Capture data that will be base for comparison between simple and extended position finding algorithm accuracy.
 
