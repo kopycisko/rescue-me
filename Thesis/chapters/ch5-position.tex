@@ -877,14 +877,16 @@ For this test there was used beacon B1 mounted vertically on the wall. There wer
 
 Second part of the test session in the underground installation was devoted to check if proposed position fining system based on the wireless reference points (Bluetooth becons) can take received signal strength as a fator determining the distance between the user device and the reference point. Aim of tests was take strength values of signals from beacons during the walk along the tunnel with sample positioning infrastructure and check how the oberved values fits to the proposed positioning solution.
 
-During tests there was 2 scenarios taken into consideration. One was about position of the smartphone: evalutaion of the signal strength values recorder by the smartphone carried in the pocket and smartphone held by the user in his hand (horizontal orientation). The second scenario consers distance between the reference points. There were evaluated $10m$ and $15m$ distances between the beacons. There were used three B1 beacons with $-16dBm$ power setting placed vertically on the wall.
+During tests there was 3 scenarios taken into consideration. One was about position of the smartphone: evalutaion of the signal strength values recorder by the smartphone carried in the pocket and smartphone held by the user in his hand (horizontal orientation). The second scenario consers distance between the reference points. There were evaluated $10m$ and $15m$ distances between the beacons. There were used three B1 beacons with $-16dBm$ power setting placed vertically on the wall. The last scenario was about checking how direction of user movement impacts on the observed signal strength values. That case is a direct extension to the static tests of shadowing direct signal path by the user (see figure \ref{fig:tests_case5_user_shadowing}).
 
+Each test that cover first and the second senario, was performed two times, named as: "way there" and "way back". That is how the third senarios was included into two two first. That way creates the possibility to check if walking direction influence received signal strength. Each test round consisted of three phases: warm up, walk, settle down. Warm up phase was about capturing the signal strength values for $5s$, $20m$ before first beacon. Walk was about making a distance of $70m$ in case of beacons mounted $10m$ each or a distance of $80m$ in case of beacons mounted $15m$ each. Settle down phase ends with $5s$ measurement of signal strength at distance of $20m$ after last beacon mounted on the wall.
 
+First test concernes walk with the smartphone hold in hand horizontally and beacons places in $10m$ distances between each other. Figure \ref{fig:tests_case10_walk_10m_raw} depicts signal le
 
 \begin{figure}[ht]
 \includegraphics[width=\textwidth, keepaspectratio]{pictures/tests_case10_walk_10m_raw}
 \centering
-\caption{Attenuation curve with respect of the trasmitter power.}
+\caption{Signal strengths of the beacons placed $10m$ each, measured during the walk with smartphone hold in hand in it's horizontal orientation.}
 \label{fig:tests_case10_walk_10m_raw}
 \end{figure}
 
@@ -906,9 +908,6 @@ During tests there was 2 scenarios taken into consideration. One was about posit
 
 
 
-% case 10. Dynamic tests with 3 beacons. Tested two distances between beacons. Tests start with 5s measurement of signal strength 20m before first transmitter, consists of walk along corridor (70/80m), ends with 5s measurement of signal strength 20m after last transmitter
-% * transmitter in 10m intervals (two tests: there + way back)
-% * transmitter in 15m intervals (two test: there + way backs)
 % case 11. Dynamic tests with 3 beacons. Tested two orientations of receiver. Tests start with 5s measurement of signal strength 20m before first transmitter, consists of walk along corridor (70m), ends with 5s measurement of signal strength 20m after last transmitter
 % * F-/B- (due to movement) receiver orientation
 % * P receiver orientation
