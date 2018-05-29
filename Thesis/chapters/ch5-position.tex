@@ -881,7 +881,7 @@ During tests there was 3 scenarios taken into consideration. One was about posit
 
 Each test that cover first and the second senario, was performed two times, named as: "way there" and "way back". That is how the third senarios was included into two two first. That way creates the possibility to check if walking direction influence received signal strength. Each test round consisted of three phases: warm up, walk, settle down. Warm up phase was about capturing the signal strength values for $5s$, $20m$ before first beacon. Walk was about making a distance of $70m$ in case of beacons mounted $10m$ each or a distance of $80m$ in case of beacons mounted $15m$ each. Settle down phase ends with $5s$ measurement of signal strength at distance of $20m$ after last beacon mounted on the wall.
 
-First test concernes walk with the smartphone hold in hand horizontally and beacons places in $10m$ distances between each other. Figure \ref{fig:tests_case10_walk_10m_raw} depicts signal le
+Walking pace and speed was not arbitraty set and controlled during test. That is why distances assigned to given values are aproximated under assumption that the pace was contant during the walk. Instead of matching distances to signal strength values picks there was evaluated how signal strenth values changes during the walk.
 
 \begin{figure}[ht]
 \includegraphics[width=\textwidth, keepaspectratio]{pictures/tests_case10_walk_10m_raw}
@@ -889,6 +889,8 @@ First test concernes walk with the smartphone hold in hand horizontally and beac
 \caption{Signal strengths of the beacons placed $10m$ each, measured during the walk with smartphone hold in hand in it's horizontal orientation.}
 \label{fig:tests_case10_walk_10m_raw}
 \end{figure}
+
+First test concernes walk with the smartphone hold in hand horizontally and beacons placed in $10m$ distances between each other. Figure \ref{fig:tests_case10_walk_10m_raw} depicts RSS values recorded by the smartphone. Approximate placement of the reference point can be determined because of characterisic picks. There can be also observed that at level of $-95dBm$ signals strength from beacons got sabilized. Because of the fluctuations these signal strength values are not usefull. Beacons emmit their signal with such power level that when the user was just under the second beacon B1(1) (about $35m$ on the chart) he was still received signals from the nearby beacons: B1(3) -- $-95dBm$, B1(2) -- $-97dBm$. It can be observed that in the middle of the distance between nearby beacons, they have similiar power values like in case of B1(3) and B1(1) at $31$ meter: B1(3) -- $-91,6dBm$, B1(1) -- $-91dBm$.
 
 
 \begin{figure}[ht]
@@ -898,31 +900,23 @@ First test concernes walk with the smartphone hold in hand horizontally and beac
 \label{fig:tests_case10_walk_15m_raw}
 \end{figure}
 
+It can be observed that slope of the curve after reaching its peak is slighly smoother than just before the peak. There are are possible two reasons of such results. Values could got smoothed during the signal processing by the hardware or software before value evaluation. It may also mean that the user presence on direct path between beacon and smartphone can ifluence the observed signal strengths.
+
+Figure \ref{fig:tests_case10_walk_15m_raw} presents values obtained during test with beacons placed $15m$ each. Absolute values recorded during the test are similiar to those from previous test. In test with $10m$ gaps, values in peaks were about $-78dBm$ -- $-76dBm$; in test with $15m$ gaps, values in peaks were about $-75dBm$ -- $-74dBm$. Also the RSS values in the middle of distances between two nearby beacons are similiar, about $-95dBm$.
+
 \begin{figure}[ht]
 \includegraphics[width=\textwidth, keepaspectratio]{pictures/tests_case11_walk_10m_smartphone_orientation}
 \centering
-\caption{Attenuation curve with respect of the trasmitter power.}
+\caption{Attenuation curve of three beacons with respect of the placement of the smartphone.}
 \label{fig:tests_case11_walk_10m_smartphone_orientation}
 \end{figure}
+
+Figure \ref{fig:tests_case11_walk_10m_smartphone_orientation} presents results of a test where beacons were placed $10m$ each and the smatphone was kept in the pocket. The main difference between signals recorded by smartphone in its horizontal orientation and when it was kept in the pocket is the strong fluctuation near the signal source. It is most visible on meter $35$ and $38$ where yellow cruve of RSS of beacon B1(1) drops from $-79dBm$ to $-92dBm$ and then goes up to $-85dBm$ at $40$ meter.
+
+
 % subsection real_case_scenario_evaluation (end)
-
-
-
-% case 11. Dynamic tests with 3 beacons. Tested two orientations of receiver. Tests start with 5s measurement of signal strength 20m before first transmitter, consists of walk along corridor (70m), ends with 5s measurement of signal strength 20m after last transmitter
-% * F-/B- (due to movement) receiver orientation
-% * P receiver orientation
-% case 12. Wall and ceiling transmitter placement comparison
-% * transmitter on the ceiling
-% * transmitter on the wall
-
-
-\begin{itemize}
-	\item Check if system works with basic algorithm
-	\item Tests in few configurations
-	\item State if some factors have impact on signal quality
-	\item State if some factors have impact on position finding
-\end{itemize}
 % section tests_of_system_and_basic_algorithm (end)
+\FloatBarrier
 
 \section{Tests of extended algorithm} % (fold)
 \label{sec:tests_of_extended_algorithm}
@@ -945,16 +939,14 @@ First test concernes walk with the smartphone hold in hand horizontally and beac
 Capture data that will be base for comparison between simple and extended position finding algorithm accuracy.
 
 % section tests_of_extended_algorithm (end)
-
-\section{Experiments results} % (fold)
-\label{sec:experiments_results}
-
-Resluts with analysis.
-
-% section experiments_results (end)
+\FloatBarrier
 
 \section{Tests summary} % (fold)
 \label{sec:tests_summary}
+\begin{itemize}
+	\item State if some factors have impact on signal quality
+	\item State if some factors have impact on position finding
+\end{itemize}
 
 % section tests_summary (end)
 \end{document}
