@@ -477,11 +477,24 @@ In proposed solution each beacon is placed in $10 m$ gaps. Each beacon is config
 
 Output of the intertial sensorics can produce missleading position information. For example basing on the accelereometer data only it may turn out that the user have changed direction of the movement while he is still moving forward. It may effect with worsen the positioning information instead of making the position more accurate.
 
-\begin{itemize}
-	\item Simple algorithm will use localization system only (no internal sensors)
-	\item Algorithm will use localization system and internal sensors
-	\item Explain how beacons will interact with the positioning system
-\end{itemize}
+\begin{figure}[!htbp]
+ % trim={<left> <lower> <right> <upper>}
+\includegraphics[width=0.9\textwidth, trim={2cm 2cm 2cm 2cm},clip]{pictures/architecture_beacons_processing.pdf}
+\centering
+\caption{Porposed position aligning method based on the received signal strengths from reference points.}
+\label{fig:architecture_beacons_processing}
+\end{figure}
+
+Figure \ref{fig:architecture_beacons_processing} presents the concept of the received signal strength based positioning solution for smartphones. As application of the distance models on the RSS values are questionable in underground installation envioronment, the proposed solution relies on predifined values expresing the distance class rather than on approximated distances based on exact received signal strenth analysis. Values used for the positioning system were computed from results obtained during the underground tests. Proposed algorithm for position approximation use three predefined values:
+\begin{enumerate}
+	\item FAR threshold - RSS value that describes minimum RSS that can be taken into consideration during approximate position evalutaion. Beacon that send signals with lower RSS than defined by "FAR" is categorised as "far beacon" and signal is treated as a noise,
+	\item IMMEDIATE threshold - RSS value that descibes minimum RSS that comes from the beacon located "immediate" to the smarpthone. Signals with bigger RSS value indicates that beacon that emmited those signals is an "immediate beacon". Signals with smaller RSS, but larger that defined by FAR threshold, indicates that beacon that emmited those signals is a "near beacon",
+	\item DIFF value - maximum accepted difference between obtained RSS values from signals sent by "near beacons" that allows to approximate the smartphone positinon in the middle of those "near beacons".
+\end{enumerate}
+
+In simple case, where smartphone is away from corridor crossections, position finding algorithm is aware of two positioning senarios: smartphone is close ("immediate") to the beacon and smartphone is in between two near beacons. In order to determine current scenario, algorithm computes RSS of all signals received and categories them with respect of thier values into two sets: "immediate" and "near". If there were found "immediate" classified beacons then algorithm set current smartphone position to the position of the "immedieate" beacon with the biggest RSS value. In case where there are no "immediate" beacons but there were found at least two "near" beacons then the difference between their RSS values are evaluated. If difference is lower than DIFF value then the smartphone position is considered as in the middle of related beacons.
+
+Is is possible that smartphone device is near the corridor crossection. In that case it is smartphone receive signals from beacons located in two or even more corridors (like in case of crossections in room-and-pillar production block -- see figure \ref{fig:room_and_pillar_scheme}). In such situation there is need to adjust algorithm to make use from informations from beacons labeled with different corridors names and meters related to the given corridors. Proposed solution is about finding the immediate beacon first. If there is no such beacon then RSS values from all "near" beacons are evaluated in order to check if there is possibility to estimate smartphone position as position in the middle of two nearby beacons. For that purpose beacons are grouped into sets that represents corridors they belong to. Sets with only one beacon are removed. Within all remaining sets algorithm look for a pair of similiar RSS values (difference must be smaller than DIFF threshold). If such pair was found then smartphone position is estimated as a position in the middle of beacons that emmits signals from pair.
 
 % section solution_architecture (end)
 
@@ -511,22 +524,85 @@ There is need to mention in this secion
 \section{Data processing and analysis} % (fold)
 \label{sec:data_processing}
 
-Proposed positioning system depends on inputs from the smartphone's wireless receiver and internal sensorics. Raw data cannot be used directly by the positioning algorithm because of different nature of those signals and the high dirfts and noise levels that affects both wireless transmission and inertial sensorics measures. In order to make signal useful there is need to apply filtering that will normalize the outcome of particular information source and possibly improve position estimation.
+Proposed positioning system depends on inputs from the smartphone's wireless receiver. Raw data cannot be used directly by the positioning algorithm because of different nature of those signals and presence of high dirfts and noise levels that affects wireless transmission. In order to make signal useful there is need to apply filtering that will normalize the outcome of particular information source and possibly improve position estimation.
 
-\begin{figure}[!htbp]
- % trim={<left> <lower> <right> <upper>}
-\includegraphics[width=0.9\textwidth, trim={2cm 2cm 2cm 2cm},clip]{pictures/architecture_beacons_processing.pdf}
-\centering
-\caption{Porposed position aligning method based on the received signal strengths from reference points.}
-\label{fig:architecture_beacons_processing}
-\end{figure}
-
+There were investiaged four filtering methods:
 \begin{itemize}
-	\item - todo - filtering; sensor fusion
+	\item Kalman filter,
+	\item Low-pass filter,
+	\item RSSI smoothing approach \cite{rssi_smoothing},
+	\item Median filter.
 \end{itemize}
 
-TODO - move it to the post processing/ filtering techniques section
-It means that values of signals strength cannot be used directly as an input for  because t the on the current signal strengths. That is why filtering techniques are needed in order to make the signal free from random changes and more robust in terms of environmental distortions.
+All filteres were applied to example signal strength waveform. Results are presented on figure \ref{fig:filtering_comparison}.
+
+\begin{figure}[!htbp]
+\includegraphics[width=\textwidth]{pictures/filtering_comparison}
+\centering
+\caption{Porposed position aligning method based on the received signal strengths from reference points.}
+\label{fig:filtering_comparison}
+\end{figure}
+
+Median filter is a non-linear moving $N$--order filter. $N$ denotes number of frames within the sliding window what is directly proportional to the delay it introduces to the reslut. Aim of this filter is to obtain slow changing estimate of received signal strength curve. As the goal is to provide energy-efficient solution, the number of signal that are sent by the beacons are limited in order to safe energy. It was assumed that beacons will send signal two times per second. The value can be increased or decreased with respect of the experimentally obtained responsiveness of the positioning system and power consumption of beacons. For evaluation purposes $N=4$. As it can be observed, median filter (purple curve) doesnt fitered the RSS drop at about $30$'th probe, but filtered most of the fluctuations arround $80$'th probe. It is not accepted for a filtering function to introduce such big delay without possibility to filter fluctuations like arround $30$'th signal probe.
+
+Smoothing RSSI approach \cite{rssi_smoothing} is a filtering method that introduces a \textit{weighted value} parameter $\alpha$ which can be any value from range $0$ -- $1$. Equation that express the method is as follows:
+
+\begin{equation}
+\label{eq:rssi_smoothing}
+	RSSI_{smooth} = \alpha \cdot RSSI_n + (1 - \alpha) \cdot RSSI_{n-1}
+\end{equation}
+
+For evaluation purposes $\alpha$ parameter was set to $0.25$. Curve obtained with use of that method was distinguished on figure \ref{fig:filtering_comparison} with blue color. It was observed that this method introduces a delay of arround $4$ frames after the actual signal. Another observation is that the estimation slower than median filter reacts on the increasing and decreasing slopes of original signal: when the original curve goes up then estimate values are always bellow the original slope, when the curve goes down then estimate values are always above the original slope.
+
+Low-pass filter is commonly used for removing short term variance from the signal. It is widely used in indoor navigation applications, mainly for inertial navigation and sensoric data analysis \cite{indoor_positioning_for_ar}\cite{indoor_navi_for_android2}\cite{report_indoor_navi_for_smartphones}\cite{thesis_ins_algorithms_for_android}\cite{indoor_positioning_for_ar_PhD_GOOD}. This approach uses cut-off parameter $\alpha$, similiar to one from smoothing approach.
+
+\begin{equation}
+\label{eq:low-pass_filter}
+	RSSI_{low-pass} = RSSI_{n} + \alpha \cdot (RSSI_{n-1} - RSSI_{n})
+\end{equation}
+
+For evaluation purposes $\alpha$ parameter was set to $0.25$. Low-pass filter introduce smaller delay than in case of smooth and median filters, about $2$--$3$ frames. It filtered the signal drop arround $30$'th signal probe and fluctuations arround $80$'th probe. On figure \ref{fig:filtering_low-pass} there are presented filtering results with use of different custom extensions to the filtering method.
+
+\begin{figure}[!htbp]
+\includegraphics[width=\textwidth]{pictures/filtering_low-pass}
+\centering
+\caption{Porposed position aligning method based on the received signal strengths from reference points.}
+\label{fig:filtering_low-pass}
+\end{figure}
+
+Custom variations of low-pass filter are a try of adjusting the responsiveness of the filter and it's fluctuation filtering capabilities. On figure are presented following concepts: low-pass filter based on average and low-pass filter suplemented by average. Following equations describe each of them:
+
+\begin{equation}
+\label{eq:low-pass_filter_avg_based}
+	RSSI_{low-pass_as} = AVG(RSSI_{n-3}:RSSI_{n}) + \alpha \cdot (RSSI_{n-1} - RSSI_{n})
+\end{equation}
+
+\begin{equation}
+\label{eq:low-pass_filter_avg_supplemented}
+	RSSI_{low-pass_ab} = RSSI_{n} + \alpha \cdot (RSSI_{n-1} - AVG(RSSI_{n-3}:RSSI_{n}))
+\end{equation}
+
+AVG is an average function over window that consists of $4$ frames.
+
+Kalman filter is an extended filter that allows for sensor fusioning by defining observation and transition models, and controls. It is widely used for sensor fusion of inertial navigation purposes\cite{inertial_navi_velocity_model}, also for smartphones \cite{inertial_navi_bike}\cite{indoor_navi_for_android} and Bluetooth technology \cite{beacon_rssi_analysis}\cite{discover_beacons_and_position}. Simplified Kal
+
+\begin{figure}[!htbp]
+\includegraphics[width=\textwidth]{pictures/filtering_simple_kalman}
+\centering
+\caption{Porposed position aligning method based on the received signal strengths from reference points.}
+\label{fig:filtering_simple_kalman}
+\end{figure}
+
+\begin{figure}[!htbp]
+\includegraphics[width=\textwidth]{pictures/filtering_simple_kalman_missconfigured}
+\centering
+\caption{Porposed position aligning method based on the received signal strengths from reference points.}
+\label{fig:filtering_simple_kalman_missconfigured}
+\end{figure}
+
+
+% TODO - move it to the post processing/ filtering techniques section
+It means that values of signals strength cannot be used directly as an input for  because models are sensitive on the provided signal strengths. That is why filtering techniques are needed in order to make the signal free from random changes and more robust in terms of environmental distortions.
 
 % section data_processing (end)
 
@@ -623,7 +699,7 @@ Tests were performed in part of XVIII century exchavation corridor which is avai
 \label{fig:corridor}
 \end{figure}
 
-During the tests in the corridor there was $10^\circ$C  and $71 \%$ of humadity. In order to avoid diffractions from corridors endings, transmitters were placed in the middle of the corridor at it's 90 m.
+During the tests in the corridor there was $10^\circ$C  and $71 \%$ of humadity. In order to avoid diffractions from corridors endings, beacons (Bluetooth transmitters) were placed in the middle of the corridor at it's $90 m$ in case of sigle beacon test and in $\pm15 m$ from this place in case of multiple beacons test.
 
 During the test there was used
 \begin{itemize}
@@ -670,19 +746,7 @@ Symbols and terms used in the table \ref{tab:test_parameters} are following:
 \end{table}
 
 
-\begin{itemize}
-	\item Testing environment descipription
-	\item Equimpent used during tests. Example:
-	\begin{itemize}
-		\item using a representative wifi router, 801.11g techonology, simple circular antenna (eg Minetronics MMG) - for charts.
-		\item using a representative beacon
-		\item dBm signal strength depending on the distance and polarity of the mobile device from the signal source
-	\end{itemize}
-	\item Pictures
-\end{itemize}
-
 \FloatBarrier
-
 % section tests_metodology (end)
 
 \section{Tests of wireless reference points in underground environment} % (fold)
