@@ -877,18 +877,19 @@ For this test there was used beacon B1 mounted vertically on the wall. There wer
 
 Second part of the test session in the underground installation was devoted to check if proposed position fining system based on the wireless reference points (Bluetooth becons) can take received signal strength as a fator determining the distance between the user device and the reference point. Aim of tests was take strength values of signals from beacons during the walk along the tunnel with sample positioning infrastructure and check how the oberved values fits to the proposed positioning solution.
 
-During tests there was 3 scenarios taken into consideration. One was about position of the smartphone: evalutaion of the signal strength values recorder by the smartphone carried in the pocket and smartphone held by the user in his hand (horizontal orientation). The second scenario consers distance between the reference points. There were evaluated $10m$ and $15m$ distances between the beacons. There were used three B1 beacons with $-16dBm$ power setting placed vertically on the wall. The last scenario was about checking how direction of user movement impacts on the observed signal strength values. That case is a direct extension to the static tests of shadowing direct signal path by the user (see figure \ref{fig:tests_case5_user_shadowing}).
-
-Each test that cover first and the second senario, was performed two times, named as: "way there" and "way back". That is how the third senarios was included into two two first. That way creates the possibility to check if walking direction influence received signal strength. Each test round consisted of three phases: warm up, walk, settle down. Warm up phase was about capturing the signal strength values for $5s$, $20m$ before first beacon. Walk was about making a distance of $70m$ in case of beacons mounted $10m$ each or a distance of $80m$ in case of beacons mounted $15m$ each. Settle down phase ends with $5s$ measurement of signal strength at distance of $20m$ after last beacon mounted on the wall.
-
-Walking pace and speed was not arbitraty set and controlled during test. That is why distances assigned to given values are aproximated under assumption that the pace was contant during the walk. Instead of matching distances to signal strength values picks there was evaluated how signal strenth values changes during the walk.
-
 \begin{figure}[ht]
 \includegraphics[width=\textwidth, keepaspectratio]{pictures/tests_case10_walk_10m_raw}
 \centering
 \caption{Signal strengths of the beacons placed $10m$ each, measured during the walk with smartphone hold in hand in it's horizontal orientation.}
 \label{fig:tests_case10_walk_10m_raw}
 \end{figure}
+
+During tests there was 3 scenarios taken into consideration. One was about position of the smartphone: evalutaion of the signal strength values recorder by the smartphone carried in the pocket and smartphone held by the user in his hand (horizontal orientation). The second scenario consers distance between the reference points. There were evaluated $10m$ and $15m$ distances between the beacons. There were used three B1 beacons with $-16dBm$ power setting placed vertically on the wall. The last scenario was about checking how direction of user movement impacts on the observed signal strength values. That case is a direct extension to the static tests of shadowing direct signal path by the user (see figure \ref{fig:tests_case5_user_shadowing}).
+
+Each test that cover first and the second senario, was performed two times, named as: "way there" and "way back". That is how the third senarios was included into two two first. That way creates the possibility to check if walking direction influence received signal strength. Each test round consisted of three phases: warm up, walk, settle down. Warm up phase was about capturing the signal strength values for $5s$, $20m$ before first beacon. Walk was about making a distance of $70m$ in case of beacons mounted $10m$ each or a distance of $80m$ in case of beacons mounted $15m$ each. Settle down phase ends with $5s$ measurement of signal strength at distance of $20m$ after last beacon mounted on the wall.
+
+Walking pace and speed was not arbitraty set and controlled during test. That is why distances assigned to given values are aproximated under assumption that the pace was contant during the walk. Instead of matching distances to signal strength values picks there was evaluated how signal strenth values changes during the walk.
+
 
 First test concernes walk with the smartphone hold in hand horizontally and beacons placed in $10m$ distances between each other. Figure \ref{fig:tests_case10_walk_10m_raw} depicts RSS values recorded by the smartphone. Approximate placement of the reference point can be determined because of characterisic picks. There can be also observed that at level of $-95dBm$ signals strength from beacons got sabilized. Because of the fluctuations these signal strength values are not usefull. Beacons emmit their signal with such power level that when the user was just under the second beacon B1(1) (about $35m$ on the chart) he was still received signals from the nearby beacons: B1(3) -- $-95dBm$, B1(2) -- $-97dBm$. It can be observed that in the middle of the distance between nearby beacons, they have similiar power values like in case of B1(3) and B1(1) at $31$ meter: B1(3) -- $-91,6dBm$, B1(1) -- $-91dBm$.
 
@@ -918,8 +919,11 @@ Figure \ref{fig:tests_case11_walk_10m_smartphone_orientation} presents results o
 % section tests_of_system_and_basic_algorithm (end)
 \FloatBarrier
 
-\section{Tests of extended algorithm} % (fold)
-\label{sec:tests_of_extended_algorithm}
+\section{Application of signal filtering} % (fold)
+\label{sec:application_of_signal_filtering}
+
+In order to improve the accuracy of the signal strength based positioning, there was applied low-pass filtering to the measures. Filtering aim is to limit signal strength fluctuations. Figure \ref{fig:tests_case10_walk_10m_low_pass} presents filtered values obtained during dynamic test presented before on figure \ref{fig:tests_case10_walk_10m}.
+
 
 \begin{figure}[ht]
 \includegraphics[width=\textwidth, keepaspectratio]{pictures/tests_case10_walk_10m_low_pass}
@@ -928,18 +932,17 @@ Figure \ref{fig:tests_case11_walk_10m_smartphone_orientation} presents results o
 \label{fig:tests_case10_walk_10m_low_pass}
 \end{figure}
 
-\begin{figure}[ht]
-\includegraphics[width=\textwidth, keepaspectratio]{pictures/tests_case10_walk_15m_low_pass}
-\centering
-\caption{Attenuation curve with respect of the trasmitter power.}
-\label{fig:tests_case10_walk_15m_low_pass}
-\end{figure}
+Low-pass filter does not smoothed the signal in a way that no fluctuactions can be observed but it limits their amplitude. For example drop at $23m$ of a RSS from beacon B1(3) got reduced from $-2dBm$ to $-0.3dBm$.
 
-
-Capture data that will be base for comparison between simple and extended position finding algorithm accuracy.
+Drawback of such data filtering is that it introduces some delay to dynamically changing values. For example: RSS value pick of B1(3) beacon in not filtered data (fig. \ref{fig:tests_case10_walk_10m}) was observed at $24.4m$ while pick on filtered data was observed $1m$ further ($3$ RSS probes later), assuming $1.6\frac{km}{h}$ test device speed and $1Hz$ frequency of RSS probing. Problem may be overcome by increasing probing frequency but decreasing the beacon battery life.
 
 % section tests_of_extended_algorithm (end)
 \FloatBarrier
+
+\section{Mobile application} % (fold)
+\label{sec:mobile_application}
+
+% section mobile_application (end)
 
 \section{Tests summary} % (fold)
 \label{sec:tests_summary}
