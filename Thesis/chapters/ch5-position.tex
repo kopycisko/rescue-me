@@ -2,7 +2,7 @@
 
 \begin{document}
 \chapter{Position finding solutions for indoor environment}
-\label{chapter:position_finding_solutions}
+\label{chapter:position_finding_solution}
 
 Underground installation is a specific case of an indoor environment. What is the characteristic for indoor environment is a large amount of signal diffractions and attenuarions by various materials, weaker signals of terrestial networks and global navigation sattelite systems and a need of more precise positioning information than in open space. Underground installations are completaly isolated from the wireless networks available on ground which is good because of lower radio noise. They are also limited in space what makes the diffraction happening as frequent as in ordinary indoor conditions. That arrises the question wether solutions that are working for indoor environments could be also applicable to the underground conditions. It is not obvious question as it is known that radio technologies behaves differently in underground corridors because of rock, steel, concrete, a hexahedral\cite{rf_in_mines_straight_gallery}\cite{rf_in_tunnel_waveguide_effect} alike shape and a working heavy machinery with powerfull motor engines that produce large amount of electromagnetic distortions.
 
@@ -18,43 +18,18 @@ Smartphone based indoor positioning approaches can be classified as shown on fig
 
 In this chapter there are revieved successful approaches for indoor positioning including hardware devices and infrastructure related system architectures and algorithmic approaches that are suitable for smarpthone devices.
 
-\section{Known solutions analysis}
-%Known solutions analysis (against defined criteria)
 
 
-Positioning systems with respect of the what is the target of acquired data. There can be defined three categories of positioning systems: positioning systems that are dedicated to acquire and transfer information about objects position to systems on surface, systems that are dedicated for on site usage to locate the device inside the underground installation and systems that combine both approaches.
 
-
-Computer recognise loading and dumping points by data provided by positioning system. It acumulates data about machine speed, distance traveled, time, amount of load that is carring and put into the report which creation is triggered by positioning information.
-
-
+TODO:
 \begin{itemize}
 	\item Advantages and disadvantages of solutions
 	\item How the solutions fulfil given criteria (ex. how accurate given solution can be)
+	\item Inertial navi system
 \end{itemize}
 
-Possible subsections that will discuss in detail given technologies.
-Inertial system
-https://en.wikipedia.org/wiki/Inertial_navigation_system
 
-Currently available indoor positioning systems rely on informations provided by radio transmitters placed on fixed positions and Inertial Measurement Units (IMU). Potential positioning approaches for underground installations\cite{positioning_tests} include:
-\begin{itemize}
-	\item Passive RFID,
-	\item Inertial Measurement Unit (IMU),
-	\item Received Signal Strength (RSS) based positioning:
-	\begin{itemize}
-		\item Bluetooth Low Energy,
-		\item ZigBee,
-		\item WiFi
-		\item Active RFID
-	\end{itemize}
-	\item Ultra-wideband (UWB),
-	\item Magnetic Field strength pattern matching,
-	\item Very-low frequency (VLF) electromagnetic waves,
-	\item Visible Light Communication (VLC).
-\end{itemize}
 
-In the underground installations image processing (aka computer vision) solutions for positioning systems are not investigated due to the lack of the patterns that can identify current position admittedly and poor visibility.
 
 With respect of the necessity of data distribution accross the positioning system there are avilable different solution architectures. Approaches can be categorised in a following way:
 \begin{itemize}
@@ -67,8 +42,27 @@ With respect of the necessity of data distribution accross the positioning syste
 \end{itemize}
 
 
-\subsection{WiFi signal strength analysis and WiFi fingerprinting} % (fold)
+\section{Wireless communication technology based solutions}
+%Known solutions analysis (against defined criteria)
+
+Wireless communication technologies are used for positioning purposes because of the fact that use electromagnetic waves which parameters are easily measureable, are open for extensions and suitable for hazardous and changing envioronments and finally they work without wires which can be broken during the works inside the underground installation. Another advatange is the low price of wireless communication modules and the wide application of various wireless communication technologies in computers and mobile devices such as smartphones.
+
+This section introduces existing solutions for position finding that base on the wirreless technologies.
+
+Commonly used techonologies for solving the problem of position finding in indoor environments are\cite{positioning_tests}:
+\begin{itemize}
+	\item Bluetooth Low Energy,
+	\item ZigBee,
+	\item WiFi,
+	\item Ultra-wideband (UWB).
+\end{itemize}
+
+Bluetooth, ZigBee and WiFi technologies are the common technologies used in Received Signal Strength (RSS) based positioning techniques.
+
+\subsection{Signal strength analysis and fingerprinting techniques} % (fold)
 \label{sub:wifi_fingerprinting}
+
+This section explains ideas behind Received Signal Strength analysis and fingerprinting techniches used for position finding solutions. Ideas are explained on example of WiFi wireless communication technology.
 
 WiFi network infrastructure is a one of the available solutions that can be used as a source of information about current position of the device. The basic solution for positioning with use of this technology is about recognising wireless lan network access points by thier SSID or physical address of network cards \cite{WLAN_fingerprinting}. As there exists working position finding solution that base on that technology the accuracy of the solution is about 100-300 meters \cite{thesis_tablet_positioning}.
 
@@ -108,7 +102,7 @@ One of the approaches for the Wireless LAN based positioniong system is to assum
 
 % subsection wifi_fingerprinting (end)
 
-\section{Positioning with Beacons and Bluetooth technology} % (fold)
+\subsection{Positioning with Beacons and Bluetooth technology} % (fold)
 \label{sec:positioning_with_beacons_and_bluetooth_technology}
 
 Beacons are transmitters that use Bluetooth low energy technology in order to send out small set of informations. They are designed to be small and energy efficient in order to allow them to be independent from the external power source. The main application of beacons are indoor positioning systems while beacons can be treated as a set of reference points building the static infrastructe of landmarks where the position is a funtion of received signal strength from beacons by the user. Beacons can be also attached to the non static objects or even user can emmit beacon information. Then the responsibility of position estimation lies on the infrastructure that gathers the signals.
@@ -151,16 +145,6 @@ There are available general concepts for positioning systems based on Bluetooth 
 
 % section positioning_with_beacons_and_bluetooth_technology (end)
 
-\subsection{RFID tags} % (fold)
-\label{sub:rfid_tags}
-
-RFID technology make use of electromagnetic field phenomena that allows to transfer information to reader from special component, RFID tag. Passive RFID tags are powered by readers though electromagnetic field; they do not use batteries or wired external supply. In order to acquire information from tag readers have to propagate electromagnetic waves. Tags cumulates power from electromagnetic field in capacitor. When tag have enough power then it transmits the response with tag's data to the reader and goes to sleep for a given time. Reader get signal from tag and perform filtering and decoding operations on it in order to get tag's data. There are also available variants of active RFID tags wich use it's own power supply.
-
-RFID technology is used in underground installations in certain locations to serve as check points. In this manner are monitored underground trains or dispatch of materials is being monitored. Passive RFID modules are installed on containers or mobile machines like trains. Those modules can be read by passive RFID readers that are connected to the mine network via dedicated control unit like Mining Infrastructure Computer \cite{Thesis_CM}. Control unit is responsible for RFID reader configuration and translation of its readings into standarized positioning information format. It also supplement data from RFID reader with its identificator or coordinates which express position of a reader on mine model. RFID can operate at 868MHz band. RFID with 8dBi antenna is able to detect RFID passive tags at range of up to 3 meters.
-
-%WHAT IS THE RANGE? HOW MANY ENERGY MUST BE USED TO GET THE DATA FROM RFID?
-% subsection rfid_tags (end)
-
 
 \subsection{WSN based position finding systems} % (fold)
 \label{sub:wsn_based_position_finding_systems}
@@ -201,6 +185,33 @@ Parameters $P_t$ (signal power generated by tag), $G_t$ (tag antenna gain), $G_{
 %drawback of WSN - simplified assumtion about propagation in underground corridors because of wave diffractions on it's walls; - not needed precision of two diamensional space; assumption about RFID tag range (WHAT IS THE RANGE OF RFID). In order to fulfill assumption there is need to put WSN nodes close to each other which higher the costs; - Limited lifetime
 %advantages of WSN - wireless nodes with rfid reader modules are cheaper than wired ones (in the same price we can install more nodes)
 
+\section{Other solutions} % (fold)
+\label{sec:other_solutions}
+
+Position finding solutions use also other means of sensing the environmental parameters than those making use of wireless communication technologies modules. Potential positioning approaches for underground installations include:
+\begin{itemize}
+	\item Passive RFID,
+	\item Inertial Measurement Unit (IMU),
+	\item Magnetic Field strength pattern matching,
+	\item Very-low frequency (VLF) electromagnetic waves,
+	\item Visible Light Communication (VLC).
+\end{itemize}
+
+In the underground installations image processing (aka \textit{computer vision}) solutions for positioning systems and solutions concerning pattern recognition (like \textit{activity-based navigation} \cite{article_visual_points_AR_navi}) are not investigated due to the poor visibility, lack of patterns that can identify current position admittedly as well as the fact that painted signs are quicly covered by the dust making them difficult to read.
+
+
+% section other_solutions (end)
+\subsection{Radio Frequency Identification tags} % (fold)
+\label{sub:rfid_tags}
+
+RFID technology make use of electromagnetic field phenomena that allows to transfer information to reader from special component, RFID tag. Passive RFID tags are powered by readers though electromagnetic field; they do not use batteries or wired external supply. In order to acquire information from tag readers have to propagate electromagnetic waves. Tags cumulates power from electromagnetic field in capacitor. When tag have enough power then it transmits the response with tag's data to the reader and goes to sleep for a given time. Reader get signal from tag and perform filtering and decoding operations on it in order to get tag's data. There are also available variants of active RFID tags wich use it's own power supply.
+
+RFID technology is used in underground installations in certain locations to serve as check points. In this manner are monitored underground trains or dispatch of materials is being monitored. Passive RFID modules are installed on containers or mobile machines like trains. Those modules can be read by passive RFID readers that are connected to the mine network via dedicated control unit like Mining Infrastructure Computer \cite{Thesis_CM}. Control unit is responsible for RFID reader configuration and translation of its readings into standarized positioning information format. It also supplement data from RFID reader with its identificator or coordinates which express position of a reader on mine model. RFID can operate at 868MHz band. RFID with 8dBi antenna is able to detect RFID passive tags at range of up to 3 meters.
+
+%WHAT IS THE RANGE? HOW MANY ENERGY MUST BE USED TO GET THE DATA FROM RFID?
+% subsection rfid_tags (end)
+
+
 \subsection{Visible Light Based positioning system} % (fold)
 \label{sub:visible_light_based_positioning_system}
 
@@ -225,11 +236,10 @@ Simple light sensor is the source of the received light information that is not 
 \label{fig:visible_positioning}
 \end{figure}
 
-There are investigated various modulation methods that tries to tackle with natural difficulties connected with visible light frequencies. Main of them are sun, ambient and fluoresecent light interferences with the carrier frequency and specular reflections \cite{visible_light_positioning}. As a modulation schemes there are being in use on-off keying, variable pulse-position modulation, color shift keying, binary fre-
-quency shift keying, channel hopping and pulse width modulation.
+There are investigated various modulation methods that tries to tackle with natural difficulties connected with visible light frequencies. Main of them are sun, ambient and fluoresecent light interferences with the carrier frequency and specular reflections \cite{visible_light_positioning}. As a modulation schemes there are being in use on-off keying, variable pulse-position modulation, color shift keying, binary frequency shift keying, channel hopping and pulse width modulation.
 % subsection visible_light_based_positioning_system (end)
 
-\section{Mobile device dedicated positioning systems} % (fold)
+\section{Applicability of smartphones in position finding solutions} % (fold)
 \label{sec:mobile_device_dedicated_positioning_systems}
 
 Todays smartphone class mobile device contains set of sensorics that can be used as a base for interial positioning system. In underground oprations industry this idea is not the newest as there were tryies of this technology implementations inside handheld devices for people working underground with use of semiconductor based MEMS gyroscopes \cite{Thesis_CM}. Such devices were connected to the underground wireless network through access points which was responsible for transfering positioning information to the central systems above ground.

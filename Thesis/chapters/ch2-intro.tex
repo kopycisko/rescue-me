@@ -130,6 +130,16 @@ Figure \ref{fig:localisation_approaches} introduces also a categorisation with r
 
 Within this paper there is investigated problem of user localisation only. Solutions for that problem are descibed in details in chapter \ref{chapter:position_finding_solutions}.
 
+
+There is need to highlight the fact that purpuse of gathering the position information can be different with respect of assumed application of that informations. There can be defined three main categories of positioning systems with respect of thier main applications:
+\begin{itemize}
+	\item positioning systems that are dedicated to acquire and transfer information about objects position to systems on surface,
+	\item systems that are dedicated for on site usage to locate the device inside the underground installation,
+	\item hybrid systems, that combine on site usage of positioning informations and their propagation to the systems on surface.
+\end{itemize}
+
+This paper investiages "on site usage" of the positioning information under assumption that there is no ready to use technology capable for data transmission nor sharing the position information in the target envioronment.
+
 Position finding in underground installations is a problem that arrised along with the advance in the available technologies. There is big demand on the market of underground installations for such functionality, There two main applications of position finding solutions:
 \begin{itemize}
 	\item workers safety,
@@ -154,12 +164,17 @@ Positioning systems dedicated to monitoring workers are called LAMPS -- Location
 
 Another use case for positioning system is that stakeholders want to know where the equipment is placed, how many time it needs to do it's operations, if there are some unplanned breakes in machine work. Delays in case of any underground operations are very costly. Resources monitoring can depict bootlenecks in machine operations may provide informations how to balance the workload in order to make operations smoother and more efficient. Data gathered by positioning systems can be also used in time and cost estimations. Mine stakeholders can see in real time what is the current distribution of equipment what enables them to perform real time coordination of ongoing process parts. In day to day operations information where are located operators and machines can increase production efficency because of less time needed to spend on gethering information about machines position from reports. \cite{thesis_tablet_positioning} The positioning systems are mainly used to deliver information to systems that operates above ground. Todays underground operations are partly or fully automated. The process of the operations is monitored and managed remotely from operation centers on surface. Supervior and control of such operations are similiar to that known on above ground process plants which are controlled by SCADA -- Supervisory Control And Data Acquisition software systems \cite{Thesis_CM}.
 
-Underground construction industry use automation technology heavily in nearly all aspects: safety, work automation, work and environment monitoring, internal and external communication, transport, maintainig ventilation, power or fresh water supply and others. Automated solutions are also used for example to control access to mine like entries for cars and mobile mine machines or for safety purpose to quickly cut off rooms where petrol oil are stored in case of accident or fire detection. Those automated systems can be configured and controlled from places they are mounted under ground or from central systems located above ground where central monitoring and work control take a place. Such centers collect informations distributed by systems and provide information about envioronmental parameters or work performance. Devices and mobile machines that work underground are also connected to that system through means of onboard microcontrollers or computers and wireless network. Thanks to it it is possible to provide to central system work performance information or device health status that can be usefull for service during periodical device checks or repairs. Positioning systems implementations may work togehter with these devices which allows underground operation executives to have a up to date map of current works and processes being in progress. Positioning information can be used also by mobile devices by themselves. Example of devices that make use positioning data are modern mobile machine gateways devices \cite{Thesis_CM} which are kind of black-box devices for big mining machines like loaders. Those devices can use positioning information as a trigger for reports of work efficiency expressed in load - unload cycles (IREDES Performance Profile report).
+Underground construction industry use automation technology heavily in nearly all aspects: safety, work automation, work and environment monitoring, internal and external communication, transport, maintainig ventilation, power or fresh water supply and others. Automated solutions are also used for example to control access to mine like entries for cars and mobile mine machines or for safety purpose to quickly cut off rooms where petrol oil are stored in case of accident or fire detection. Those automated systems can be configured and controlled from places they are mounted under ground or from central systems located above ground where central monitoring and work control take a place. Such centers collect informations distributed by systems and provide information about envioronmental parameters or work performance. Devices and mobile machines that work underground are also connected to that system through means of onboard microcontrollers or computers and wireless network. Thanks to it it is possible to provide to central system work performance information or device health status that can be usefull for service during periodical device checks or repairs. Positioning systems implementations may work togehter with these devices which allows underground operation executives to have a up to date map of current works and processes being in progress. Positioning information can be used also by mobile devices by themselves. Example of devices that make use positioning data are modern mobile machine gateways devices \cite{Thesis_CM} which are kind of black-box devices for big mining machines like loaders. Those devices can use positioning information as a trigger for reports of work efficiency expressed in load - unload cycles (IREDES Performance Profile report). Example use case for positioning information by LHD (\textit{Load Haul Dump} truck) can be as follows:
+\begin{itemize}
+	\item assumption 1: computer is able to recognise loading and dumping points by data provided by positioning system,
+	\item assumption 2: full cycle is defined as a task of carrying the material from load to dump points plus travel from dump to load point,
+	\item assumption 3: computer acumulates data about machine speed, distance traveled, time, amount of load that is carring,
+	\item use case: computer creates the report that summaries machine's performance each full cycle detected.
+\end{itemize}
+
 % subsection business_aspect (end)
 
-
-Nowadays there are available positioning systems for underground installations that can provide aproximate localization of people or equipment.
-
+Nowadays there are available positioning systems for underground installations that can provide aproximate localization of people or equipment. Representative examples are discussed in chapter \ref{chapter:position_finding_solution}.
 
 
 \section{Usage of mobile devices in underground installations}
