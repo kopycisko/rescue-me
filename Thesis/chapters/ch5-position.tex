@@ -147,7 +147,7 @@ $RSSI$ is a measure obtained during receiving process and $n$ is a constance.
 	\item passing address of a web site related to the Beacon.
 \end{itemize}
 
-
+There are available general concepts for positioning systems based on Bluetooth technology dedicated for underground environment\cite{article_inertial_active_beacons_calculus_kalman}\cite{positioning_tests}\cite{thesis_tablet_positioning}, but their concepts were not verified in real environment or are not applicable to be used by smartphones.
 
 % section positioning_with_beacons_and_bluetooth_technology (end)
 
@@ -584,25 +584,53 @@ Custom variations of low-pass filter are a try of adjusting the responsiveness o
 
 AVG is an average function over window that consists of $4$ frames.
 
-Kalman filter is an extended filter that allows for sensor fusioning by defining observation and transition models, and controls. It is widely used for sensor fusion of inertial navigation purposes\cite{inertial_navi_velocity_model}, also for smartphones \cite{inertial_navi_bike}\cite{indoor_navi_for_android} and Bluetooth technology \cite{beacon_rssi_analysis}\cite{discover_beacons_and_position}. Simplified Kal
+Kalman filter is an extended filter that allows for sensor fusioning by defining observation and transition models, and controls. It is widely used for sensor fusion of inertial navigation purposes\cite{inertial_navi_velocity_model}, also for smartphones \cite{inertial_navi_bike}\cite{indoor_navi_for_android}\cite{thesis_smartphone_inertial_plus_rfid} and Bluetooth technology \cite{beacon_rssi_analysis}\cite{discover_beacons_and_position}\cite{article_indoor_ble_rssi_filtering}\cite{article_inertial_active_beacons_calculus_kalman}. Simplified Kalman filter assumes that beacons (signal transmitters) are not moving and do not change it's state thourgh consequitive RSS readings (transition model is expressed by identity matrices). Such simplified version of a filter can be descibed as follows:
+
+\begin{equation}
+\label{eq:kalman_simplified}
+\begin{aligned}
+& C_n = P_{n-1} + PN	\\
+& M_n = |RSSI_n-RSSIk_{n-1}|^P \cdot N + E	\\
+& G_n = \frac{C_n}{C_n \cdot M_n}	\\
+& P_n = \max\{PN, C_n - (G_n \cdot C_n)\}	\\
+& RSSIk_n = RSSIk_{n-1} + G_n \cdot (RSSI_n -  RSSIk_{n-1})
+\end{aligned}
+\end{equation}
+
+Symbols used in equation \ref{eq:kalman_simplified}:
+\begin{itemize}
+	\item $RSSIk_n$ -- prediction for the the $n$'th signal probe (RSS),
+	\item $G_n$ -- Kalman gain for the $n$'th signal probe,
+	\item $RSSI_n$ -- real measurement of $n$'th signal probe,
+	\item $C_n$ -- certainity of $n$'th signal measurement,
+	\item $P_n$ -- prediction certainity of $n$'th signal probe,
+	\item $M_n$ -- measurement noise for $n$'th signal probe,
+	\item $P$ -- measurement expotentional constraint,
+	\item $N$ -- measurement noise factor constraint,
+	\item $E$ -- measurement noise epsilon constraint,
+	\item $PN$ -- prediction process noise constraint.
+\end{itemize}
+
 
 \begin{figure}[!htbp]
 \includegraphics[width=\textwidth]{pictures/filtering_simple_kalman}
 \centering
-\caption{Porposed position aligning method based on the received signal strengths from reference points.}
+\caption{Application of Kalman filter. Red curve represent Kalman filter with $E=3$ noise constraint and $P=0$ expotentional constraint while yellow curve represent Kalman filter with $E=3$ noise constraint and $P=0.6$ expotentional constraint. }
 \label{fig:filtering_simple_kalman}
 \end{figure}
+
+Figure \ref{fig:filtering_simple_kalman} presents Kalman filter applied on RSS values recorded experimenal session. With respect of chosen filter constraints it is possible to increase or decrease filter responsiveness. Increasing responsiveness cause filter faster response to changes but make it more sensitive for longer term fluctuations like in case one between $26$ and $36$ probe. Within this range red curve introduces delay of $3$ frames but does not filter the fluctuation, while yellow curve filter the fluctuation with the same delay of $3$ frames, but predicted value is about $5dBm$ lower than registered pick. Missconfigured Kalman filter overact on changes and introduces new fluctuations like it is presented on figure \ref{fig:filtering_simple_kalman_missconfigured}.
 
 \begin{figure}[!htbp]
 \includegraphics[width=\textwidth]{pictures/filtering_simple_kalman_missconfigured}
 \centering
-\caption{Porposed position aligning method based on the received signal strengths from reference points.}
+\caption{Application of Kalman filter. Red curve represent Kalman filter with $E=0$ noise constraint and $P=0.2$ expotentional constraint while yellow curve represent Kalman filter but with overlay }
 \label{fig:filtering_simple_kalman_missconfigured}
 \end{figure}
 
 
 % TODO - move it to the post processing/ filtering techniques section
-It means that values of signals strength cannot be used directly as an input for  because models are sensitive on the provided signal strengths. That is why filtering techniques are needed in order to make the signal free from random changes and more robust in terms of environmental distortions.
+Values of signals strength cannot be used directly as an input for because models are sensitive on the provided signal strengths. That is why filtering techniques are needed in order to make the signal free from random changes and more robust in terms of environmental distortions. There are known other filtering approaches dedicated for RSS like Gaussian filter, distance weighted filter or propagation model training \cite{article_rssi_learning_and_filtering_for_navi} -- their applicability for underground environment will be evalueted in future works.
 
 % section data_processing (end)
 
