@@ -208,6 +208,8 @@ RFID technology make use of electromagnetic field phenomena that allows to trans
 
 RFID technology is used in underground installations in certain locations to serve as check points. In this manner are monitored underground trains or dispatch of materials is being monitored. Passive RFID modules are installed on containers or mobile machines like trains. Those modules can be read by passive RFID readers that are connected to the mine network via dedicated control unit like Mining Infrastructure Computer \cite{Thesis_CM}. Control unit is responsible for RFID reader configuration and translation of its readings into standarized positioning information format. It also supplement data from RFID reader with its identificator or coordinates which express position of a reader on mine model. RFID can operate at 868MHz band. RFID with 8dBi antenna is able to detect RFID passive tags at range of up to 3 meters.
 
+There are known sucessfull implementations of positioning system which use RFID as a supplementary data -- static anchors inside it's positioning system \cite{article_rfid_imu_safety_nav}\cite{thesis_smartphone_inertial_plus_rfid}.
+
 %WHAT IS THE RANGE? HOW MANY ENERGY MUST BE USED TO GET THE DATA FROM RFID?
 % subsection rfid_tags (end)
 
@@ -546,7 +548,7 @@ Proposed positioning system depends on inputs from the smartphone's wireless rec
 
 There were investiaged four filtering methods:
 \begin{itemize}
-	\item Kalman filter,
+	\item Kalman filter \cite{article_rss_kalman},
 	\item Low-pass filter,
 	\item RSSI smoothing approach \cite{rssi_smoothing},
 	\item Median filter.
@@ -602,7 +604,7 @@ Custom variations of low-pass filter are a try of adjusting the responsiveness o
 
 AVG is an average function over window that consists of $4$ frames.
 
-Kalman filter is an extended filter that allows for sensor fusioning by defining observation and transition models, and controls. It is widely used for sensor fusion of inertial navigation purposes\cite{inertial_navi_velocity_model}, also for smartphones \cite{inertial_navi_bike}\cite{indoor_navi_for_android}\cite{thesis_smartphone_inertial_plus_rfid} and Bluetooth technology \cite{beacon_rssi_analysis}\cite{discover_beacons_and_position}\cite{article_indoor_ble_rssi_filtering}\cite{article_inertial_active_beacons_calculus_kalman}. Simplified Kalman filter assumes that beacons (signal transmitters) are not moving and do not change it's state thourgh consequitive RSS readings (transition model is expressed by identity matrices). Such simplified version of a filter can be descibed as follows:
+Kalman filter is an extended filter that allows for sensor fusioning by defining observation and transition models, and controls. It is widely used for sensor fusion of inertial navigation purposes\cite{inertial_navi_velocity_model}, also for smartphones \cite{inertial_navi_bike}\cite{indoor_navi_for_android}\cite{thesis_smartphone_inertial_plus_rfid} and Bluetooth technology \cite{beacon_rssi_analysis}\cite{discover_beacons_and_position}\cite{article_indoor_ble_rssi_filtering}\cite{article_inertial_active_beacons_calculus_kalman}. Simplified Kalman filter assumes that beacons (signal transmitters) are not moving and do not change it's state thourgh consequitive RSS readings (transition model is expressed by identity matrices). There was recently proposed extended Kalman filter for RSS signal filtering\cite{article_rss_kalman}. Simplified version of a filter can be descibed as follows:
 
 \begin{equation}
 \label{eq:kalman_simplified}
@@ -923,7 +925,7 @@ Another factor that influence radio frequency transmission is a presence of obst
 
 Test consisted of taking probes of the received signal strengths at discrete distances from the signal source in the "southern" part of the corridor, labeled as \textbf{LOS} and in the "northern" part of the corridor, labeled as \textbf{NLOS} (refer to the test place scheme on the figure \ref{fig:corridor}). Southern part of corridor is flat and there were no obstacles between the beacon and the smartphone during the test. Nothern part of the test place starts to go up at $61.5 m$ from the signal source. Steep grade is about $17\%$ so at $71.5 m$ from the signal source there is no direct path between beacon and the smartphone. Smartphone was oriented horizontally, beacon was mounted vertically on the ceiling.
 
-Despite fluctuation observed at $30 m$ from the signal source in LOS session, the shape of both LOS and NLOS curves of received signal strengths with respect of the distance was comparable until the start of the steep part of the corridor. Then NLOS curve goes down so at $75m$ from the signal source the value of RSS is $-98.8\pm2.1$ which is $18.6dBm$ lower than in case of RSS values observed at similiar distance in LOS case. It means that despite the wave guide effect that was supposed to be observed in case of electromagnetic waves in underground installations \cite{rf_in_tunnel_waveguide_effect}, the influence on the received signal strength is so high that have to be taken into consideration during system planning and installation. This effect can be effectively reduced by limitting the emitted signal power strength and populating the beacon devices.
+Despite fluctuation observed at $30 m$ from the signal source in LOS session, the shape of both LOS and NLOS curves of received signal strengths with respect of the distance was comparable until the start of the steep part of the corridor. Then NLOS curve goes down so at $75m$ from the signal source the value of RSS is $-98.8\pm2.1$ which is $18.6dBm$ lower than in case of RSS values observed at similiar distance in LOS case. It means that despite the wave guide effect that was supposed to be observed in case of electromagnetic waves in underground installations \cite{rf_in_tunnel_waveguide_effect}\cite{article_rf_propagation_practical_full}, the influence on the received signal strength is so high that have to be taken into consideration during system planning and installation. This effect can be effectively reduced by limitting the emitted signal power strength and populating the beacon devices.
 
 On the figure \ref{fig:tests_case5_user_shadowing} there are presented received signal strength values obtained within the test of the propagation path obscuration by the user .
 
