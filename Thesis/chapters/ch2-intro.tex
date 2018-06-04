@@ -3,34 +3,15 @@
 \begin{document}
 \chapter{Goals and thesis scope}
 
-Following document investigates position finding system implementation basing on consumer grade smartphone and network of reference points using Bluetooth Low Energy technology.
+Following document investigates position finding system architecture and reference implementation basing on consumer grade smartphone and network of reference points using Bluetooth Low Energy technology in underground environment. Goal of the proposed solution is to determine current position of the smartphone in relation to the underground installation.
 
-As part of the work, there are presented currenty known position finding solutions within underground environment, available technologies and a method of position finding for consumer grade smartphones in underground installations is proposed. There are presented test cases and experiments supported by data analysis from measurements of given factors of the solution. Experiments are focused on stability, repeatability, accuracy and reliability factors. The work do not discuss the mining model representation but general architecture and data exchange model. but there are proposed soluin terms of the location of the reference points, the location of the miner (system user), the safety points and the evacuation exits. The model should allow both the user to navigate to the nearest safety point, taking into account the current state of the corridors, and to allow presentation of the current position in graphical form. As part of the work, a complete model of the solution are be proposed along with the prototype of application for the mobile device. Finally, there are proposed future works that would base on a concept of integration of the location system with the function of remotely updating corridors. There are be provided example use cases.
+Thesis consists of the position finding problem oriented description of underground installations consisting of the definition of their elements, structure and purpose. There are discussed key challenges of the position finding problem in underground installations. There are discussed technologies that can be used in underground installations as well as methods and technologies that are applicable for consumer grade smartphones. As part of the work, there are presented currenty known position finding solutions dedicated for smartphones and indoor environment. There are higlighted and evaluated factors of chosen method of position finding in context of their behaviour in underground environment. There is proposed original solution architecture for underground positioning which makes use of known positioning methods and knowledge about the underground environment characteristics. As part of the work, a complete model of the solution is introduced along with the prototype of application for the mobile device. Proposed solution is supported by experiments performed in the real envrionment. Finally, there are proposed future works consisting on concept of integration of the proposed solution with methods of dead reckoning, inertial naviagtion and other making use of smartphone sensorics.
 
 \chapter{Underground envioronment description}
 
-Underground installations are specific environment in terms of electromagnetic waves propagation, their diamensions, varying accross the tunnels, large scale, weak light, available communication technologies, environmental parameters like humadity, temperature, substances that make up the atmosphere and safety restrictions that limits electronic equipment that can be used on site.
+Underground installations are specific environment in terms of electromagnetic waves propagation, diamensions varying accross the tunnels, their large scale, weak light, specific communication technologies, environmental parameters like humadity, temperature, substances that make up the atmosphere and safety restrictions that limits electronic equipment that can be used. They can be treated as a specific case of indoor environment. As there are already known solutions for position finding dedicated for indoor purposes, it is not possible in most cases to reuse them directly in underground installations due to difficult conditions prevailing there. For example solutions based on the radio waves are not suited to the specific, difficult to model propagation channel, due to the fact that signals are absorbed by earthen walls, bounce off uneven surfaces, and must pass equipment and other obstacles in corridors.
 
-As for the position finding problem in indoor environments there were already developed sucessful solutions, the underground environment make some of assumptions no more valid. That is because of the propagation channel which is difficult to model due to the fact that signals are absorbed by earthen walls, bounce off uneven surfaces, and must pass equipment and other obstacles in corridors.
-
-Description of:
-\begin{itemize}
-	\item Construction (very briefly):
-	\begin{itemize}
-		\item how can look like: from complicated (room and phillar) to simple (tunneling)
-		\item distances
-		\item how big it is: corridor diamensions, room diamanesions, etc.
-	\end{itemize}
-	\item Conditions in therms of light and air.
-	\item What wireless communication methods are available?
-\end{itemize}
-
-Answer questions:
-\begin{itemize}
-	\item if we need the navigation in whole installation? if yes, why?
-	\item if we need the navigation only in some places inside installation? if yes, why?
-	\item what factors may require from navigation system its extensive lifetime?
-\end{itemize}
+This chapter consists of description of underground installation structure and construction elements on example of room and pillar excavation type and commercial tunneling. There are explained activites connected to those installations, related use cases for the position finding system and potential benefits of using the system in safety and business aspect.
 
 \section{Underground installation characteristics}
 
@@ -93,8 +74,6 @@ In that context there can be formed following general requirements for any syste
 	\item must be inexpensive, robust, easy to expand.
 \end{itemize}
 
-
-
 % subsection hardware_and_environmental_constratins (end)
 \section{Positioning systems}
 
@@ -135,6 +114,9 @@ Position finding in underground installations is a problem that arrised along wi
 	\item workers safety,
 	\item extension to the task management, monitoring, resource planning and distribution tools.
 \end{itemize}
+
+
+Any system, also position finding one, should be suited to actual demands and problems it supposed to address. In order to meet the requirements, there is a need to design a solution that will provide the desired functionality in the expected quality. Position finding systems are not necessary to be available everywhere inside the underground installation but mainly in places with bigger activity where machinery and people works. That means that position finding solution should be independent from the existing infrastrure and scalable in order to be extended to new places, along with the growing of installation. It also means that solution does not have to be maintained in places where there is no activity and such system is not needed.
 
 
 \subsection{Safety aspect} % (fold)
