@@ -44,7 +44,7 @@ As the purpose of underground installation may be different, there are also diff
 
 Underground mines, which are characterized by their tough working conditions and hazardous environments, require reliable underground installation-wide communication systems in order to prevent from accident if possible or provide means of early warning of possible disaster \cite{Book_wireless_in_mines}. Besides safety purpose, both analog and digital communication is used in order to ensure smooth functioning of workings. For example it is possible to save the machine breakdown time thanks to immediate messages passing  from the vicinity of underground working area to the surface for day-to-day normal operations.
 
-With respect of the areas of the underground working activity there are different communication system used. Communication technology in underground installations use wired transmission media (twisted pair, coaxial, trolley, leaky feeders, and fiber optic cables), wireless and through-the-earth (very low frequency radio methods) transmissions. In most cases the communication solutions are based on wired technologies. Wireless communication techonologies are used in places that are inaccessible or in places affected by disaster where wired communication got broken. It is also havily used for communication purposes with modern underground equipment such as self-propelled mining machines. Wireless communication is installed also in underground installations where probability of disaser is low as an extension to wired technology. Commercial tunneling equip thier corridors with wireless communication technologies such as GSM and WiFi in order to speed up communication between executives on tunel construction site and on surface. Tunneling is about digggin a corridors for transportation purposes in difficoult terrains such as mountains or bellow the water. Operations that are performed it high latitudes where gas is not present are safer then in mines which operates deep under the surface.
+With respect of the areas of the underground working activity there are different communication system used. Because of the differences between onground and underground signal propagation environment there are also different communication systems being in use. Underground installations, like mines, use proprietary solutions, which are not standardized worldwide but solve similar problems and fulfills similiar requirements \cite{article-wireless-undeground-critics}\cite{article_mine_communications_safety}. Communication technology in underground installations use wired transmission media (twisted pair, coaxial, trolley, leaky feeders, and fiber optic cables), wireless and through-the-earth (very low frequency radio methods) transmissions. In most cases the communication solutions are based on wired technologies. Wireless communication techonologies are used in places that are inaccessible or in places affected by disaster where wired communication got broken. It is also havily used for communication purposes with modern underground equipment such as self-propelled mining machines. Wireless communication is installed also in underground installations where probability of disaser is low as an extension to wired technology. Commercial tunneling equip thier corridors with wireless communication technologies such as GSM and WiFi in order to speed up communication between executives on tunel construction site and on surface. Tunneling is about digggin a corridors for transportation purposes in difficoult terrains such as mountains or bellow the water. Operations that are performed it high latitudes where gas is not present are safer then in mines which operates deep under the surface.
 
 There is no standard position marking convetion that are used accross the underground installations. Details about shape, size and current deep and length of corridors are often trated as a company secret as well as their labels. Generally speaking underground installactions are labeled with use of sector name, corridor name and a number of meters since beggining of the corridor. Position within given corridor can be labeled with use of corridor name and the meter, for example $C1-25$, where $C1$ denotes corridor name and $25$ denotes number of meters. Corridor/meter pairs for denoting the position are suffincient in case of not complicated structure of corridors and shafts as well as in complex structured like in case of \textit{room and pillar} layout. Example of room and pillar corridors layout is presented on the figure \ref{fig:room_and_pillar_scheme}. $A1$ denotes transportation corridor. It can be used for example by drill rigs or load-haul-dump machines that are doing the excavation. $S1, S2, S3, ...$ are corridor names within the production block. Entrance to the production block can be named with use of cardinal directions like south in case of the figure \ref{fig:room_and_pillar_scheme}. Pillar diamensions may vary with respect of depth that works are being performed and the type of rock. Pillars can be 20 m -- 40 m thick.
 
@@ -69,40 +69,34 @@ Corridors layout can also invole different levels. Figure \ref{fig:mine_with_lev
 \label{sub:hardware_and_environmental_constratins}
 
 
+Underground installations differ from onground environment because of the limited space -- mainly tunnels, shafts and crossections. It affects communication methods that can be used because of the different propagation parameters, limited use of electrical and electronical equipment beacuse of hazardous envioronment which requires special equipment that is ignition--proove. Infrastructure inside tunnels must be suited for poor life conditions, working heavy machinery and possibly to be resistsnt to movements of the rock mass, vetilation ducts or water dam failures. Specific shape of the corridors and the materials used for walls and ceiling support causes wireless technologies behave differently than they were assumed to work in the onground conditions. That is why there is need to explicitly adjust existing technologies or even create new ones to make them useful for communication purposes in underground environment.
 
-State of the art in underground navigation solutions. Theoretical topic.
-
-Phisics related to waves propagation in underground corridor
+The wireless communication systems used on surface cannot be applied straightaway in underground mines due to high attenuation of radio waves in underground strata. Main elements that cause the task of communication and position finding in underground environment more difficult are\cite{article_mine_communications_3_characteristics}:
 \begin{itemize}
-	\item Waves difraction, <tłumienie>
-	\item What are known issues related to wireless communication in underground installations
+	\item uneven structure of the corridors: walls causes scattering and reflection phenomenas as well as different rock types causes different signal attenuations. Complex corridors topology and complex geological structures affects both ease of installation and signal link quality (in case wireless technology),
+	\item poor line of sight: direct LOS is an ideal case for radio waves propagation when there is no obstacle on the transmission path between transmitter and receiver. In case of long corridors but with limited dimensions, the direct path is narrow and is affected by the large number of diffractions. Such LOS is denedent on each element that is located inside the propagation area including the vehicles, people and equipment,
+	\item noise: rock excavation equipment introduces electromagnetic distrortions during their work. Such distrotions may affect radio waves as well as signals in  communication wires,
+	\item tunnel as a Waveguide \cite{rf_in_tunnel_waveguide_effect}: it is observed waveguide effect on electromagnetic waves at certain frequences what makes the wireless technology less predictable in terms of coverage area. It means that propagation models that applies to the signal in normal environment can not be used directly in underground environment. That makes the position finding solutions known from indoor envrionment navigation solutions that bases on wireless communication technologies questionable in terms of their applicability,
+	\item gaseous environment: causes that electric and electronical must be suited to work in conditions where air composition is diffrent than on surface, must be ignition safe and be aware of different radio wave propagation in different substances. Amount of dust present in the air also influences the radio propagation parameters,
+	\item warm conditions and humidity: it happens that humidity level can be high up to $90\%$ -- $98\%$ depending on the excavation type, ventilation and depth bellow the surface. Temperature can be as high as $40$ celsius degree.
 \end{itemize}
 
-
-
-*TO be adapted; book-wcin
-Requirements stated for communication system for the undeground operations:
+Phisics related to waves propagation in underground corridor are exmplained in details in sections
 \begin{itemize}
-	\item must be intrinsically safe and explosion proof
-	\item should adhere to the ingress protection (IP) standards;
-	\item must be rugged in structure
-	\item must be size flexible
+	\item \ref{sec:positioning_with_beacons_and_bluetooth_technology} distance model based on the received radio signal strength on example of Bluetooth technology,
+	\item \ref{sub:wsn_based_position_finding_systems} : electromagnetic propagation model on example of communication between WSN nodes.
+\end{itemize}
+
+In that context there can be formed following general requirements for any system dedicated for underground installation\cite{Book_wireless_in_mines}:
+\begin{itemize}
+	\item must be intrinsically safe and explosion proof,
+	\item should adhere to the ingress protection (IP) standards,
+	\item must have durable housing,
+	\item must be size suited,
 	\item must have totality in design including cables, power supply unit, base stations, etc
-	\item must be value-added priced;e stations, etc
-	\item must be robust, inexpensive, easy to expand,
-and enable fast and secure connections
+	\item must be robust, inexpensive, easy to expand.
 \end{itemize}
 
-
-
-***
-The wireless communication systems used on surface cannot be applied straightaway in underground mines due to high attenuation of radio waves in underground strata. Undergorund radio waves propagation envioronment differ also because of
-\begin{itemize}
-	\item presence of inflammable gases,
-	\item hazardous environment,
-	\item complex corridors topology (mines case),
-	\item complex geological structures,
-\end{itemize}
 
 
 % subsection hardware_and_environmental_constratins (end)
@@ -152,7 +146,7 @@ Position finding in underground installations is a problem that arrised along wi
 
 Protecting and rescueing people lifes are one of the most important challanges for the underground construction and mining industry since many years. In case of accident there is need to perform appropriate search and rescue actions immediatley as the survival rate decreases rapidly as time passes. As for underground construction and mining industry positioning systems are rather in research stage then in real use, executives doesn't know exact position af miners before accident and how many of them are trapped and how big is the scale of destruction. Currently used techniques for rescueing people after an accident requires to count people that came out to know how many people are trapped and then digg though the falled corridors and perform searching operations that rely on old low frequency technology like GLON. GLON is a polish old low frequency radio solution for finding signal emmited from miners lamp, allowing on detection from a few meters \cite{GLON}. Personal safety equipment consists of oxygen masks enabling to survive 50 minutes, and lamps with GLON transmitter. In case of accident in copper mine "Rudna" in Poland that had a place on 29'th November, 2016  \cite{newspaper_rudna} rescue action started 20 minutes after rock mass movement. Part corridor with chamber for mobile machines and excavation got collapsed. After 1,5 hour it was discovered that there are trapped miners. Rescue team had to dig fallen rocks from both sides of corridor without knowledge where trapped miners are because steel elements from collapsed corridor housing influenced the GLON system measures. Positioning system with online underground monitoring would give immediate information who and were was in time of accident and speed up rescueing operations. Unfortunately there was no such system. Current safety regulations does not take new technology into account. Mines do not know where exactly their miners are, they know only the region.
 
-Modern emergency systems for underground installations provide a set of functions that improves safety and minimise loss in case of accident. Besides the means of emergency situation prevention like preditions of mass movements or presence of gasses, lots of them provide functions that help coordinate miners if they are in the isolated areas to meet each other, guide them to the emergency equipment, exit points or safe areas and ensure that nobody was left in danger place \cite{Thesis_CM}. All of those functions requires good position finding solution in order to provide fast and realiable information even if connectivity is broken.
+Modern emergency systems for underground installations provide a set of functions that improves safety and minimise loss in case of accident. Besides the means of emergency situation prevention like preditions of mass movements or presence of gasses, lots of them provide functions that help coordinate miners if they are in the isolated areas to meet each other, guide them to the emergency equipment, exit points or safe areas and ensure that nobody was left in danger place \cite{Thesis_CM}. All of those functions requires good position finding solution in order to provide fast and realiable information even if connectivity is broken. Each communication system dedicated for underground installations cope with that problem involving wide spectrum of technologies in order to overcome limitations and increase robustness\cite{article_mine_communications_safety}.
 
 Positioning system can be used also by people working underground directly from their personal digital equipment\cite{Thesis_CM} as a kind of navigation system which can help to evacuate from underground installation. It could provide information about their current position within mine and there would be given informations about dangerous areas and recommended escape paths in case of emergency.
 
