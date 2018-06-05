@@ -601,20 +601,50 @@ Figure \ref{fig:filtering_simple_kalman} presents Kalman filter applied on RSS v
 \begin{figure}[!htbp]
 \includegraphics[width=\textwidth]{pictures/filtering_simple_kalman_missconfigured}
 \centering
-\caption{Application of Kalman filter. Red curve represent Kalman filter with $E=0$ noise constraint and $P=0.2$ expotentional constraint while yellow curve represent Kalman filter but with overlay }
+\caption{Application of Kalman filter. Red curve represent Kalman filter with $E=0$ noise constraint and $P=0.2$ expotentional constraint while yellow curve represent Kalman filter but with overlay. }
 \label{fig:filtering_simple_kalman_missconfigured}
 \end{figure}
 
 
-% TODO - move it to the post processing/ filtering techniques section
-Values of signals strength cannot be used directly as an input for because models are sensitive on the provided signal strengths. That is why filtering techniques are needed in order to make the signal free from random changes and more robust in terms of environmental distortions. There are known other filtering approaches dedicated for RSS like Gaussian filter, distance weighted filter or propagation model training \cite{article_rssi_learning_and_filtering_for_navi} -- their applicability for underground environment will be evalueted in future works.
+Values of signals strength should not be used directly as an input for because models are sensitive on the provided signal strengths. That is why filtering techniques are needed in order to make the signal free from random changes and more robust in terms of environmental distortions. There are known other filtering approaches dedicated for RSS like Gaussian filter, distance weighted filter or propagation model training \cite{article_rssi_learning_and_filtering_for_navi} -- their applicability for underground environment will be evalueted in future works.
 
 % section data_processing (end)
 
-\section{Position finding algorithm implementation} % (fold)
+\section{Position finding proof of concept implementation} % (fold)
 \label{sec:simple_position_finding_algorithm_implementation}
 
-Description of android framework, project components, problems occured, pitfails and remedies
+As a part of the thesis a proof of concept implementation of the positioning model was made. As the basis for the implementation there was used Android framework dedicated to devices with Android 7.0 operating system or higher. There was used open library "altbeacon" that provide means of communication with beacons.
+
+Application consists of two main modules: current position screen which is devoted for finding the current position and beacon ranging settings module.
+
+Despite of regular operation mode, there was also implemented background operation mode. Regular operation mode is characterized by shorten times between subsequent radio listening periods and longer listening times. In this mode it is possible to "range" the beacons found, read messages they provide and measure the signal. Example of ranging activity is visible on figure \ref{fig:app_beacon_ranging}. Application is able to read all of the messages sent by the beacon -- in this case beacon named \textit{B1(3)} -- measure RSS value, aggregate those values for all packets acquired (defalut aggregation type is moving window average), count all of the sending activities versus numer of correctly readed packtes and compute approximate distance basing on the RSS values. Distance calculation by default makes use of \textit{Log-distance path loss model} and the information about the assumed RSS value measured at one $1m$ distance from the beacon. Details about distance calculation methods are available in section \ref{sec:positioning_with_beacons_and_bluetooth_technology}.
+
+\begin{figure}[!htbp]
+\begin{minipage}{0.33\linewidth}
+\includegraphics[width=\textwidth, clip]{pictures/app_main_screen.png}
+\caption{View of the main application activity -- position finding module.}
+\label{fig:app_main_screen}
+\end{minipage}\hfill%
+\begin{minipage}{0.33\linewidth}
+\includegraphics[width=\textwidth, clip]{pictures/app_beacon_settings.png}
+\caption{Bluetooth beacon ranging and monitoring module setup.}
+\label{fig:app_beacon_settings}
+\end{minipage}\hfill%
+\begin{minipage}{0.33\linewidth}
+\includegraphics[width=\textwidth, clip]{pictures/app_beacon_ranging.png}
+\caption{Ranging activity log -- details about detected beacons.}
+\label{fig:app_beacon_ranging}
+\end{minipage}
+\end{figure}
+
+Background mode allows for lower power consumtion of the smartphone device by limitting use of Bluetooth module. It work in a manner of short scan which is aimed to detect if any of beacon was detected in the near area. If so background activity inform the user that he just accessed the area where positioning information is available. Background mode works even if main application remain not active. Background mode allows the user to to start position finding activity immediately after successful detection of the beacon. Example output of background activity can be seen on figure \ref{sec:positioning_with_beacons_and_bluetooth_technology} within the first lines of the log, just bellow the "Start ranging" button. First message \textit{setting up background monitoring} is related to first start up of the positioning finding application. Then the application can be closed -- stopped by the user. If application got killed by the operating system then neither background and regular operation modes are not working. Lines \textit{switched from seeinf/not seeing beacons} and following are related to detection of the beacon and performing related action. In this case view of position finding activity was run.
+
+Parameters of monitoring and ranging activities are about scan delay times in both background and regular operation modes. Application can define also a types of beacons that are accepted by definition of "layout". Syntaxt of layout relates to the header of the advertisement massages broadcasted by beacons. Exmaple of layout is available in section \ref{sec:positioning_with_beacons_and_bluetooth_technology} in part concerning \textit{iBeacon} protocol.
+
+Position finding view presents pair of name of corridor and working meter that is obtained as a result of the proposed position finding algorithm. This pair is aimed to be enough for position identification regardless the complexity and scale of underground installation.
+
+Principals of the proof of concept implementation were used in tests in the real environment.
+
 % section simple_position_finding_algorithm_implementation (end)
 
 \chapter{Positioning model prototype implementation tests}
