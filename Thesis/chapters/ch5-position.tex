@@ -19,18 +19,6 @@ Smartphone based indoor positioning approaches can be classified as shown on fig
 In this chapter there are revieved successful approaches for indoor positioning including hardware devices and infrastructure related system architectures and algorithmic approaches that are suitable for smarpthone devices.
 
 
-
-
-TODO:
-\begin{itemize}
-	\item Advantages and disadvantages of solutions
-	\item How the solutions fulfil given criteria (ex. how accurate given solution can be)
-	\item Inertial navi system
-\end{itemize}
-
-
-
-
 With respect of the necessity of data distribution accross the positioning system there are avilable different solution architectures. Approaches can be categorised in a following way:
 \begin{itemize}
 	\item server -- client: positioning system infrastructure is capable for estimating the position of the system user. End user can fetch information about it's position from the server.
@@ -43,6 +31,7 @@ With respect of the necessity of data distribution accross the positioning syste
 
 
 \section{Wireless communication technology based solutions}
+\label{sec:wireless_comm_tech_solutions}
 %Known solutions analysis (against defined criteria)
 
 Wireless communication technologies are used for positioning purposes because of the fact that use electromagnetic waves which parameters are easily measureable, are open for extensions and suitable for hazardous and changing envioronments and finally they work without wires which can be broken during the works inside the underground installation. Another advatange is the low price of wireless communication modules and the wide application of various wireless communication technologies in computers and mobile devices such as smartphones.
@@ -321,36 +310,8 @@ Positioning techniques that invole following devices are not useful or cannot be
 
 Smartphones provides support for Beacons - simple Bluetooth Low Energy devices. There are available libraries that allows monitoring of Bluetooth devices. There are available two modes for searching for Beacons: region monitoring and ranging. Region monitoring is an energy efficient way for searching for Beacons. It allows for long delays between consequent listening periods (like 10 seconds), turning receiver into sleep mode, and background service being active while the positioning application is turned off. In case where positioning application is turned off, the background service inform user that his smartphone found himself in the range of given Beacon region and run the positioning application. Such functionality is often implemented by shopping malls official applications allowing for location aware push-messages. Such advertising technique is called \textit{geofencing} \cite{beacon_rssi_analysis}. Region monitoring gives a rough information wether there is or there is not any Beacon device being in range. On the other hand, ranging gives details about all devices being in range with details such as RSSI, name, and other, protocol dependent data. Ranging use more receiver power as listening time is bigger (like 1 second) and there are smaller time intervals between consequent listening sessions (like 10 milliseconds). As it was explained in section \ref{sec:positioning_with_beacons_and_bluetooth_technology}, Beacons communicate their presence by sending broadcast messages called advertisement frames. With respect of the type of protocol being used there are available different formats for advertisement frames known as beacon layouts. Layout denotes the constraints that characterise given advertisement frame as well as variables and fields that are being included into frame.
 
-TODO - describe each of pros
-TODO - describe each of cons
 
-
-\begin{itemize}
-	\item Which of them will be useful to increase positioning accuracy
-	\item Why mobile device is good for positioning purposes? What are the factors?
-	\item What means of communication (ex. wireless) can be used in context of positioning system
-	\item Battery limitations
-	\item Sensitivity of receivers
-\end{itemize}
-
-
-\subsection{Position finding basing on localization system and mobile device model}
-
-Localization system choise (system based on beacons)
-\begin{itemize}
-	\item  Motivation
-	\item  Prototype system description
-	\item  Mobile device - system interaction description
-	\begin{itemize}
-		\item  Method of detecting reference points description
-		\item  What are the possibilities to improve positioning on your mobile device?
-		\item  How could the process of installing a localisation system in a mine look like?
-		\item  How the parameters of the environment (corridor height, corridor width, type of rock, type of corridor corridors, presence of other networks operating on similar frequencies (WiFi, GSM (harmonic frequencies)), others) affect reference point signal quality.
-	\end{itemize}
-\end{itemize}
-
-
-\section{Solution requirements}
+\section{Positioning model requirements}
 Positioning system as such have to match requirements related to the reliability and robustness, accuracy, power efficiency, installation and maintenance effort and safety. As the smartphone device is also a part of the solution then proposed positioning system must be able to interact with this device.
 
 % Reliability and robustness
@@ -424,39 +385,20 @@ Requirements summary stated for a positioning system and related infrastructure:
 \end{itemize}
 
 
-% TODO
-Requirements as the position of the mobile device will be determined by the environment model.
 
-Define criteria that are the basis for position finding solutions comparison (existing or conceptual):
-\begin{itemize}
-	\item How to save a corridor model in computer memory
-	\item wireless communication
-	\item resistance to power outages and communications
-	\item Do I need the ability to change configuration of reference points (configuration of devices that perform role of reference points)?
-	\item What parameters can be read from the reference points (range, distance, ?)
-	\item How long should the network work properly?
-	\item How to detect irregularities in reference points?
-	\item How to fix problems in reference points?
-	\item What problems may occur with points of reference?
-	\item If there are restrictions upon existing network topology (ex. in order to get access to servers located on surface)
-	\item Can the mobile device be useful in case of lack of signal (GSM/Wi-Fi/BLE)?
-	\item example: accuracy, durability, cost, maintability (energy, fault)
-\end{itemize}
+\chapter{Mobile technology based positioning model}
+This chapter introduces concept of positioning model for position finding problem in underground installation. Porposal consist of underground environment characteristics evaluation in context of chosen method of acquiring the information about the sorroundings needed for estimating the current position as well as the concept of static configuration of the underground installation layout, reference points installation and maintenance, interaction between smartphone and the environment, chosen technologies.
 
-\chapter{Mobile device position finding algorithm}
-* Algorithm that will make use of chosen localization system and mobile device internal sensors.
-
-\section{Position finding requirements} % (fold)
+\section{Position finding techonology selection} % (fold)
 \label{sec:position_finding_requirements}
-\begin{itemize}
-	\item Should repeat and answer requirements stated for localization system.
-	\item example:
-	\begin{itemize}
-		\item Reading signal and its parameters from reference points;
-		\item Identification of reference points
-		\item Current location presentation on the environment model
-	\end{itemize}
-\end{itemize}
+
+As proposed model is a generic solution for positioning inside underground installation there was assumed strict underground environment with the smallest set available technological infrastructure and safety limitations. Decisions regarding model specifics were obtained as a result of prototype solution tests in real envirionment. Tests are descibed in chapter \ref{ch:localization_system_tests}.
+
+
+
+Position in underground installation is a pair of a label of a current corridor and a current meter counted from corridor start. Model assume that position is expressed by that pair, so output of the model is not expressed 2D or 3D coordinate system but in more abstract, installation dependent way. Proposed model make use of the Bluetooth Low energy technology in order to limit impact of difficult electromagnetic propagation conditions (see sections \ref{sub:hardware_and_environmental_constratins} and \ref{sec:wireless_comm_tech_solutions}). It is assumed that smartphone will use build in Bluetooth radio modules in order to monitor presence of beacons and range their signal strength in order to estimate distance from them. Raference installtion consists of Bluetooth beacons placed $10m$ each in areas where position finding solution is needed. Assumed accuracy of the proposed model is about $5m$ with possibilities to be more accurate through extensions to positioning algorithm. Bluetooth transmitters are equiped with batteries allowing them to work containuesly for at leat 2 years -- approximate time demanded for positioning solution being in use in given installation area. Beacons broadcasts their name at frequency of $2Hz$ and transmitter power level adjusted to cover the area of at least $10m$ but not more than $20m$ from their placement. Beacons can attach optional informations to their advertisment messages if needed. Placement of beacons are given in advance in a configuration file. Each entry in configuration file consists of name of the beacon and his position expressed as a pair of corridor name and meter. "Blind" mode where none of apriori configuration is provided is also possible, when beacons sends aditional information about their placement (pair of corridor id and meter). Model do not investigate communication possibilities of a smartphone and beacons, smartphone and external network facilities or connections between other smartphones. Positioning model assumes that each user takes a part in system maintenance by verifying the signal presence of the beacons given in the configuration file and reporting installtion errors. Placement of the reference points should be planned in advance and beacons configuration should be applied to them before their installation on site. Installation consist of placement verification by engineer and mounting. Beacons are mounted on ceiling in vertical antenna direction.
+
+Smartphone devices are equiped with sensorics which can be used to correct the position estimation accuracy. This paper focuses on sensing the envirionment and "static anchors" giving the possibility to synchronize position estimate of the model implementation with actual envirionment.
 
 
 % section position_finding_requirements (end)
@@ -662,7 +604,8 @@ Values of signals strength cannot be used directly as an input for because model
 Description of android framework, project components, problems occured, pitfails and remedies
 % section simple_position_finding_algorithm_implementation (end)
 
-\chapter{Localization system tests}
+\chapter{Positioning model prototype implementation tests}
+\label{ch:localization_system_tests}
 
 In order to check if the proposed solution is good enough to estimate the position of the mobile phone there was performed tests of chosen hardware components as well as proposed infrastructure that extends the environment and serve as the referencing system. There were performed tests of inertial navigation part of the solution by reviewing the outcome of the internal sensorics of the chosen smartphone under perspective of thier applicability to the positioning estimation algorithm. Finally there were performed tests the prototype software application that combines both environmental information from the reference points and the inertial navigation in the real environment, in underground part of Stara Kopalnia museum placed on the site of the former Coal Mine in Wałbrzych.
 
@@ -1081,6 +1024,55 @@ Low-pass filtering does not solve the problem of RSS values fluctuations but it 
 	\item State if some factors have impact on signal quality
 	\item State if some factors have impact on position finding
 \end{itemize}
+
+% Define criteria that are the basis for position finding solutions comparison (existing or conceptual):
+% \begin{itemize}
+% 	\item How to save a corridor model in computer memory
+% 	\item wireless communication
+% 	\item resistance to power outages and communications
+% 	\item Do I need the ability to change configuration of reference points (configuration of devices that perform role of reference points)?
+% 	\item What parameters can be read from the reference points (range, distance, ?)
+% 	\item How long should the network work properly?
+% 	\item How to detect irregularities in reference points?
+% 	\item How to fix problems in reference points?
+% 	\item What problems may occur with points of reference?
+% 	\item If there are restrictions upon existing network topology (ex. in order to get access to servers located on surface)
+% 	\item Can the mobile device be useful in case of lack of signal (GSM/Wi-Fi/BLE)?
+% 	\item example: accuracy, durability, cost, maintability (energy, fault)
+% \end{itemize}
+
+% \begin{itemize}
+% 	\item Which of them will be useful to increase positioning accuracy
+% 	\item Why mobile device is good for positioning purposes? What are the factors?
+% 	\item What means of communication (ex. wireless) can be used in context of positioning system
+% 	\item Battery limitations
+% 	\item Sensitivity of receivers
+% \end{itemize}
+
+
+% Localization system choise (system based on beacons)
+% \begin{itemize}
+	% \item  Motivation
+	% \item  Prototype system description
+	% \item  Mobile device - system interaction description
+	% \begin{itemize}
+		% \item  Method of detecting reference points description
+		% \item  What are the possibilities to improve positioning on your mobile device?
+		% \item  How could the process of installing a localisation system in a mine look like?
+		% \item  How the parameters of the environment (corridor height, corridor width, type of rock, type of corridor corridors, presence of other networks operating on similar frequencies (WiFi, GSM (harmonic frequencies)), others) affect reference point signal quality.
+	% \end{itemize}
+% \end{itemize}
+
+
+% \begin{itemize}
+	% \item Should repeat and answer requirements stated for localization system.
+	% \item example:
+	% \begin{itemize}
+		% \item Reading signal and its parameters from reference points;
+		% \item Identification of reference points
+		% \item Current location presentation on the environment model
+	% \end{itemize}
+% \end{itemize}
 
 % section tests_summary (end)
 \end{document}
