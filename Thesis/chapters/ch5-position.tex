@@ -396,7 +396,7 @@ As proposed model is a generic solution for positioning inside underground insta
 
 
 
-Position in underground installation is a pair of a label of a current corridor and a current meter counted from corridor start. Model assume that position is expressed by that pair, so output of the model is not expressed 2D or 3D coordinate system but in more abstract, installation dependent way. Proposed model make use of the Bluetooth Low energy technology in order to limit impact of difficult electromagnetic propagation conditions (see sections \ref{sub:hardware_and_environmental_constratins} and \ref{sec:wireless_comm_tech_solutions}). It is assumed that smartphone will use build in Bluetooth radio modules in order to monitor presence of beacons and range their signal strength in order to estimate distance from them. Raference installtion consists of Bluetooth beacons placed $10m$ each in areas where position finding solution is needed. Assumed accuracy of the proposed model is about $5m$ with possibilities to be more accurate through extensions to positioning algorithm. Bluetooth transmitters are equiped with batteries allowing them to work containuesly for at leat 2 years -- approximate time demanded for positioning solution being in use in given installation area. Beacons broadcasts their name at frequency of $2Hz$ and transmitter power level adjusted to cover the area of at least $10m$ but not more than $20m$ from their placement. Beacons can attach optional informations to their advertisment messages if needed. Placement of beacons are given in advance in a configuration file. Each entry in configuration file consists of name of the beacon and his position expressed as a pair of corridor name and meter. "Blind" mode where none of apriori configuration is provided is also possible, when beacons sends aditional information about their placement (pair of corridor id and meter). Model do not investigate communication possibilities of a smartphone and beacons, smartphone and external network facilities or connections between other smartphones. Positioning model assumes that each user takes a part in system maintenance by verifying the signal presence of the beacons given in the configuration file and reporting installtion errors. Placement of the reference points should be planned in advance and beacons configuration should be applied to them before their installation on site. Installation consist of placement verification by engineer and mounting. Beacons are mounted on ceiling in vertical antenna direction.
+Position in underground installation is a pair of a label of a current corridor and a current meter counted from corridor start. Model assume that position is expressed by that pair, so output of the model is not expressed 2D or 3D coordinate system but in more abstract, installation dependent way. Proposed model make use of the Bluetooth Low energy technology in order to limit impact of difficult electromagnetic propagation conditions (see sections \ref{sub:hardware_and_environmental_constratins} and \ref{sec:wireless_comm_tech_solutions}). It is assumed that smartphone will use build in Bluetooth radio modules in order to monitor presence of beacons and range their signal strength in order to estimate distance from them. Raference installtion consists of Bluetooth beacons placed $10m$ each in areas where position finding solution is needed. Assumed accuracy of the proposed model is about $5m$ with possibilities to be more accurate through extensions to positioning algorithm. Bluetooth transmitters are equiped with batteries allowing them to work containuesly for at leat 2 years -- approximate time demanded for positioning solution being in use in given installation area. Beacons broadcasts their name at frequency of $2Hz$ and transmitter power level adjusted to cover the area of at least $10m$ but not more than $20m$ from their placement. Beacons can attach optional informations to their advertisment messages if needed. Placement of beacons are given in advance in a configuration file. Each entry in configuration file consists of name of the beacon and his position expressed as a pair of corridor name and meter. "Blind" mode where none of apriori configuration is provided is also possible, when beacons sends aditional information about their placement (pair of corridor id and meter). Model do not investigate communication possibilities of a smartphone and beacons, smartphone and external network facilities or connections between other smartphones. Positioning model assumes that each user takes a part in system maintenance by verifying the signal presence of the beacons given in the configuration file and reporting installtion errors. Placement of the reference points should be planned in advance and beacons configuration should be applied to them before their installation on site. Installation consist of placement verification by engineer and mounting.
 
 Smartphone devices are equiped with sensorics which can be used to correct the position estimation accuracy. This paper focuses on sensing the envirionment and "static anchors" giving the possibility to synchronize position estimate of the model implementation with actual envirionment.
 
@@ -475,14 +475,27 @@ Reference points infrastructure is a vital part of the proposed positioning syst
 \label{fig:infrastructure_installation_proc}
 \end{figure}
 
-There is need to mention in this secion
+\begin{figure}[!htbp]
+ % trim={<left> <lower> <right> <upper>}
+\includegraphics[width=\textwidth,clip]{pictures/beacons_placement.pdf}
+\centering
+\caption{Example of reference beacons B1, B2, B3 placement in corridor. Red field denotes approximate signal range of the B2 beacon -- more than $10m$ but less than $20m$.}
+\label{fig:beacons_placement}
+\end{figure}
+
+
+Beacons choisen as the hardware equipment are ready to use modules that consists of the microcontroller which implemented Bluetooth stack, power supply management and radio module with antenna. As most of the market use Bluetooth 4.0 and 4.1 technology, chosen beacons are Bluetooth 4.0 beacons. There is no difference betweeen those two versions of technology in case of desired beacon functionality -- broadcasting the advertisement messages without encription nor other restrictions. As the beacon signal are available only on site, often hundreds of meters bellow the surface, there is no purpose of making the signal messages complicated. Newer technology of Bluetooth 5 is fully backward compatible so devices with such modules will also be able to make use of beacons in Bluetooth 4.0 technology.
+
+Beacon modules are easily available on market. Cheap modules can cost about $7\$$. Proposed positioning model does not force to use given model of the beacons but the beacons configuration must match following criteria:
 \begin{itemize}
-	\item Beacons choisen as the hardware equipment.
-	\item Constraints assumed - power settings, batteries sizes (capacities), distances, placement, etc
-	\item Draw schematic way of infrastructure placement
-	\item Mention someting about installation and maintenance procedure
-	\item How beacons will be recognisable (names). What other parameters will they contain
+	\item transmitter power setting must be adjusted in such a manner that signals will reach distance of $10m$ from them but not more than $20m$. It saves some energy and limits amount of noise inside the tunnel,
+	\item beacon transmit advertisement message at frequency of $2Hz$. It is enough to detect beacon signal when user maintain walking speed of $5\frac{km}{h}$, and update the current position each second, maintaining the minimum accuracy of $5m$,
+	\item battery must be suited to work containeusly for 2 years,
+	\item beacons have to be placed $10m$ each in order to make the positioning solution more accurate and maintain good signal quality on limited coverage from beacon mounting place,
+	\item beacons have to mounted on ceiling in vertical antenna direction as the experimets shows such configuration most efficient in terms of signal quality and range,
+	\item beacons transmits their unique name.
 \end{itemize}
+
 % section external_solution_infrastructure (end)
 
 \section{Data processing and analysis} % (fold)
