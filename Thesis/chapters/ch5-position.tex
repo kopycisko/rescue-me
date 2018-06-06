@@ -63,7 +63,7 @@ The \textit{Log-distance path loss model} states that the only variable that inf
 
 This section explains ideas behind Received Signal Strength analysis and fingerprinting techniches used for position finding solutions. Ideas are explained on example of WiFi wireless communication technology.
 
-WiFi network infrastructure is a one of the available solutions that can be used as a source of information about current position of the device. The basic solution for positioning with use of this technology is about recognising wireless lan network access points by thier SSID or physical address of network cards \cite{WLAN_fingerprinting}. As there exists working position finding solution that base on that technology. Accuracy of the solution depends on the spacing of the accesspoints. Those solutions determine position by relation of received signal strength to the position of the nearest access points in range. In addition positioning information can be adjusted by making estimations about being "between" accesspoints by simultaneous analysis of two or more link parameters. So the worst case anticipation is accuracy equal to spacing of the accesspoints \cite{Thesis_CM}\cite{thesis_tablet_positioning}.
+WiFi network infrastructure is a one of the available solutions that can be used as a source of information about current position of the device. The basic solution for positioning with use of this technology is about recognising wireless lan network access points by their SSID or physical address of network cards \cite{WLAN_fingerprinting}. As there exists working position finding solution that base on that technology. Accuracy of the solution depends on the spacing of the accesspoints. Those solutions determine position by relation of received signal strength to the position of the nearest access points in range. In addition positioning information can be adjusted by making estimations about being "between" accesspoints by simultaneous analysis of two or more link parameters. So the worst case anticipation is accuracy equal to spacing of the accesspoints \cite{Thesis_CM}\cite{thesis_tablet_positioning}.
 
 What is specific for radio waves attenuation at 2,4 GHz frequency is that their signal is present from relative large distances in mine in compare to the same devices signal range in the open space environment. What is also characteristic is that the signal strength, after its peak close to the WiFi transceiver antenna its going to stabilize in distance about $10m$ from source and then the signal strength is residing on similiar level up to distance of around $300$ meters from its source when it starts to heavily attenuate. \cite{Thesis_CM}.
 
@@ -160,7 +160,7 @@ The figure \ref{fig:wsn_topology} presents proposal of positioning system archit
 
 Due to the fact that WSN nodes are limited in energy supply, systems that base on that technology need to be designed with aware of energy management and fault management. The idea of routing node deployment along the tunnel in two symmetrical lines comes from the need of link redundancy between nodes. In case of failure of one of the routing nodes, information from sensors can be passed out through the other routing nodes in range.
 
-In order to limit power consumption of sensor nodes they were designed as Reduced Function Devices (RFD). These nodes do not take part within information passing (routing) process. Sensor nodes are designed in purpose of reading signals from miners equipment (for example RFID tags) and to send the information to the nearest routing node. During the installation phase, sensor nodes are switched to network setup mode.  Aim of a network setup mode is to detect the nearest routing node and adjust the transmission power to the value needed for communication with this routing node only. It reduces the network module power consumtion and signal interference with neighboring nodes. Network setup mode can be descibed as a sequiential procedure:
+In order to limit power consumption of sensor nodes they were designed as Reduced Function Devices (RFD). These nodes do not take part within information passing (routing) process. Sensor nodes are designed in purpose of reading signals from miners equipment (for example RFID tags) and to send the information to the nearest routing node. During the installation phase, sensor nodes are switched to network setup mode.  Aim of a network setup mode is to detect the nearest routing node and adjust the transmission power to the value needed for communication with this routing node only. It reduces the network module power consumption and signal interference with neighboring nodes. Network setup mode can be descibed as a sequiential procedure:
 \begin{itemize}
 	\item sensor node broadcast the testing signal to all of the nodes,
 	\item nodes that were able to reiceve the signal, send responce with value of Received Signal Strength Indication (RSSI)
@@ -693,7 +693,7 @@ Despite of regular operation mode, there was also implemented background operati
 \end{minipage}
 \end{figure}
 
-The background mode allows for lower power consumtion of the smartphone device by limitting use of Bluetooth module. It work in a manner of short scan which is aimed to detect if any of beacon was detected in the near area. If so background activity inform the user that he just accessed the area where positioning information is available. Background mode works even if main application remain not active. Background mode allows the user to to start position finding activity immediately after successful detection of the beacon. An example output of background activity can be seen on figure \ref{sec:positioning_with_beacons_and_bluetooth_technology} within the first lines of the log, just bellow the "Start ranging" button. First message \textit{setting up background monitoring} is related to first start up of the positioning finding application. Then the application can be closed -- stopped by the user. If application got killed by the operating system then neither background and regular operation modes are not working. Lines \textit{switched from seeinf/not seeing beacons} and following are related to detection of the beacon and performing related action. In this case view of position finding activity was run.
+The background mode allows for lower power consumption of the smartphone device by limiting use of Bluetooth module. It work in a manner of short scan which is aimed to detect if any of beacon was detected in the near area. If so background activity inform the user that he just accessed the area where positioning information is available. Background mode works even if main application remain not active. Background mode allows the user to to start position finding activity immediately after successful detection of the beacon. An example output of background activity can be seen on figure \ref{sec:positioning_with_beacons_and_bluetooth_technology} within the first lines of the log, just bellow the "Start ranging" button. First message \textit{setting up background monitoring} is related to first start up of the positioning finding application. Then the application can be closed -- stopped by the user. If application got killed by the operating system then neither background and regular operation modes are not working. Lines \textit{switched from seeinf/not seeing beacons} and following are related to detection of the beacon and performing related action. In this case view of position finding activity was run.
 
 The parameters of monitoring and ranging activities are about scan delay times in both background and regular operation modes. Application can define also a types of beacons that are accepted by definition of "layout". Syntaxt of layout relates to the header of the advertisement massages broadcasted by beacons. Exmaple of layout is available in section \ref{sec:positioning_with_beacons_and_bluetooth_technology} in part concerning \textit{iBeacon} protocol.
 
@@ -706,7 +706,7 @@ Principals of the proof of concept implementation were used in tests in the real
 \chapter{Positioning model prototype implementation tests}
 \label{ch:localization_system_tests}
 
-In order to check if the proposed solution is good enough to estimate the position of the mobile phone there was performed tests of chosen hardware components as well as proposed infrastructure that extends the environment and serve as the referencing system. There were performed tests of inertial navigation part of the solution by reviewing the outcome of the internal sensorics of the chosen smartphone under perspective of thier applicability to the positioning estimation algorithm. Finally there were performed tests the prototype software application that combines both environmental information from the reference points and the inertial navigation in the real environment, in underground part of Stara Kopalnia museum placed on the site of the former Coal Mine in Wałbrzych.
+In order to check if the proposed solution is good enough to estimate the position of the mobile phone there was performed tests of chosen hardware components as well as the proposed Beacon-Infrastructure serving as the referencing system. Finally there were performed tests the prototype software application that in the real environment in the underground part of Stara Kopalnia museum placed on the site of the former Coal Mine in Wałbrzych.
 
 \section{Tests criteria and assumptions} % (fold)
 \label{sec:tests_criteria_and_assumptions}
@@ -714,7 +714,7 @@ In order to check if the proposed solution is good enough to estimate the positi
 In order to test the reference system infrastructure there was need to test reference point device (Beacon transmitter) in context of interaction between this device and the receiver (Smartphone). For the hardware testing, there were following factors being specified:
 \begin{itemize}
 	\item receiver distance from the transmitter,
-	\item smartphone orientation,
+	\item smartphone -- and thereby antenna -- orientation,
 	\item smartphone model,
 	\item transmitter type,
 	\item transmitter power,
@@ -723,19 +723,19 @@ In order to test the reference system infrastructure there was need to test refe
 	\item distance between transmitters.
 \end{itemize}
 
-Those factors were assumed that impacts the final received signal strength value.
+Those are the factors influencing the final received signal strength value.
 
-According to \textit{Log-distance path loss model} \cite{RSSI_path_loss_prediction_model} the distance between receiver and transmitter is the major factor that impacts on the signal strength. There was need to check how distance impacts on the signal strength in the desired environment in the underground corridor.
+According to the \textit{log-distance path loss model} \cite{RSSI_path_loss_prediction_model} (see \ref{sec:wireless_comm_tech_solutions}) the distance between receiver and transmitter is the major factor that impacts on the signal strength. There was the need to check how distance impacts the signal strength in the desired environment in the underground corridor.
 
-As the Beacon operates on the 2,4 GHz fequency then it is assumed that all of the transmission path elements can impact on the resultant power strength. That is why during the tests there was checked if different antenna orientations of the transmitter and  receiver causes different results. In case of the transmitter antenna orientation there were tested two cases:
+As all of the transmission path elements can impact the resultant power strength, also different antenna orientations were checked at transmitter and receiver respectively. That is why during the tests there was checked if different antenna orientations of the transmitter and  receiver causes different results. In case of the transmitter antenna orientation there were tested two cases:
 \begin{enumerate}
 	\item vertical orientation where antenna points to the floor,
-	\item horizontal orientation where antenna points to the wall (or the oposite wall in case of mounting the antenna on the wall).
+	\item horizontal orientation where antenna points to the wall (or the opposite wall in case of mounting the antenna on the wall).
 \end{enumerate}
 
 During tests there were tested omni directional antennas build into Beacon and mobile phone hardware as they are commonly used in Beacons as well as in Smartphones devices. It was also experimentally proven that in case of 2,4 GHz wireless technologies in underground envioronment directional antennas do not increase usable coverage as well as sector anntennas \cite{Thesis_CM}.
 
-As the proposed solution have to be applicable for different models of Smartphone devices it is not acceptable to force users to held their devices in a given position with respect of the direction of the Bluetooth antennas build into them. Producents are free in terms of designing the Smartphones main boards including the antennas placement. Such informations are not published. Even having the possibility to open the device and look for the antenna it is diffcult to distinguish the antenna used for Bluetooth from the other used for example for terrestrial mobile networks. In case of Beacons, antenna placement is visible from the first sight. On figure \ref{fig:beacons_used_in_tests} antenna placements was highlighted. In case of Beacon 1 and 3 there are mounted meander monopol antennas, in case of Beacon 2 there is mounted called meander "IFA" -- \textit{Inverted-F antenna}, in case of Beacon 4 antenna is not visible on the picture.
+As the proposed solution has to be applicable for different models of Smartphone devices it is not acceptable to force users to hold their devices in a given position with respect of the direction of the Bluetooth antennas build into them. Producents are free in terms of designing the Smartphones main boards including the antennas placement. Such informations are not published. Even having the possibility to open the device and look for the antenna it is diffcult to distinguish the antenna used for Bluetooth from the other used for example for terrestrial mobile networks. In case of Beacons, antenna placement is visible from the first sight. On figure \ref{fig:beacons_used_in_tests} antenna placements was highlighted. Beacon 1 and 3 have meander monopol antennas. The beacon 2 has meander "IFA" -- \textit{Inverted-F antenna}. The antenna of beacon 4 is not visible on the picture.
 
 \begin{figure}[!htbp]
 \includegraphics[width=\textwidth, keepaspectratio]{pictures/beacons_used_in_tests.pdf}
@@ -744,7 +744,7 @@ As the proposed solution have to be applicable for different models of Smartphon
 \label{fig:beacons_used_in_tests}
 \end{figure}
 
-There are a few big microcontroller producents on the market that offers compound units having integrated computational resources, programming busses and data exchange solutions including Bluetooth Low Energy wireless module. The main three competitors are Nordic Semicondutor with NRF chips, Dialog Semicondutor with DA chips and Texas Instruments with TI and CC chips. They compete on fields of power consumtion, usability in terms of set of integrated modules, computational power and permament storage size of their products. Those integrated circuts are used by Beacon producents as the main processing units with implemented Bluetooth protocols and stack and set of profiles that allows the users to configure Beacon parameters such as name or transmitter power and get information from extra sensorincs measures build into the Beacon like temperature or battery level. Integrated circuts are the part of PCB which also contains a battery slot, power circut and antenna circut. For tests there were chosen Beacons offered by the various producents form China thus their products were easily available via the Internet and they were cheaper than from producents from Europe or U.S. like Estimote or Texas Instruments\cite{beacons_ble_evaluation}. Aim of tests with different Beacons was to check how much PCB design influences results in terms of antenna radiation, signal coverage and stability. In order to distinguish beacons during tests, each of them was labelled. There were used following beacons:
+There are a few big microcontroller manufacturers on the market who offer compound units having integrated computational resources, programming busses and data exchange solutions including a Bluetooth Low Energy wireless module\cite{beacons_ble_evaluation}. The main three competitors are Nordic Semicondutor with NRF chips, Dialog Semicondutor with DA chips and Texas Instruments with TI and CC chips. They compete on fields of power consumption, usability in terms of set of integrated modules, computational power and permament storage size of their products. Those integrated circuts are used by Beacon producents as the main processing units with implemented Bluetooth protocols and stack and a set of profiles allowing for beacon name or transmitter power configuration and fetching the data from extra sensorics measures build into the beacon like temperature or battery level. Integrated circuts are part of a PCB which also contains a battery slot, power and antenna. For tests there were chosen beacons offered by the various producents form China. Their products were easily available via the Internet and they were cheaper than from producents from Europe or U.S. like Estimote or Texas Instruments\cite{beacons_ble_evaluation}. The aim of the tests with different beacons was to check how much the PCB design influences results in terms of antenna radiation, signal coverage and stability. In order to distinguish beacons during tests, each of them was labelled. There were used following beacons:
 \begin{enumerate}
 	\item Wellcore beacon based on Nordic Semiconductor NRF51822 chip, with a 8500 mAh, 3,6V lithium battery (cost: 7\$, labelled as $B1$),
 	\item ByteReal beacon based on Dialog Semiconductor DA14580 chip, with a standard CR2477 battery (950 mAh, 3 V, cost: 8,25\$, labelled as $B2$),
@@ -752,20 +752,19 @@ There are a few big microcontroller producents on the market that offers compoun
 	\item Radioland beacon based on Texas Instruments TI2640 chip, with a standard CR2032 battery (220 mAh, 3 V, cost: 6,78\$, labelled as $B4$).
 \end{enumerate}
 
-During tests there were following smartphone related factors taken into consideration: smartphone orientation and smartphone model. There was tested how differs received signal strength with when smartphone is hold horizontally (screen points to the ceiling), vertically (screen points to the user) or is kept in the pocket. There were also performed beacon ranging tests with use of two different smarphone devices: Samsung Galaxy S7 and Blackberry Z10. Samsung is equiped with Bluetooth 4.1 while Blackberry is equiped with Bluetooth 4.0. The aim of this test was to compare the result in order to check how different construction impact on the received signal strength. There was need to verify assumption about having defined constraint values on received signal that regardless the smartphone model will allow to qualify distance from signal source basing on acquired signal value.
+During tests there were following smartphone related factors taken into consideration: smartphone orientation and smartphone model. There was tested how differs received signal strength with when smartphone is hold horizontally (screen points to the ceiling), vertically (screen points to the user) or is kept in the pocket. There were also performed beacon ranging tests with use of two different smartphone devices: Samsung Galaxy S7 and Blackberry Z10. Samsung device runs on Bluetooth 4.1, while the Blackberry uses Bluetooth 4.0. The aim of this test was to check how different smartphone models impact the received signal strength. This was performed to verify whether the received RSSI values deviate significantly between different smartphone manufactures.
 
-The hardware tests were designed in a manner that each of those factors were tested separately. There were performed following test cases:
-
+There were performed following test cases:
 \begin{enumerate}
 	\item Obtain signal attenuation curve with respect of the power of the transmitter by measuring the received signal stregth at given distances from the signal source.
 	\item Signal range per given transmitter power setting and smartphone placed in the pocket. Dynamic tests performed on a distance of 5 meters.
 	\item Received signal strength per given transmitter power setting and different smartphone orientation. Static test performed directly under the transmitter.
-	\item Line of sight (LOS) test. Comparison of signal attenuation curve measured in a part of the corrdor where smartphone and transmitter were in line of sight and signal attenuation curve measured in a part of the corridor where corridor goes up and transmitter and smartphone are not in a line of sight.
-	\item Test of line of sight impact on the signal attenuation curve where user is and is not an obstacle between transmitter and smartphone.
-	\item Test how different antenna orientations of transmitter mounted on ceiling impacts on signal attenuation curve. Tested vertical and horizontal orientations.
-	\item Test how different antenna orientations of transmitter mounted on wall impacts on signal attenuation curve. Tested vertical and horizontal orientations.
-	\item Test how beacons from different vendors impacts on the signal attenuation curve. For this test beacons transmitting power was adjusted in order to obtain similiar signal gain on the radio path.
-	\item Test how different smartphone models impact on the signal attenuation curve. Two different smatphones were used: Samsung Galaxy S7 with Bluetooth 4.1 and Blackberry Z10 with Bluetooth 4.0 module.
+	\item Line of sight (LOS) test. Comparison of signal attenuation curve measured in a part of the corridor where smartphone and transmitter were in line of sight and signal attenuation curve measured in a part of the corridor where corridor goes up and transmitter and smartphone are not in a line of sight.
+	\item Test of line of sight impact the signal attenuation curve where the user itself is and is not an obstacle between transmitter and smartphone.
+	\item Test how different antenna orientations of transmitter mounted on ceiling impacts signal attenuation curve. Tested vertical and horizontal orientations.
+	\item Test how different antenna orientations of transmitter mounted on wall impacts signal attenuation curve. Tested vertical and horizontal orientations.
+	\item Test how beacons from different vendors impacts the signal attenuation curve. For this test beacons transmitting power was adjusted in order to obtain similiar signal gain on the radio path.
+	\item Test how different smartphone models impact the signal attenuation curve. Two different smatphones were used: Samsung Galaxy S7 with Bluetooth 4.1 and Blackberry Z10 with Bluetooth 4.0 module.
 	\item Walk scenario case test. Dynamic test with three beacons mounted on the wall while the user with a smartphone is walking along them. Tested two distancess between beacons: 10 m and 15 m.
 	\item Wall scenario case test. Dynamic test with three beacons mounted on the wall while the user with a smartphone is walking along them. Tested how smartphone kept in the pocket influence the attenuation curve.
 	\item  Compare signal attenuation curve when transmitter is placed on the wall and when it is placed on the ceiling.
@@ -782,7 +781,7 @@ The hardware tests were designed in a manner that each of those factors were tes
 \section{Tests metodology} % (fold)
 \label{sec:tests_metodology}
 
-Tests were performed in part of XVIII century exchavation corridor which is available for sighseeing as a part of Stara Kopalnia museum in Walbrzych in Poland. Corridor used during tests is placed 10 m bellow the ground and it is 185,7 m long. Corridor is 3,2 m high and 3,2 m wide. Corridors goes up on it's north side so this part of the corridor was used only once during line of sight test case. There is also one "T" shaped crossection with a similiar, perpendicular corridor that is 157 m meter length.
+Tests were performed in part of XIX century exchavation corridor which is available for sightseeing as a part of Stara Kopalnia museum in Walbrzych in Poland. The tunnel used during tests is placed 10 m bellow the ground and it is 185,7 m long. The tunnel is 3,2 m high and 3,2 m wide.  The tunnel inclines on it's northern side. The tunnel cross section is slightly horseshoe shaped.
 
 \begin{figure}[!htbp]
 \includegraphics[width=\textwidth, keepaspectratio]{pictures/corridor.pdf}
@@ -791,11 +790,11 @@ Tests were performed in part of XVIII century exchavation corridor which is avai
 \label{fig:corridor}
 \end{figure}
 
-During the tests in the corridor there was $10^\circ$C  and $71 \%$ of humadity. In order to avoid diffractions from corridors endings, beacons (Bluetooth transmitters) were placed in the middle of the corridor at it's $90 m$ in case of sigle beacon test and in $\pm15 m$ from this place in case of multiple beacons test.
+During the tests in the corridor there was $10^\circ$C  and $71 \%$ of humidity. In order to avoid diffractions from corridors endings, beacons (Bluetooth transmitters) were placed in the middle of the corridor at it's $90 m$ in case of single beacon test and in $\pm15 m$ from this place in case of multiple beacons test.
 
 During the test there was used
 \begin{itemize}
-	\item  measuring wheel for measuring the distance between subsequent distances taken into consideration for signal attenuation charts,
+	\item a measuring wheel for measuring the distance between subsequent distances taken into consideration for signal attenuation charts,
 	\item smartphones with application that was collecting and storing the data (Bluetooth Low Energy receivers) and
 	\item prepared beacons -- Bluetooth Low Energy transmitters.
 \end{itemize}
@@ -849,25 +848,25 @@ The first series of tests were about observation how different factors influence
 \subsection{Signal stability analysis} % (fold)
 \label{sub:signal_stability_analysis}
 
-As a test base there was taken a several probes of received signal strengths at different distances from the signal source. As it is shown on the figure \ref{fig:tests_case1_fluctuations_over_time}, signal strenghts are not stable in time. The general rule of \textit{log-distance path loss model}\ref{eq:log-distance-model} where the short distance between transmitter and receiver causes biger signal strengths are observed, but there are strong fluctuations in time. Model was dicussed in section \ref{sec:positioning_with_beacons_and_bluetooth_technology}.
+As a test base there was taken a several probes of received signal strengths at different distances from the signal source. As it is shown on the figure \ref{fig:tests_case1_fluctuations_over_time}, signal strenghts are not stable. The general rule of \textit{log-distance path loss model} (see \ref{eq:log-distance-model}) where the short distance between transmitter and receiver causes biger signal strengths are observed, but there are strong fluctuations. The respective model was discussed in section \ref{sec:positioning_with_beacons_and_bluetooth_technology}.
 
 \begin{figure}[!htbp]
 \includegraphics[width=\textwidth, keepaspectratio]{pictures/tests_case1_fluctuations_over_time}
 \centering
-\caption{Received signal strengths measured each second at different distances between signal source and smarphone. Each line represents received signal strength obtained at given distance.}
+\caption{Received signal strengths measured each second at different distances between signal source and smartphone. Each line represents received signal strength obtained at given distance.}
 \label{fig:tests_case1_fluctuations_over_time}
 \end{figure}
 
-Basing on results from this test there was made obervation about the relation between the distance and the scale of fluctuation affecting the signal strengths. The biggest fluctuations are present between $0$ and $10$ meters from the signal source. On the distance of $70$ meters and more signal strengths got flatten thus also a standard deviation is low. This relation is depicted on the figure \ref{fig:tests_case1_fluctuations_over_time_std_dev}.
+Basing on results from this test there was made observation about the relation between the distance and the scale of fluctuation affecting the signal strengths. The biggest fluctuations are present between $0$ and $10$ meters from the signal source. On the distance of $70$ meters and more signal strengths got flatten thus also a standard deviation is low. This relation is depicted on the figure \ref{fig:tests_case1_fluctuations_over_time_std_dev}.
 
 \begin{figure}[!htbp]
 \includegraphics[width=\textwidth, keepaspectratio]{pictures/tests_case1_fluctuations_over_time_std_dev}
 \centering
-\caption{Standard deviation taken from received signal strengths measured each second at different distances between signal source and smarphone.}
+\caption{Standard deviation taken from received signal strengths measured each second at different distances between signal source and smartphone.}
 \label{fig:tests_case1_fluctuations_over_time_std_dev}
 \end{figure}
 
-The \textit{log-distance path loss model} assumes only one input (received signal strength) what is directly a basis for distance estimation. As the model is based on logarithm (see equation \ref{eq:log-distance-model}) then fluctuactions around reference value have smaller impact on the obtained distance aproximation than the fluctuations around the values that are away from the reference value. In order to verify how model fits into the measures then distance aproximations based on that model was computed on average values of the received signal strengths measured at given distances. There was more than 25 probes of the signal strengths taken to the average. Figure \ref{fig:tests_case1_distance_model_90m} depicts results of a aproximating the distance from beacon placed on the ceiling with the highest possible signal strength of $4dBm$ on a range of $90 m$. X-axis described the actual distance, y-axis describes approximated distance -- output of a model. Estimations in longer distances were not accurate -- they error was about $\pm 30m$ on a $20$ meters distance and more.
+The \textit{log-distance path loss model} assumes only one input (received signal strength) what is directly a basis for distance estimation. As the model is based on logarithm (see equation \ref{eq:log-distance-model}) then fluctuactions around reference value have smaller impact the obtained distance approximation than the fluctuations around the values that are away from the reference value. In order to verify how the model fits into the measurements then distance aproximations based on that model was computed on average values of the received signal strengths measured at given distances. There was more than 25 probes of the signal strengths taken to the average. Figure \ref{fig:tests_case1_distance_model_90m} depicts estimated distances from beacon placed on the ceiling with the highest possible signal strength of $4dBm$ on a range of $90 m$. X-axis described the actual distance, y-axis describes the approximated distance -- output of a model. Estimations in longer distances were not accurate -- they error was about $\pm 30m$ on a $20$ meters distance and more.
 
 \begin{figure}[!htbp]
 \includegraphics[width=\textwidth, keepaspectratio]{pictures/tests_case1_distance_model_90m}
@@ -877,7 +876,7 @@ The \textit{log-distance path loss model} assumes only one input (received signa
 \end{figure}
 
 
-Figure \ref{fig:tests_case1_distance_model_20m} focuses on range in between $0$ and $20$ meters from signal source. In this range aproximation error was about $\pm 1.5$ meters. Such result leads to the assumtion that on distances lower than $20m$ from the signal source, proposed model can provide approximation which fits to the required accuracy stated for the positioning system.
+The figure \ref{fig:tests_case1_distance_model_20m} focuses on range in between $0$ and $20$ meters from signal source. In this range approximation error was about $\pm 1.5$ meters. Such result leads to the assumption that on distances lower than $20m$ from the signal source, proposed model can provide approximation which fits to the required accuracy stated for the positioning system.
 
 \begin{figure}[!htbp]
 \includegraphics[width=\textwidth, keepaspectratio]{pictures/tests_case1_distance_model_20m}
@@ -893,25 +892,25 @@ Figure \ref{fig:tests_case1_distance_model_20m} focuses on range in between $0$ 
 \label{sub:robustness_of_received_signal_strenght_measures}
 
 
-One of the objectives stated for tests was to check how placement, orientation and different models of the devices impacts the received signal strength values. List of variables taken into consideration with explanation were written in section \ref{sec:tests_criteria_and_assumptions}. Pictures \ref{fig:tests_beacon_celing_horizontal} and \ref{fig:tests_beacon_celing_vertical} presents how beacon was mounted on a ceiling with it's different orientations related to the antenna direction.
+One of the objectives of the tests was to check how placement, orientation and different models of the devices impacts the received signal strength values. List of variables taken into consideration with explanation were written in section \ref{sec:tests_criteria_and_assumptions}. Pictures \ref{fig:tests_beacon_celing_horizontal} and \ref{fig:tests_beacon_celing_vertical} presents how beacon was mounted on a ceiling with it's different orientations related to the antenna direction.
 
 \begin{figure}[!htbp]
 \begin{minipage}{0.49\linewidth}
  % trim={<left> <lower> <right> <upper>}
 \includegraphics[width=\textwidth, trim={3cm 0 3cm 0},clip]{pictures/tests_beacon_celing_horizontal.pdf}
-\caption{Beacon 1 mounterd on a ceiling with horizontal antenna direction.}
+\caption{Beacon 1 mounted on a ceiling with horizontal antenna direction.}
 \label{fig:tests_beacon_celing_horizontal}
 \end{minipage}\hfill%
 \begin{minipage}{0.49\linewidth}
  % trim={<left> <lower> <right> <upper>}
 \includegraphics[width=\textwidth, trim={0 1cm 0 0},clip]{pictures/tests_beacon_celing_vertical.pdf}
-\caption{Beacon 1 mounterd on a ceiling with vertical antenna direction.}
+\caption{Beacon 1 mounted on a ceiling with vertical antenna direction.}
 \label{fig:tests_beacon_celing_vertical}
 \end{minipage}
 \end{figure}
 
 
-In order to check what is the signal range of a single beacon device, there was performed a test in which there was taken a series of recived signal measures at given distances from the signal source. There were selected two transmitter power settings for the test: $4 dBm$ which is the higher transmitter power setting and $-16 dBm$ which was taken experimentally. Distances were located at 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 12,5, 15, 20, 25, 30, 35, 40, 45, 50, 60, 70, 80, 90 meters in case of $4 dBm$ setting and at 0, 1, 2, 3, 4, 6, 8, 10, 12,5, 15, 20, 25, 35 meters in case of $-16 dBm$ setting. During the test there was used "B1" beacon mounted on the ceiling vertically. Figure \ref{fig:tests_case1_attenuation} presents results of this tests.
+In order to check what is the signal range of a single beacon device there was taken a series of received signal measures at given distances from the signal source. Two transmitter power settings were selected for the test: $4 dBm$ which is the highest possible transmitter power setting and $-16 dBm$ which was taken experimentally. Distances were located at 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 12,5, 15, 20, 25, 30, 35, 40, 45, 50, 60, 70, 80, 90 meters in case of $4 dBm$ setting and at 0, 1, 2, 3, 4, 6, 8, 10, 12,5, 15, 20, 25, 35 meters in case of $-16 dBm$ setting. For this test, the B1 beacon was mounted vertically on the ceiling. Figure \ref{fig:tests_case1_attenuation} presents the results of this tests.
 
 \begin{figure}[!htbp]
 \includegraphics[width=\textwidth, keepaspectratio]{pictures/tests_case1_attenuation}
@@ -920,9 +919,9 @@ In order to check what is the signal range of a single beacon device, there was 
 \label{fig:tests_case1_attenuation}
 \end{figure}
 
-Range of a beacon with the highest power setting available exceeds available space in a corridor, that is why data ends for $4 dBm$ ends at $90 m$. Received signal strengths measured on distances larger than $20m$ from the source of the signal are getting stabilized while strengths mesured closer than $20m$ from the signal source are falling significantly. Measures taken between $20m$ -- $90m$ from signal source are between $-80 dBm$ and $-90 dBm$, while the drop on the first $5m$ from the signal source is about $15 dBm$. What is an interesing is that received signal strength values were not decreasing on distances between $50m$ and $90m$. There was also observed that signal strengths get stabilized on larger distances what was depicted on figure \ref{fig:tests_case1_fluctuations_over_time_std_dev} expressing standard deviation of received signals, as well on figure \ref{fig:tests_case1_fluctuations_over_time} where can be observed the cource of the received signal strength values. Observation matches with the observations about the \textit{log-distance path loss model}.
+The range of the beacon with the highest available power setting exceeds the available space in corridor, that is why the measurements end at $90m$ for the $4dBm$ TX power setting. The received signal strengths measured on distances larger than $20m$ from the source of the signal are getting stabilized while mesures closer than $20m$ from the signal source are falling significantly. Measures taken between $20m$ -- $90m$ from signal source are between $-80 dBm$ and $-90 dBm$, while the drop on the first $5m$ from the signal source is about $15 dBm$. What is an interesing is that received signal strength values were not decreasing on distances between $50m$ and $90m$. The reason of such behaviour is the waveguide effect \cite{Thesis_CM}\cite{article_rf_propagation_practical_full}. There was also observed that the signal strengths get stabilized on larger distances what was depicted on figure \ref{fig:tests_case1_fluctuations_over_time_std_dev} expressing standard deviation of received signals, as well on figure \ref{fig:tests_case1_fluctuations_over_time} where can be observed the source of the received signal strength values. This observation matches with the observations about the \textit{log-distance path loss model}.
 
-It is assumed that the solution should be suited for three possible smartphone orientations: smartphone handled in front of the user (vertivally and horizontally) and smartphone kept in the pocket. Figure \ref{fig:tests_case2_smartphone_in_pocket_tx_power} presents results of a dynamic, continous test that consisted of three phases:
+The results of test how smartphone orientation influence the received signal strength is presented on the figure \ref{fig:tests_case2_smartphone_in_pocket_tx_power}. The test consisted of three phases:
 \begin{itemize}
 	\item measure received signal strength for $5 s$ directly under the transmitter,
 	\item walk $5 m$ away,
@@ -938,38 +937,39 @@ It is assumed that the solution should be suited for three possible smartphone o
 \label{fig:tests_case2_smartphone_in_pocket_tx_power}
 \end{figure}
 
-Singal strenghts received by the smartphone kept in the pocket are same or even lower at $0m$ distance (smartphone is directly under the beacon) than measured $5m$ away from signal source. Difference is not significant -- in case of $-16dBm$ and $-20dBm$ transmiting power settings, received signal strength values remains the same for the whole test ($\pm 3dBm$). In case of $-12dBm$ transmitter power setting there was observed that received signal got stronger on a $5m$ distance than just bellow the transmitter ($10\pm4 dBm$ change). Received signal strengths of the beacon with $-30dBm$ transmission power setting were low -- signals received in smaller distance than $1m$ from the signal source were ommited, rest were at the border of a noise level. That is why setting $-30dBm$ was rejected as one that provides so week signal, that in case of smartphone kept in the pocket can be filtered out as a noise.
+Singal strenghts received by the smartphone kept in the pocket are same or even lower at $0m$ distance (smartphone is directly under the beacon) than measured $5m$ away from signal source. In case of $-12dBm$ transmitter power setting test the received signal strength was about ($10\pm4 dBm$ change) lower at $0m$ than on $5m$. That is beacause of "Near Field Effect" where the coverage area of the antenna is "shaded". The smartphone made use of reflections to gather the signal. This is also the reason why the $-30dBm$ setting completely blanks out in the near field. That is why setting $-30dBm$ was rejected as one that provides so week signal, that in case of smartphone kept in the pocket can be filtered out as a noise. In case of $-16dBm$ and $-20dBm$ transmiting power settings, the received signal strength values remain the same for the whole test ($\pm 3dBm$).
 
-In latter test there were compared smartphone orientations in context of thier influence on the received signal strength value. As it is assumed that the crucial distance for the positioning system, that will allow for accuracy at least equal to the distance between beacons, tests were performed directly under the beacon. Beacon was placed on the ceiling with vertical anetenna direction. Test was a static test where at least 25 probes of the signal strength were taken at the same place. There were tested three values of the transmitter power in order to see if the transmitter power impacts on the all of smartphone orientations equaly. Setting of $-30dBm$ transmitter power was ommited in the evaluation. Results are presented on the figure \ref{fig:tests_case3_rssi_vs_smartphone_orientation}.
+The figure \ref{fig:tests_case3_rssi_vs_smartphone_orientation} presents the comparison of RSS values for different smartphone orientations and transmitter power settings.
+There were tested three values of the transmitter power in order to see if the transmitter power impacts on the all of smartphone orientations equaly. Setting of $-30dBm$ transmitter power was ommited in the evaluation. RSS measures were performed directly under the beacon.
 
 \begin{figure}[!htbp]
 \includegraphics[width=\textwidth, keepaspectratio]{pictures/tests_case3_rssi_vs_smartphone_orientation}
 \centering
-\caption{Received signal strength measured just under the beacon device mounted on the ceiling in verical orientation. Tested three transmitter power values: $-12dBm$, $-16dBm$ and $-20dBm$ and the three smartphone orientations: vertical, horizontal and kept in the pocket.}
+\caption{Received signal strength measured just under the beacon device mounted on the ceiling in vertical orientation. Tested three transmitter power values: $-12dBm$, $-16dBm$ and $-20dBm$ and the three smartphone orientations: vertical, horizontal and kept in the pocket.}
 \label{fig:tests_case3_rssi_vs_smartphone_orientation}
 \end{figure}
 
-Ideally, change of the transmission power expressed in $dBm$ should cause the same chagne in the received signal strength. That was not observed on the results of performed experiment. Change of $4 dBm$ and $8 dBm$ caused following change in observed signal strengths per smartphone orienations:
+Ideally, change of the transmission power expressed in $dBm$ should cause the same chagne in the received signal strength. It was not observed. Change of $4 dBm$ and $8 dBm$ respectively caused following change in observed signal strengths per smartphone orienations:
 \begin{itemize}
 	\item horizontally: $7.3\pm2.4 dBm$ and $11.3\pm5.1 dBm$,
 	\item vertically: $2\pm4 dBm$ and $8.5\pm5.1 dBm$,
 	\item kept in the pocket: $4.5\pm4.8 dBm$ and $7.1\pm3 dBm$.
 \end{itemize}
 
-Received signal strengths obtained by the smartphone in horizontal and vertical orientation differs by $2 dBm$ -- $4 dBm$ while standard deviations taken from the set of probes are about $2.5 dBm$ -- $5 dBm$. It means that in this test setup, horizontal and vertical orientations does not impact on the signal in an observable way. Fluctuations as well as obtained RSS value are on the same level. Significant difference is between horizontal or vertical orientation and the placement in the pocket. In all cases received signal strength was about $18\pm2 dBm$ lower. It means that there is need to ensure such setup of the wireless reference point installation that will ensure such transmission power that allow for correct identification of the beacon with some safety factor, even the receiver is in the pocket -- so reflecting additional $18dBm$ needed for this placement. Such safety factor is determined as a lowest acceptable value for the positioning system -- every signal with a lower value is treated as a noise.
+Received signal strengths obtained by the smartphone in horizontal and vertical orientation differs by $2 dBm$ -- $4 dBm$ while standard deviations taken from the set of probes are about $2.5 dBm$ -- $5 dBm$. It means that in this test setup, horizontal and vertical orientations do not impact the signal in an observable way. Fluctuations as well as obtained RSS value are on the same level. Significant difference is between horizontal or vertical orientation and the placement in the pocket. In all cases the received signal strength was about $18\pm2 dBm$ lower. It means that there is need to ensure such setup of the wireless reference point installation that will ensure such transmission power that allow for correct identification of the beacon with some safety factor, even the receiver is in the pocket -- so reflecting additional is $18dBm$ needed for this placement. Such safety factor is determined as a lowest acceptable value for the positioning system -- every signal with a lower value is treated as a noise.
 
-Another factor that influence radio frequency transmission is a presence of obstacles between transmitter and receiver. Situation where radio waves that can directly come from the signal source to the receiver without diffractions, in direct path, is called line-of-sight propagation. During the test session there was taken two types of obscuration taken into consideration: obscuration that results from the shape of the tunnel and user obscuration, when the user is in between the smartphone and the beacon. The first case is ilustrated on the figure \ref{fig:tests_case4_los}.
+Another factor that influence radio frequency transmission is a presence of obstacles between transmitter and receiver. The situation where radio waves can come in direct path from the signal source to the receiver is called line-of-sight (LOS) propagation. There were taken two types of obscuration into consideration: obscuration that results from the shape of the tunnel and obscuration made by the user itself. The first case is ilustrated on the figure \ref{fig:tests_case4_los}.
 
 \begin{figure}[!htbp]
 \includegraphics[width=\textwidth, keepaspectratio]{pictures/tests_case4_los}
 \centering
-\caption{Attenuation curve based on received signal strenght measured at dicrete distances from the signal source. Test taken in corridor which goes up starting from $61.5 m$ from the signal source. Red remarks concerns NLOS propagation and highlights the meter since when steep part of the corridor starts.}
+\caption{Attenuation curve based on received signal strenght measured at discrete distances from the signal source. Test taken in corridor which goes up starting from $61.5 m$ from the signal source. Red remarks concerns NLOS propagation and highlights the meter since when steep part of the corridor starts.}
 \label{fig:tests_case4_los}
 \end{figure}
 
-Test consisted of taking probes of the received signal strengths at discrete distances from the signal source in the "southern" part of the corridor, labelled as \textbf{LOS} and in the "northern" part of the corridor, labelled as \textbf{NLOS} (refer to the test place scheme on the figure \ref{fig:corridor}). Southern part of corridor is flat and there were no obstacles between the beacon and the smartphone during the test. Nothern part of the test place starts to go up at $61.5 m$ from the signal source. Steep grade is about $17\%$ so at $71.5 m$ from the signal source there is no direct path between beacon and the smartphone. Smartphone was oriented horizontally, beacon was mounted vertically on the ceiling.
+The test consisted of taking probes of the received signal strengths at discrete distances from the signal source in the "southern" part of the corridor, labelled as \textbf{LOS} and in the "northern" part of the corridor, labelled as \textbf{NLOS} (refer to the test place scheme on the figure \ref{fig:corridor}). The southern part of corridor is flat and there were no obstacles between the beacon and the smartphone during the test. Nothern part of the test place starts to go up at $61.5 m$ from the signal source. Steep grade is about $17\%$ so at $71.5 m$ from the signal source there is no direct path between beacon and the smartphone.
 
-Despite fluctuation observed at $30 m$ from the signal source in LOS session, the shape of both LOS and NLOS curves of received signal strengths with respect of the distance was comparable until the start of the steep part of the corridor. Then NLOS curve goes down so at $75m$ from the signal source the value of RSS is $-98.8\pm2.1$ which is $18.6dBm$ lower than in case of RSS values observed at similiar distance in LOS case. It means that despite the wave guide effect that was supposed to be observed in case of electromagnetic waves in underground installations \cite{rf_in_tunnel_waveguide_effect}\cite{article_rf_propagation_practical_full}, the influence on the received signal strength is so high that have to be taken into consideration during system planning and installation. This effect can be effectively reduced by limitting the emitted signal power strength and populating the beacon devices.
+Despite fluctuation observed at $30 m$ from the signal source in LOS session, the shape of both LOS and NLOS curves of received signal strength with respect of the distance was comparable until the start of the steep part of the corridor. Then NLOS curve goes down so at $75m$ from the signal source the value of RSS is $-98.8\pm2.1$ which is $18.6dBm$ lower than in case of RSS values observed at similiar distance in LOS case. It means that despite the wave guide effect that was supposed to be observed in case of electromagnetic waves in underground installations \cite{rf_in_tunnel_waveguide_effect}\cite{article_rf_propagation_practical_full}, the influence on the received signal strength is so high that have to be taken into consideration during system planning and installation.
 
 On the figure \ref{fig:tests_case5_user_shadowing} there are presented received signal strength values obtained within the test of the propagation path obscuration by the user .
 
@@ -980,7 +980,7 @@ On the figure \ref{fig:tests_case5_user_shadowing} there are presented received 
 \label{fig:tests_case5_user_shadowing}
 \end{figure}
 
-Test was performed two times: one session was about taking the measures while user was an obstacle in between the smartphone and the beacon (labelled on chart as "Obscured") and the second session which was about taking the measures while user was not an obstacle (labelled as "Not obscured"). Whole "Obscured" curve is bellow the "Not obscured". The difference between received signal strengths in both conditions is about the same in first $3m$ from the signal source, then is up to $10 dBm$ lower, despite the fluctuations. It means that there is need to reflect the need of additional signal strength required in case of user obscuration into the power setting of the beacons.
+Test was performed two times: one session was about taking the measures while user was an obstacle in between the smartphone and the beacon (labelled on the chart as "Obscured") and the second session which was about taking the measures while the user was not an obstacle (labelled as "Not obscured"). Whole "Obscured" curve is bellow the "Not obscured". The difference between received signal strengths in both conditions is about the same in first $3m$ from the signal source, then is up to $10 dBm$ lower, despite the fluctuations. It means that there is need to reflect the need of additional signal strength required in case of user obscuration into the power setting of the beacons.
 
 The next test, depicted on the figure \ref{fig:tests_case6_tx_placement_and_direction},  is about checking how different beacon placement and its orientation impacts the received signal strength.
 
@@ -994,13 +994,13 @@ The next test, depicted on the figure \ref{fig:tests_case6_tx_placement_and_dire
 \begin{figure}[!htbp]
 \includegraphics[width=\textwidth, keepaspectratio]{pictures/tests_case6_tx_placement_and_direction}
 \centering
-\caption{Transmitter position and orientation impact on the received signal strength.}
+\caption{Transmitter position and orientation impact the received signal strength.}
 \label{fig:tests_case6_tx_placement_and_direction}
 \end{figure}
 
 The goal of this test was to deduce the best mounting place and orientation of the beacon inside the underground corridor. There were taken into account four possibilities: placement on the ceiling, placement on the wall, with vertical and horizontal antenna directions. On figure \ref{fig:beacon_wall_vertical} there is presented mounting point on the wall. The test was a static one, when probes were taken at discrete distances from the signal source. For test purposes transmitter power got reduced to value of $-16dBm$. Smartphone was oriented horizontally.
 
-The biggest received signal strength values were obtained with the beacon mounted on the ceiling in horizontal antenna direction. Signal strengths were at least $7dBm$ higher for this setting than for any other. There was also observed the biggest signal coverage for this setting -- $35m$. Vertical antenna orienations in both cases of mounting on the ceiling and the wall causes similiar ($\pm5dBm$) RSS values measures, despite the pick on $2m$ from the signal source of beacon mounted on the wall. Both vertical and horizontal orientations of beacon mounted on the wall characterizes with the signal strength pick on $2m$--$3m$ distance from the signal source. Results of the tests points to the fact that beacon placement affects the signal strength as well as the coverage and the part of the fluctuations.
+The biggest received signal strength values were obtained with the beacon mounted on the ceiling in horizontal antenna direction. Signal strengths were at least $7dBm$ higher for this setting than for any other. There was also observed the biggest signal coverage for this setting -- $35m$. Vertical antenna orienations in both cases of mounting on the ceiling and the wall causes similiar ($\pm5dBm$) RSS values measures, despite the pick on $2m$ from the signal source of beacon mounted on the wall. Both vertical and horizontal orientations of beacon mounted on the wall characterizes with the signal strength pick on $2m$--$3m$ distance from the signal source. The results of the tests points to the fact that beacon placement affects the signal strength as well as the coverage and the part of the fluctuations.
 
 Test of different beacon hardwares was difficult beacause of different electronic solutions being used inside them. Figure \ref{fig:tests_case8_beacons_comparison} presents result of this test.
 
@@ -1011,9 +1011,9 @@ Test of different beacon hardwares was difficult beacause of different electroni
 \label{fig:tests_case8_beacons_comparison}
 \end{figure}
 
-There is no standard for creating beacon devices. As many beacons as many hardware solutions for power management, additional sensorics mounted, and the antenna type and installation. In case of beacons that were bought in order to perform tests, each had to be individually configured in order to achive similiar coverage and received signal strengths. That is why value signal strength obtained during the test is not an object of investigation but the curve shape and fluctuations. There were tested beacons B1, B2, B3, B4. Details about the beacons are available in section \ref{sec:tests_criteria_and_assumptions}.
+There is no standard for creating beacon devices. As many beacons as many hardware solutions for power management, additional sensorics mounted, and the antenna type and installation. In case of beacons that were bought in order to perform the tests, each had to be individually configured in order to achive similiar coverage and received signal strengths. That is why the signal strength value obtained during the test is not an object of investigation but the curve shape and fluctuations. There were tested beacons B1, B2, B3, B4. Details about the beacons are available in section \ref{sec:tests_criteria_and_assumptions}.
 
-All of the beacons were mounted on the wall, with verical antenna direction. Each of them was tested separately. What is characteristic for that placement is that received signal strength measured at $0 m$ from the beacon is lower than $1$--$2$ meters away. Each measure proves that such rule is true despite different transmitter hardware. There can be also observed that signal strength is the biggest near the source, then drops about $10dBm$ on a distance of $5m$ from the signal source. Situation repeates with smaller aplitudes till the minimum acceptable signal strenght values. In case of beacon B1, B2 and B4 there were observed such values in the close distance to the signal source (about $0m$--$5m$) that significantly differs from those observed in bigger distances. Only B3 beacon emmit it's signal on not disitnguishable power levels within the close range.
+All of the beacons were mounted on the wall, with vertical antenna direction. Each of them was tested separately. What is characteristic for that placement is that received signal strength measured at $0 m$ from the beacon is lower than $1$--$2$ meters away. Each measure proves that such rule is true despite different transmitter hardware. There can be also observed that signal strength is the biggest near the source, then drops about $10dBm$ on a distance of $5m$ from the signal source. Situation repeates with smaller amplitudes till the minimum acceptable signal strenght values. In case of beacon B1, B2 and B4 there were observed such values in the close distance to the signal source (about $0m$--$5m$) that significantly differs from those observed in bigger distances. Only B3 beacon emmit it's signal on not disitnguishable power levels within the close range.
 
 The next figure (\ref{fig:tests_case9_smartphone_comparison}) presents results of test with different smartphones being used as receivers of the signal.
 
@@ -1031,7 +1031,7 @@ For this test there was used beacon B1 mounted vertically on the wall. There wer
 \subsection{Real case scenario evaluation} % (fold)
 \label{sub:real_case_scenario_evaluation}
 
-Second part of the test session in the underground installation was devoted to check if proposed position fining system based on the wireless reference points (Bluetooth becons) can take received signal strength as a fator determining the distance between the user device and the reference point. Aim of tests was take strength values of signals from beacons during the walk along the tunnel with sample positioning infrastructure and check how the oberved values fits to the proposed positioning solution.
+Second part of the test session in the underground installation was devoted to check if proposed position finding system based on the wireless reference points (Bluetooth becons) can take received signal strength as a factor determining the distance between the user device and the reference point. The aim of the tests was to record RSSI values of signals emmited by beacons during the walk along the tunnel with sample positioning infrastructure and check how the observed values fits to the proposed positioning solution.
 
 \begin{figure}[!htbp]
 \includegraphics[width=\textwidth, keepaspectratio]{pictures/tests_case10_walk_10m_raw}
@@ -1120,8 +1120,8 @@ Low-pass filtering does not solve the problem of RSS values fluctuations but it 
 \section{Tests summary} % (fold)
 \label{sec:tests_summary}
 \begin{itemize}
-	\item State if some factors have impact on signal quality
-	\item State if some factors have impact on position finding
+	\item State if some factors have impact signal quality
+	\item State if some factors have impact position finding
 \end{itemize}
 
 % Define criteria that are the basis for position finding solutions comparison (existing or conceptual):
