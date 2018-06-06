@@ -1105,73 +1105,9 @@ Low-pass filter does not smoothed the signal in a way that no fluctuactions can 
 
 Drawback of such data filtering is that it introduces some delay to dynamically changing values. For example: RSS value pick of B1(3) beacon in not filtered data (fig. \ref{fig:tests_case10_b1_3_low_pass}) was observed at $0m$ while pick on filtered data was observed $1m$ further ($3$ RSS probes later), assuming $1.6\frac{km}{h}$ test device speed and $1Hz$ frequency of RSS probing. Problem may be overcome by increasing probing frequency but decreasing the beacon battery life.
 
-Figure \ref{fig:tests_case10_b1_3_low_pass_dist_model} presents how low-pass filter affects distance aproximations of \textit{log-distance path loss model}. Model was adjusted to match lower transmitter signal power ($-16dBm$ used during the test). Filtering does not improve or decrease accuracy of the model, just smooth resulting values.
+The figure \ref{fig:tests_case10_b1_3_low_pass_dist_model} presents how low-pass filter affects distance aproximations of \textit{log-distance path loss model}. Model was adjusted to match lower transmitter signal power ($-16dBm$ used during the test). Filtering does not improve or decrease accuracy of the model, just smooth resulting values.
 
 Low-pass filtering does not solve the problem of RSS values fluctuations but it is a good solution to limit effects of a random, highly differenet values of RSS happening during the measurement session.
 
 % section tests_of_extended_algorithm (end)
-\FloatBarrier
-
-\section{Mobile application} % (fold)
-\label{sec:mobile_application}
-
-% section mobile_application (end)
-
-\section{Tests summary} % (fold)
-\label{sec:tests_summary}
-\begin{itemize}
-	\item State if some factors have impact signal quality
-	\item State if some factors have impact position finding
-\end{itemize}
-
-% Define criteria that are the basis for position finding solutions comparison (existing or conceptual):
-% \begin{itemize}
-% 	\item How to save a corridor model in computer memory
-% 	\item wireless communication
-% 	\item resistance to power outages and communications
-% 	\item Do I need the ability to change configuration of reference points (configuration of devices that perform role of reference points)?
-% 	\item What parameters can be read from the reference points (range, distance, ?)
-% 	\item How long should the network work properly?
-% 	\item How to detect irregularities in reference points?
-% 	\item How to fix problems in reference points?
-% 	\item What problems may occur with points of reference?
-% 	\item If there are restrictions upon existing network topology (ex. in order to get access to servers located on surface)
-% 	\item Can the mobile device be useful in case of lack of signal (GSM/Wi-Fi/BLE)?
-% 	\item example: accuracy, durability, cost, maintability (energy, fault)
-% \end{itemize}
-
-% \begin{itemize}
-% 	\item Which of them will be useful to increase positioning accuracy
-% 	\item Why mobile device is good for positioning purposes? What are the factors?
-% 	\item What means of communication (ex. wireless) can be used in context of positioning system
-% 	\item Battery limitations
-% 	\item Sensitivity of receivers
-% \end{itemize}
-
-
-% Localization system choise (system based on beacons)
-% \begin{itemize}
-	% \item  Motivation
-	% \item  Prototype system description
-	% \item  Mobile device - system interaction description
-	% \begin{itemize}
-		% \item  Method of detecting reference points description
-		% \item  What are the possibilities to improve positioning on your mobile device?
-		% \item  How could the process of installing a localisation system in a mine look like?
-		% \item  How the parameters of the environment (corridor height, corridor width, type of rock, type of corridor corridors, presence of other networks operating on similar frequencies (WiFi, GSM (harmonic frequencies)), others) affect reference point signal quality.
-	% \end{itemize}
-% \end{itemize}
-
-
-% \begin{itemize}
-	% \item Should repeat and answer requirements stated for localization system.
-	% \item example:
-	% \begin{itemize}
-		% \item Reading signal and its parameters from reference points;
-		% \item Identification of reference points
-		% \item Current location presentation on the environment model
-	% \end{itemize}
-% \end{itemize}
-
-% section tests_summary (end)
 \end{document}
