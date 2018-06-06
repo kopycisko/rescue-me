@@ -3,6 +3,41 @@
 \begin{document}
 \chapter{Conclusions}
 
+The position finding methods in underground installations are different from those that operate on the surface of the earth. The thesis evaluates known solutions in their applicability to underground environment aspect. The proposed solution uses state-of-the-art technologies and methods applicable for such environment. The outcome of the position finding solution allows for integration with business oriented applications. The information can be attached to management applications in order to extend their reporting functionalities. It can also be used as a base for the tracking functionalities or navigation. The solution can easily adapt to the changing shape and sizes of the underground installation because of the usage of self-powered wireless devices.
+
+The proposed solution makes smartphone devices usage possible in the underground installations without the need their modification. The solution is suited for smartphone components recommended for the Android 7.0 operating system. All the components were reviewed in context of their applicability for position finding task. The proof of concept implementation of the smartphone application was made and used in the underground tests.
+
+\section{Tests summary} % (fold)
+\label{sec:tests_summary}
+
+The experiments made within the thesis confirm the assumptions about the specific propagation conditions in underground environment.
+
+It was observed that on the short distances from the signal source ($0m$--$10m$) the attenuation curve is similar to that in free field distribution. That means that on such distances there can be applied same RSS analysis methods as are used in the indoor positioning techniques.
+
+The tests verified the values of recommended beacon parameters. The proposed value of transmission power resulted with expected signal range that matches with the concept of signal redundancy. It was also verified that the proposed value is sufficient for different orientations of the smartphone.
+
+Different beacons requires calibration in order to make their signal propagation parameters similar. The attenuation curves of their signals have similar shape. It means that signal related methods chosen for the proposed solution can be applied to various beacon models. Different smartphone models do not influence the signal strength readings as well. The attenuation curve obtained from the both of Samsung and Blackberry devices have the same course and signal levels $\pm2dBm$.
+
+The beacon placement and it's orientation highly impacts the attenuation curve. It has been experimentally proven that beacons mounted horizontally on the ceiling have better signal coverage than in other configurations. It was also observed that signal is less prone to the distortions caused by objects located inside the tunnel.
+
+
+% section tests_summary (end)
+
+\section{Future works} % (fold)
+\label{sec:future_works}
+
+The accuracy of proposed solution can be improved by introducing the model of the underground environment into the position estimation module \cite{positioning_tests}. The concept of aligning the inertial navigation outcome to the environmental model were already suggested but there are no solutions that have integrated it into the positioning estimation. In that context applicability of the concept should be verified. There should be evaluated methods of environment model representation, methods of integration with the proposed solution and the environment model update procedure.
+
+The RSS values can be adopted into new distance-propagation model that will be suited for the underground radio propagation conditions. The future works on the propagation model can increase the accuracy of the proposed solution.
+
+The solution can be extended by the concept of automated maintenance. The smartphone application can implement on-the-fly verification if the underground infrastructure is complete. The works should investigate the methods of verification as well as the methods of reporting the status of the infrastructure.
+
+The further step for the proposed solution is to evaluate higher level filter in order to integrate all the position related factors acquired by the smartphone into the one estimation algorithm. This will increase the estimation accuracy and allow for solution extension by the smartphone internal sensor's fusion. The proof of concept implementation should be extended by multiple sensor fusioning with use such filtering. Then the accuracy should be verified in the underground environment.
+
+% section future_works (end)
+
+
+
 % Define criteria that are the basis for position finding solutions comparison (existing or conceptual):
 % \begin{itemize}
 % 	\item How to save a corridor model in computer memory
@@ -18,6 +53,7 @@
 % 	\item Can the mobile device be useful in case of lack of signal (GSM/Wi-Fi/BLE)?
 % 	\item example: accuracy, durability, cost, maintability (energy, fault)
 % \end{itemize}
+
 
 % \begin{itemize}
 % 	\item Which of them will be useful to increase positioning accuracy
