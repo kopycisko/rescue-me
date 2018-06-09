@@ -1,0 +1,104 @@
+Rafał Sztandera
+
+Constructing a positioning model in underground installations with use of mobile technologies.
+
+Supervisor: doc. dr inż. Krzysztof Waśko
+June 6’th, 2018
+
+- What is the primary goal of your work
+The goal of my work was to propose a model of a positioning system that will work in the underground installations. Model should be suited to be used with smartphones refelect the environmental parameters and the usability, robustness, scalability and accuracy requirements. Desired outcome of the work was a general positioning system architecture that consists of the selected technologies and method of estimating the position.
+
+The outcome of the position finding system answers the question "where am I". It means that the smartphone itself is able to determine it's position inside the tunnel. The challenge in such stated position finding task is to provide a method that will be suited to the specific underground environment characteristics. There was need to find the best proportions between possible methods of aquiring the position and the smartphone abilities.
+
+- A justification, why you have chosen that very topic
+• “Mining goes digital”,
+• Smartphone as a tool,
+• Lack of positioning information in underground installations.
+
+The mining, boring and underground construction industries are known for the slow implementation of a new technologies. That is because the stakeholders value proven solutions more than potential profits from the technological advancements. Nowadays those underground industries are interested in digitalization all the activities they perform. The goal of digitalization is to increase the automation of production processes.
+
+Smartphones are treaten as an interfaces to the control systems as well as task management and reporting systems. Position aware reports like the issues or work status reports need to provide the place information they are relevant. That information links the report to a specific place in the underground installation. The information is usesd to locate and fix the problem in the installation.
+
+There is no position finding solution developed for smartphone devices in underground installations with accuracy simlar or better than 10m. The proposed position finding method decreases time needed to determine the position in the installation, provides the scallable solution with the position information accuracy at level of 5m.
+
+- The scientific problem you address
+• How to combine smartphone features with the underground environment characteristics in  order to obtain the current position?
+• What is the environment?
+• What are smartphone features?
+
+Underground evironments are specific in term of their construction and related technical properties like:
+◦ their large scale,
+◦ diamensions varying accross the tunnels,
+◦ weak or no light,
+◦ environmental parameters like humadity, temperature and substances that make up the atmosphere,
+◦ electromagnetic waves propagation,
+◦ specific communication technologies,
+◦ safety restrictions that limits electronic equipment that can be used.
+
+The smartphone device contains wireless communication modules such as GSM, LTE, Bluetooth and WiFi transceivers and GPS receiver. It can be also equiped with sensorics such as camera, accelerometer, magnetometer, gyroscope, photometer and barometer.
+
+In order to propose the position finding model suited for both environment and smartphone device there were evaluated available combinations of technologies suited for the underground and available for the smartphone. As a result there was proposed solution of Bluetooth beacon beased reference infrastructure that provides the static positioning information to the smartphone.
+
+- An overview of related work
+• Indoor positioning solutions,
+• Wireless technologies for positioning,
+• Sensor based positioning,
+• Visible Light Communication,
+• Magnetic Field pattern matching,
+• Methods of signal processing and analysis.
+
+Beacause of the corridors shape the underground installations are characterised with the waveguide signal propagation. It affects heavily the methods based on the signal strength analysis because the signal strength varies in a difficult to model way. Amount of dust causes the paintings on walls difficult to read. Lack of light limits usage of image processing methods. The safety regulations enforces use of certified and safe electronic devices only. Methods of communications rely mostly on leaky feeder related technologies.
+
+Sensors in the smartphone are used for intertial navigation applications. The current position is estimated by sensor data fusioning. The outcome drifts because of the  sensors readings errors and filtering methods. Intertial navigation is not suffitient itself to provide assumed postioning information accuracy.
+
+Visible Light Communication is a nowell method used for position finding purposes. It canno't be used in all of the underground installations as in most cases light sources are limited.
+
+RFID based positioning cannot be applied because of lack of a reader build into the smartphone. Power of the smartphone's NFC transceiver is not enough to work on distances bigger than 10cm what makes the solution not usefull.
+
+Each technology relates to different methods of signal processing. There were reviewed methods of signal filtering with use of Kalman filter, low-pass filter, RSSI smoothing, average and median filters.
+
+- In what way you have tackled the problem
+I have proposed the conceptual model of the positioning system. Then I'have chosen the technologies that matches stated requirements the best. Then I implemented the model into the proof of concept smartphone application and tested the solution in underground envirionment in Stara Kopalnia's underground corridor in Wałbrzych. Results from test were used in order to determine best setup for reference, beacon based infrastructure.
+
+- What you have achieved
+ Scope of work
+Work consisted on evaluation of all state-of-the-art solutions for indoor navigation where GPS signal is not taken into consideration. Then there were checked and verified experimentally parameters of the underground installation. There were evaluated all of the components that are present in the representative smartphone device (along with the Android 7.0 compliance document) in cotext of ther usability for positioning purposes. Then results of the evaluations were combined into proof of concept solution implementation.
+
+ Used tools and data
+During the tests there were used Bluetooth Low Energy beacons -- 4 different models from 3 different producents. I have chosen this technology as it matches stated requirements the best. Two models of smartphones were used in the evalution if the beacon based positioning solution in order to check if the smartphone model impacts on the received signal paramaters. During tests there were measures signal link parameter -- received signal strength (RSS). The value of RSS is the basis for the proposed position finding algorithm.
+
+ The results and their verification
+Results obtained in the test session confirm the findings about the specifics of underground installation. There was confirme the waveguide propagation effect on distances bigger than 10m from the signal source.
+
+The experiments made within the thesis confirm the assumptions about the specific
+propagation conditions in underground environment.
+It was observed that on the short distances from the signal source (0m–10m) the
+attenuation curve is similar to that in free field distribution. That means that on such
+distances there can be applied same RSS analysis methods as are used in the indoor
+positioning techniques.
+The tests verified the values of recommended beacon parameters. The proposed
+value of transmission power resulted with expected signal range that matches with the
+concept of signal redundancy. It was also verified that the proposed value is sufficient
+for different orientations of the smartphone.
+Different beacons requires calibration in order to make their signal propagation
+parameters similar. The attenuation curves of their signals have similar shape. It74 Constructing a positioning model in underground installations with use of mobile technologies.
+means that signal related methods chosen for the proposed solution can be applied
+to various beacon models. Different smartphone models do not influence the signal
+strength readings as well. The attenuation curve obtained from the both of Samsung
+and Blackberry devices have the same course and signal levels ±2dBm.
+The beacon placement and it’s orientation highly impacts the attenuation curve. It
+has been experimentally proven that beacons mounted horizontally on the ceiling have
+better signal coverage than in other configurations. It was also observed that signal is
+less prone to the distortions caused by objects located inside the tunnel.
+
+ What have you learned
+- Where you are now
+ Experiments
+ Results and their analysis
+ The thesis – number of already written pages
+ References – their number and what they are
+ the predicted date of the defense
+- Do not forget about the consecutive/total page number.
+- The presentation
+ no statements just phrases
+ It has to be presented is not read
